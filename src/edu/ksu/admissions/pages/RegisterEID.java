@@ -27,9 +27,7 @@ public class RegisterEID {
         driver.findElement(phoneNumber).sendKeys(number);
     }
 
-    public void clearAddress(){
-        driver.findElement(address).clear();
-    }
+    public void clearAddress(){ driver.findElement(address).clear(); }
 
     public void setAddress(String addr){
         clearAddress();

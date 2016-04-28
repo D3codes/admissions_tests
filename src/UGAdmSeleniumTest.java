@@ -4,21 +4,43 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by davidfreeman on 4/22/16.
  */
 public class UGAdmSeleniumTest {
 
+    private String baseURL;
+    private WebDriver fireFox;
+    private WebDriver chrome;
+    private WebDriver safari;
+    private List<WebDriver> drivers;
+
     @Before
     public void setUp() throws Exception{
 
         try{
+            System.out.println("Setting up Drivers");
+            drivers = new ArrayList<WebDriver>();
+            fireFox = new FirefoxDriver();
+            if(System.getProperty("os.name").equals("Mac OS X")) {
+                safari = new SafariDriver();
+                drivers.add(safari);
+            }
+
+            drivers.add(fireFox);
 
         }catch(Exception e){
+            System.out.println("ERROR setting up Drivers");
             System.err.println(e);
         }
+        baseURL = "https://admissions.test.ome.k-state.edu/app/open/ChooseTerm_open.action";
     }
 
     /**
@@ -26,15 +48,40 @@ public class UGAdmSeleniumTest {
      */
     @Test
     public void testShortestRoute() throws Exception{
-
+        System.out.println("Testing Undergrad Admissions Shortest Route");
+        try{
+            for(int i = 0; i < drivers.size(); i++){
+                drivers.get(i).get(baseURL);
+                testPageOne(drivers.get(i), true);
+                testLoginPage(drivers.get(i));
+            }
+        } catch(Exception e) {
+            System.err.println("ERROR in test script: Undergrad Admissions Shortest Route");
+        }
     }
 
     /**
-     * Test logest route end to end
+     * Test longest route end to end
      */
     @Test
     public void testLongestRoute() throws Exception{
-
+        System.out.println("Testing Undergrad Admissions Longest Route");
+        try{
+            for(int i = 0; i < drivers.size(); i++){
+                drivers.get(i).get(baseURL);
+                testPageOne(drivers.get(i), false);
+                testCreateEID(drivers.get(i));
+                testRegisterEID(drivers.get(i));
+                testChooseEID(drivers.get(i));
+                testChoosePassword(drivers.get(i));
+                testSecurityQuestions(drivers.get(i));
+                testReviewPage(drivers.get(i));
+            }
+        } catch(Exception e){
+            System.err.println("ERROR in test script: Undergrad Admissions Longest Route");
+            System.err.println("ERROR in eprofile");
+            System.err.println(e);
+        }
     }
 
     private void testPageOne(WebDriver driver, Boolean hasEID){
@@ -50,7 +97,7 @@ public class UGAdmSeleniumTest {
     }
 
     private void testCreateEID(WebDriver driver){
-        System.out.println("Testing CreateEID Page (Name, Birthday, Email");
+        System.out.println("Testing CreateEID Page (Name, Birthday, Email)");
         CreateEID createEID = new CreateEID(driver);
         createEID.setFirstName("John");
         createEID.setLastName("Doe");
@@ -68,7 +115,7 @@ public class UGAdmSeleniumTest {
     }
 
     private void testRegisterEID(WebDriver driver){
-        System.out.println("Testing RegisterEID Page (Phone Number, Address");
+        System.out.println("Testing RegisterEID Page (Phone Number, Address)");
         RegisterEID registerEID = new RegisterEID(driver);
         registerEID.setPhoneNumber("1234567890");
         registerEID.clearAddress();
@@ -130,6 +177,91 @@ public class UGAdmSeleniumTest {
         reviewPage.finish();
         assertEquals("Success!", reviewPage.getAlertMessage());
         System.out.println("ReviewPage Test Successful");
+    }
+
+    private void testLoginPage(WebDriver driver){
+        System.out.println("Testing Login Page");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.setEID("dmeierer");
+        loginPage.setPassword("23Rt^JHS88");
+        loginPage.submit();
+        System.out.println("Login Page Test Successful");
+    }
+
+    private void testPersonalInformationPageShortest(WebDriver driver){
+        System.out.println("Testing Personal Information Page (Shortest Route)");
+        PersonalInformationPageShortest pips = new PersonalInformationPageShortest(driver);
+        pips.setTerm();
+        pips.setDataForOther();
+        pips.setRelationship();
+        pips.setGender();
+        pips.setFirstName("John");
+        pips.setLastName("Doe");
+        pips.setAdditionalNames();
+        pips.setBirthDate("January","1","1996");
+        pips.setBirthCountry("United States");
+        pips.setBirthPlace("Manhattan");
+        pips.setPhoneNumber("1234567890");
+        pips.setEmailAddress("test@ksu.edu");
+        pips.setConfirmEmail("test@ksu.edu");
+        pips.setUsCitizen();
+        pips.setKsResident();
+        pips.setInKsSinceBirth();
+        pips.setParentsKsResident();
+        pips.submit();
+        System.out.println("Personal Information Page (Shortest Route) Test Successful");
+    }
+
+    private void testAddressInformationShortest(WebDriver driver){
+        System.out.println("Testing Address Information Page (Shortest Route)");
+        AddressInformationPageShortest aips = new AddressInformationPageShortest(driver);
+        aips.setCountry();
+        aips.setAddress("123 Manhattan Ave");
+        aips.setCity("Manhattan");
+        aips.setState();
+        aips.setZipCode("66502");
+        aips.setCounty("Riley");
+        aips.setSameAddress();
+        aips.setRelationship();
+        aips.setContactFirstName("John");
+        aips.setContactLastName("Doe");
+        aips.setAddAnotherRelationship();
+        aips.submit();
+        System.out.println("Address Information Page (Shortest Route) Test Successful");
+    }
+
+    private void testEducationInformationPageShortest(WebDriver driver){
+        System.out.println("Testing Education Information Page (Shortest Route)");
+        EducationInformationPageShortest eips = new EducationInformationPageShortest(driver);
+        eips.setHighSchoolCountry("United States");
+        eips.setSchoolType();
+        eips.setPlannedGraduationMonth();
+        eips.setPlannedGraduationYear();
+        eips.setPreviouslyAttendedKSU();
+        eips.setPreviouslyTakenClasses();
+        eips.setCompleteDegree();
+        eips.setCompleteDegreeAtKSU();
+        eips.setKsuLocation();
+        eips.setMajor("Pre-Law");
+        eips.submit();
+        System.out.println("Education Information Page (Shortest Route) Test Successful");
+    }
+
+    private void testDemographicInformationPageShortest(WebDriver driver){
+        System.out.println("Testing Demographic Information Page (Shortest Route)");
+        DemographicInformationPageShortest dips = new DemographicInformationPageShortest(driver);
+        dips.setPrimaryLanguage();
+        dips.setOtherLanguage();
+        dips.submit();
+        System.out.println("Demographic Information Page (Shortest Route) Test Successful");
+    }
+
+    private void testScholarshipPageShortest(WebDriver driver){
+        System.out.println("Testing Scholarship Page (Shortest Route)");
+        ScholarshipPageShortest sps = new ScholarshipPageShortest(driver);
+        sps.setSSN("123456789");
+        sps.submit();
+        System.out.println("Scholarship Page (Shortest Route) Test Successful");
     }
 
     @After
