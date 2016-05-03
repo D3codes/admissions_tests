@@ -24,6 +24,10 @@ public class ChoosePassword {
         this.driver = driver;
     }
 
+    public void waitForPageLoad(WebDriverWait wait){
+        wait.until(ExpectedConditions.presenceOfElementLocated(password));
+    }
+
     public void setPassword(String pwd){
         driver.findElement(password).clear();
         driver.findElement(password).sendKeys(pwd);

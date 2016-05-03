@@ -2,7 +2,9 @@ package edu.ksu.admissions.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by davidfreeman on 4/28/16.
@@ -26,6 +28,10 @@ public class AddressInformationPageShortest {
 
     public AddressInformationPageShortest(WebDriver driver){
         this.driver = driver;
+    }
+
+    public void waitForPageLoad(WebDriverWait wait){
+        wait.until(ExpectedConditions.presenceOfElementLocated(country));
     }
 
     public void setCountry(){

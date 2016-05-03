@@ -3,6 +3,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -54,9 +56,14 @@ public class UGAdmSeleniumTest {
                 drivers.get(i).get(baseURL);
                 testPageOne(drivers.get(i), true);
                 testLoginPage(drivers.get(i));
+                testPersonalInformationPageShortest(drivers.get(i));
+                testAddressInformationShortest(drivers.get(i));
+                testEducationInformationPageShortest(drivers.get(i));
+                testDemographicInformationPageShortest(drivers.get(i));
+                testScholarshipPageShortest(drivers.get(i));
             }
         } catch(Exception e) {
-            System.err.println("ERROR in test script: Undergrad Admissions Shortest Route");
+            System.err.println("ERROR in test script: Undergrad Admissions Shortest Route\n"+e);
         }
     }
 
@@ -87,6 +94,8 @@ public class UGAdmSeleniumTest {
     private void testPageOne(WebDriver driver, Boolean hasEID){
         System.out.println("Testing Page One");
         AdmissionsPageOne admissionsPageOne = new AdmissionsPageOne(driver);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        admissionsPageOne.waitForPageLoad(wait);
         if(hasEID)
             admissionsPageOne.hasID();
         else
@@ -99,6 +108,8 @@ public class UGAdmSeleniumTest {
     private void testCreateEID(WebDriver driver){
         System.out.println("Testing CreateEID Page (Name, Birthday, Email)");
         CreateEID createEID = new CreateEID(driver);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        createEID.waitForPageLoad(wait);
         createEID.setFirstName("John");
         createEID.setLastName("Doe");
         createEID.setBirthDate("1", "January", "1996");
@@ -117,6 +128,8 @@ public class UGAdmSeleniumTest {
     private void testRegisterEID(WebDriver driver){
         System.out.println("Testing RegisterEID Page (Phone Number, Address)");
         RegisterEID registerEID = new RegisterEID(driver);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        registerEID.waitForPageLoad(wait);
         registerEID.setPhoneNumber("1234567890");
         registerEID.clearAddress();
         registerEID.setCity("Manhattan");
@@ -136,6 +149,8 @@ public class UGAdmSeleniumTest {
     private void testChooseEID(WebDriver driver){
         System.out.println("Testing ChooseEID Page");
         ChooseEID chooseEID = new ChooseEID(driver);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        chooseEID.waitForPageLoad(wait);
         chooseEID.selectCustomEID();
         chooseEID.setCustomEID("testuser13");
         chooseEID.submit();
@@ -146,6 +161,7 @@ public class UGAdmSeleniumTest {
         System.out.println("Testing ChoosePassword Page");
         WebDriverWait wait = new WebDriverWait(driver, 20);
         ChoosePassword choosePassword = new ChoosePassword(driver);
+        choosePassword.waitForPageLoad(wait);
         choosePassword.setPassword("1234567Ab!");
         choosePassword.checkPassValidation(wait);
         choosePassword.setConfirmPassword("7654321Ab!");
@@ -163,6 +179,8 @@ public class UGAdmSeleniumTest {
     private void testSecurityQuestions(WebDriver driver){
         System.out.println("Testing SecurityQuestions Page");
         SecurityQuestions securityQuestions = new SecurityQuestions(driver);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        securityQuestions.waitForPageLoad(wait);
         securityQuestions.setQuestion("Is this a test?");
         securityQuestions.submit();
         assertEquals("You must enter Securtiy Answer.", securityQuestions.getAlertMessage());
@@ -174,6 +192,8 @@ public class UGAdmSeleniumTest {
     private void testReviewPage(WebDriver driver){
         System.out.println("Testing ReviewPage");
         ReviewPage reviewPage = new ReviewPage(driver);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        reviewPage.waitForPageLoad(wait);
         reviewPage.finish();
         assertEquals("Success!", reviewPage.getAlertMessage());
         System.out.println("ReviewPage Test Successful");
@@ -182,6 +202,7 @@ public class UGAdmSeleniumTest {
     private void testLoginPage(WebDriver driver){
         System.out.println("Testing Login Page");
         LoginPage loginPage = new LoginPage(driver);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         loginPage.setEID("dmeierer");
         loginPage.setPassword("23Rt^JHS88");
         loginPage.submit();
@@ -191,6 +212,8 @@ public class UGAdmSeleniumTest {
     private void testPersonalInformationPageShortest(WebDriver driver){
         System.out.println("Testing Personal Information Page (Shortest Route)");
         PersonalInformationPageShortest pips = new PersonalInformationPageShortest(driver);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        pips.waitForPageLoad(wait);
         pips.setTerm();
         pips.setDataForOther();
         pips.setRelationship();
@@ -215,6 +238,8 @@ public class UGAdmSeleniumTest {
     private void testAddressInformationShortest(WebDriver driver){
         System.out.println("Testing Address Information Page (Shortest Route)");
         AddressInformationPageShortest aips = new AddressInformationPageShortest(driver);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        aips.waitForPageLoad(wait);
         aips.setCountry();
         aips.setAddress("123 Manhattan Ave");
         aips.setCity("Manhattan");
@@ -233,6 +258,8 @@ public class UGAdmSeleniumTest {
     private void testEducationInformationPageShortest(WebDriver driver){
         System.out.println("Testing Education Information Page (Shortest Route)");
         EducationInformationPageShortest eips = new EducationInformationPageShortest(driver);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        eips.waitForPageLoad(wait);
         eips.setHighSchoolCountry("United States");
         eips.setSchoolType();
         eips.setPlannedGraduationMonth();
@@ -250,6 +277,8 @@ public class UGAdmSeleniumTest {
     private void testDemographicInformationPageShortest(WebDriver driver){
         System.out.println("Testing Demographic Information Page (Shortest Route)");
         DemographicInformationPageShortest dips = new DemographicInformationPageShortest(driver);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        dips.waitForPageLoad(wait);
         dips.setPrimaryLanguage();
         dips.setOtherLanguage();
         dips.submit();
@@ -259,6 +288,8 @@ public class UGAdmSeleniumTest {
     private void testScholarshipPageShortest(WebDriver driver){
         System.out.println("Testing Scholarship Page (Shortest Route)");
         ScholarshipPageShortest sps = new ScholarshipPageShortest(driver);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        sps.waitForPageLoad(wait);
         sps.setSSN("123456789");
         sps.submit();
         System.out.println("Scholarship Page (Shortest Route) Test Successful");
