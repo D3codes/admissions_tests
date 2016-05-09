@@ -96,26 +96,7 @@ public class UGAdmSeleniumTest {
      */
     @Test
     public void testLongestRoute() throws Exception{
-        System.out.println("Testing Undergrad Admissions Longest Route");
-//        try{
-//            for(WebDriver driver : drivers){
-//                WebDriverWait wait = new WebDriverWait(driver, 20);
-//                driver.get(baseURL);
-//                testPageOne(driver, wait, false);
-//                testCreateEID(driver, wait);
-//                testRegisterEID(driver, wait);
-//                testChooseEID(driver, wait);
-//                testChoosePassword(driver, wait);
-//                testSecurityQuestions(driver, wait);
-//                testReviewPage(driver, wait);
-//            }
-//        } catch(Exception e){
-//            System.err.println("ERROR in test script: Undergrad Admissions Longest Route");
-//            System.err.println("ERROR in eprofile");
-//            System.err.println(e);
-//        }
-
-        try{
+        System.out.println("Testing Undergrad Admissions Longest Route");try{
             for(WebDriver driver : drivers){
                 WebDriverWait wait = new WebDriverWait(driver, 20);
                 driver.get(baseURL);
@@ -145,94 +126,6 @@ public class UGAdmSeleniumTest {
 
         admissionsPageOne.submit();
         System.out.println("Page One Test Successful");
-    }
-
-    private void testCreateEID(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing CreateEID Page (Name, Birthday, Email)");
-        CreateEID createEID = new CreateEID(driver, wait);
-        createEID.waitForPageLoad();
-        createEID.setFirstName(firstName);
-        createEID.setLastName("Test");
-        createEID.setBirthDate("1", "January", "1996");
-        createEID.setGender();
-//        createEID.submit();
-//        assertEquals("You must enter an Email address.", createEID.getAlertMessage());
-        createEID.setEmail("testEmail@ksu.edu");
-//        createEID.clearFirstName();
-//        createEID.submit();
-//        assertEquals("You must enter First name.", createEID.getAlertMessage());
-//        createEID.setFirstName(firstName);
-        createEID.submit();
-        System.out.println("CreateEID Page Test Successful");
-    }
-
-    private void testRegisterEID(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing RegisterEID Page (Phone Number, Address)");
-        RegisterEID registerEID = new RegisterEID(driver, wait);
-        registerEID.waitForPageLoad();
-        registerEID.setPhoneNumber("1234567890");
-        registerEID.clearAddress();
-        registerEID.setCity("Manhattan");
-        registerEID.setState("Kansas");
-        registerEID.setZipCode("66502");
-//        registerEID.submit();
-//        assertEquals("You must enter Address line 1.", registerEID.getAlertMessage());
-        registerEID.setAddress("123 Manhattan Ave. #4");
-//        registerEID.clearZipCode();
-//        registerEID.submit();
-//        assertEquals("You must enter ZIP/Postal code.", registerEID.getAlertMessage());
-//        registerEID.setZipCode("66502");
-        registerEID.submit();
-        System.out.println("RegisterEID Page Test Successful");
-    }
-
-    private void testChooseEID(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing ChooseEID Page");
-        ChooseEID chooseEID = new ChooseEID(driver, wait);
-        chooseEID.waitForPageLoad();
-        chooseEID.selectCustomEID();
-        chooseEID.setCustomEID("testuser13");
-        chooseEID.submit();
-        System.out.println("ChooseEID Page Test Successful");
-    }
-
-    private void testChoosePassword(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing ChoosePassword Page");
-        ChoosePassword choosePassword = new ChoosePassword(driver, wait);
-        choosePassword.waitForPageLoad();
-        choosePassword.setPassword("1234567Ab!");
-        choosePassword.checkPassValidation();
-        choosePassword.setConfirmPassword("7654321Ab!");
-        choosePassword.checkFailValidation();
-        choosePassword.submit();
-        assertEquals("Password entries do not match.", choosePassword.getAlertMessage());
-        choosePassword.setPassword("1234567Ab!");
-        choosePassword.checkPassValidation();
-        choosePassword.setConfirmPassword("1234567Ab!");
-        choosePassword.checkMatchValidation();
-        choosePassword.submit();
-        System.out.println("ChoosePassword Page Test Successful");
-    }
-
-    private void testSecurityQuestions(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing SecurityQuestions Page");
-        SecurityQuestions securityQuestions = new SecurityQuestions(driver, wait);
-        securityQuestions.waitForPageLoad();
-        securityQuestions.setQuestion("Is this a test?");
-        securityQuestions.submit();
-        assertEquals("You must enter Securtiy Answer.", securityQuestions.getAlertMessage());
-        securityQuestions.setAnswer("yes");
-        securityQuestions.submit();
-        System.out.println("SecurityQuestions Page Test Successful");
-    }
-
-    private void testReviewPage(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing ReviewPage");
-        ReviewPage reviewPage = new ReviewPage(driver, wait);
-        reviewPage.waitForPageLoad();
-        reviewPage.finish();
-        assertEquals("Success!", reviewPage.getAlertMessage());
-        System.out.println("ReviewPage Test Successful");
     }
 
     private void testLoginPage(WebDriver driver, WebDriverWait wait){
