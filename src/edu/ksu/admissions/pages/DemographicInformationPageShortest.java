@@ -12,7 +12,7 @@ public class DemographicInformationPageShortest {
 
     private WebDriver driver;
 
-    private By primaryLanguage = By.id("englishIsPrimary");
+    private By primaryLanguage = By.id("englishIsPrimarytrue");
     private By otherLanguage = By.id("otherLanguagefalse");
     private By submit = By.id("undergradForm_next");
 
@@ -20,8 +20,8 @@ public class DemographicInformationPageShortest {
         this.driver = driver;
     }
 
-    public void waitForPageLoad(WebDriverWait wait){
-        wait.until(ExpectedConditions.presenceOfElementLocated(primaryLanguage));
+    public void waitForPageLoad(WebDriverWait wait) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("hispanicFlagtrue")));
     }
 
     public void setPrimaryLanguage(){

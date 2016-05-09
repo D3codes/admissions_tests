@@ -61,6 +61,7 @@ public class CreateEID {
 
     public void setGender(){
         driver.findElement(gender).click();
+        driver.findElement(gender).click();
     }
 
     public void setEmail(String email){

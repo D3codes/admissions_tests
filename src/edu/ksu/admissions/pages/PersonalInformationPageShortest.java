@@ -46,6 +46,8 @@ public class PersonalInformationPageShortest {
         driver.findElement(term).click();
     }
 
+    public void waitForRelationship(WebDriverWait wait){ wait.until(ExpectedConditions.visibilityOf( driver.findElement(relationship)));}
+
     public void setDataForOther(){
         driver.findElement(dataForOther).click();
     }
@@ -80,7 +82,7 @@ public class PersonalInformationPageShortest {
         driver.findElement(additionalNames).click();
     }
 
-    public void setBirthDate(String day, String month, String year){
+    public void setBirthDate(String month, String day, String year){
         driver.findElement(birthDay).click();
         new Select(driver.findElement(birthDay)).selectByVisibleText(day);
         driver.findElement(birthMonth).click();
@@ -118,9 +120,13 @@ public class PersonalInformationPageShortest {
         driver.findElement(usCitizen).click();
     }
 
+    public void waitForKsResident(WebDriverWait wait) { wait.until(ExpectedConditions.visibilityOf(driver.findElement(ksResident))); }
+
     public void setKsResident(){
         driver.findElement(ksResident).click();
     }
+
+    public void waitForInKsSinceBirth(WebDriverWait wait){ wait.until(ExpectedConditions.visibilityOf(driver.findElement(inKsSinceBirth))); }
 
     public void setInKsSinceBirth(){
         driver.findElement(inKsSinceBirth).click();

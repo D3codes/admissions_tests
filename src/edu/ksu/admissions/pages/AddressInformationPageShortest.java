@@ -39,6 +39,8 @@ public class AddressInformationPageShortest {
         new Select(driver.findElement(country)).selectByVisibleText("United States");
     }
 
+    public void waitForAddress(WebDriverWait wait){ wait.until(ExpectedConditions.visibilityOfElementLocated(address)); }
+
     public void setAddress(String addr){
         driver.findElement(address).clear();
         driver.findElement(address).sendKeys(addr);
@@ -59,9 +61,11 @@ public class AddressInformationPageShortest {
         driver.findElement(zipCode).sendKeys(zip);
     }
 
+    public void waitForCounty(WebDriverWait wait){ wait.until(ExpectedConditions.visibilityOfElementLocated(county)); }
+
     public void setCounty(String county){
-        driver.findElement(this.county).clear();
-        driver.findElement(this.county).sendKeys(county);
+        driver.findElement(this.county).click();
+        new Select(driver.findElement(this.county)).selectByVisibleText(county);
     }
 
     public void setSameAddress(){

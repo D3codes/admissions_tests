@@ -16,7 +16,7 @@ public class EducationInformationPageShortest {
     private By highSchoolCountry = By.id("highSchoolCountry");
     private By schoolType = By.id("highSchoolTypeGED");
     private By plannedGraduationMonth = By.id("highSchoolGradMonth");
-    private By plannedGraduationYear = By.id("hihgSchoolGradYear");
+    private By plannedGraduationYear = By.id("highSchoolGradYear");
     private By previouslyAttendedKSU = By.id("undergradForm_data_academicInfo_readmitfalse");
     private By previouslyTakenClasses = By.id("undergradForm_data_academicInfo_takenCollegefalse");
     private By completeDegree = By.id("undergradForm_data_academicInfo_planCompleteDegreetrue");
@@ -60,9 +60,13 @@ public class EducationInformationPageShortest {
         driver.findElement(previouslyTakenClasses).click();
     }
 
+    public void waitForCompleteDegree(WebDriverWait wait){ wait.until(ExpectedConditions.visibilityOfElementLocated(completeDegree)); }
+
     public void setCompleteDegree(){
         driver.findElement(completeDegree).click();
     }
+
+    public void waitForCompleteDegreeAtKSU(WebDriverWait wait) { wait.until(ExpectedConditions.visibilityOfElementLocated(completeDegreeAtKSU)); }
 
     public void setCompleteDegreeAtKSU(){
         driver.findElement(completeDegreeAtKSU).click();
@@ -72,9 +76,9 @@ public class EducationInformationPageShortest {
         driver.findElement(ksuLocation).click();
     }
 
-    public void setMajor(String major){
-        driver.findElement(this.major).click();
-        new Select(driver.findElement(this.major)).selectByVisibleText(major);
+    public void setMajor(){
+        driver.findElement(major).click();
+        new Select(driver.findElement(major)).selectByIndex(5);
     }
 
     public void submit(){
