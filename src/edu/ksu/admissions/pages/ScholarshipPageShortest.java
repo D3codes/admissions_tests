@@ -11,15 +11,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ScholarshipPageShortest {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     private By ssn = By.id("nationalId");
     private By submit = By.id("undergradForm_next");
 
-    public ScholarshipPageShortest(WebDriver driver){
+    public ScholarshipPageShortest(WebDriver driver, WebDriverWait wait){
+
         this.driver = driver;
+        this.wait = wait;
     }
 
-    public void waitForPageLoad(WebDriverWait wait){
+    public void waitForPageLoad(){
         wait.until(ExpectedConditions.presenceOfElementLocated(ssn));
     }
 

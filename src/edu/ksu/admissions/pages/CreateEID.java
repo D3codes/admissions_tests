@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CreateEID {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     //Create UI Elements
     private By firstName = By.id("id_first_name");
@@ -24,11 +25,13 @@ public class CreateEID {
     private By submit = By.id("submit_button");
     private By alertMessage = By.cssSelector("div.alert.alert-danger > p");
 
-    public CreateEID(WebDriver driver){
+    public CreateEID(WebDriver driver, WebDriverWait wait){
+
         this.driver = driver;
+        this.wait = wait;
     }
 
-    public void waitForPageLoad(WebDriverWait wait){
+    public void waitForPageLoad(){
         wait.until(ExpectedConditions.presenceOfElementLocated(firstName));
     }
 

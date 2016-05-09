@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PersonalInformationPageLongest {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     private By term = By.id("undergradForm_data_application_term2165");
     private By dataForOther = By.id("undergradForm_data_forOthertrue");
@@ -28,17 +29,22 @@ public class PersonalInformationPageLongest {
     private By phoneNumber = By.id("phone1");
     private By emailAddress = By.id("email");
     private By confirmEmail = By.id("emailConfirm");
-    private By usCitizen = By.id("usCitizentrue");
-    private By ksResident = By.id("ksResidenttrue");
-    private By inKsSinceBirth = By.id("inKsSinceBirthFlagtrue");
-    private By parentsKsResident = By.id("ksParentsResidentfalse");
+    private By usCitizen = By.id("usCitizenfalse");
+    private By permanentResident = By.id("usPermanentResidentfalse");
+    private By internationalStudent = By.id("internationalStudenttrue");
+    private By countryOfCitizenship = By.id("citizenCountry");
+    private By currentVisa = By.id("currentVisatrue");
+    private By visaType = By.id("currentVisaType");
+    private By requestingVisa = By.id("admitVisaType");
     private By submit = By.id("undergradForm_next");
 
-    public PersonalInformationPageLongest(WebDriver driver){
+    public PersonalInformationPageLongest(WebDriver driver, WebDriverWait wait){
+
         this.driver = driver;
+        this.wait = wait;
     }
 
-    public void waitForPageLoad(WebDriverWait wait){
+    public void waitForPageLoad(){
         wait.until(ExpectedConditions.presenceOfElementLocated(term));
     }
 
@@ -46,7 +52,7 @@ public class PersonalInformationPageLongest {
         driver.findElement(term).click();
     }
 
-    public void waitForRelationship(WebDriverWait wait){ wait.until(ExpectedConditions.visibilityOf( driver.findElement(relationship)));}
+    public void waitForRelationship(){ wait.until(ExpectedConditions.visibilityOf( driver.findElement(relationship)));}
 
     public void setDataForOther(){
         driver.findElement(dataForOther).click();
@@ -120,20 +126,42 @@ public class PersonalInformationPageLongest {
         driver.findElement(usCitizen).click();
     }
 
-    public void waitForKsResident(WebDriverWait wait) { wait.until(ExpectedConditions.visibilityOf(driver.findElement(ksResident))); }
+    public void waitForPermanentResident() { wait.until(ExpectedConditions.visibilityOfElementLocated(permanentResident)); }
 
-    public void setKsResident(){
-        driver.findElement(ksResident).click();
+    public void setPermanentResident(){
+       driver.findElement(permanentResident).click();
     }
 
-    public void waitForInKsSinceBirth(WebDriverWait wait){ wait.until(ExpectedConditions.visibilityOf(driver.findElement(inKsSinceBirth))); }
+    public void waitForInternationalStudent() { wait.until(ExpectedConditions.visibilityOfElementLocated(internationalStudent)); }
 
-    public void setInKsSinceBirth(){
-        driver.findElement(inKsSinceBirth).click();
+    public void setInternationalStudent(){
+        driver.findElement(internationalStudent).click();
     }
 
-    public void setParentsKsResident(){
-        driver.findElement(parentsKsResident).click();
+    public void waitForCountryOfCitizenship() { wait.until(ExpectedConditions.visibilityOfElementLocated(countryOfCitizenship)); }
+
+    public void setCountryOfCitizenship(String country){
+        driver.findElement(countryOfCitizenship).click();
+        new Select(driver.findElement(countryOfCitizenship)).selectByVisibleText(country);
+    }
+
+    public void setCurrentVisa(){
+        driver.findElement(currentVisa).click();
+    }
+
+    public void waitForVisaType(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(visaType));
+    }
+
+    public void setVisaType(){
+        driver.findElement(visaType).click();
+        new Select(driver.findElement(visaType)).selectByVisibleText("Student (F1)");
+    }
+
+    public void setRequestingVisa(){
+
+        driver.findElement(requestingVisa).click();
+        new Select(driver.findElement(requestingVisa)).selectByVisibleText("Not Requesting");
     }
 
     public void submit(){

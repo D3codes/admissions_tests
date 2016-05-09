@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class EducationInformationPageShortest {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     private By highSchoolCountry = By.id("highSchoolCountry");
     private By schoolType = By.id("highSchoolTypeGED");
@@ -25,11 +26,13 @@ public class EducationInformationPageShortest {
     private By major = By.id("majors");
     private By submit = By.id("undergradForm_next");
 
-    public EducationInformationPageShortest(WebDriver driver){
+    public EducationInformationPageShortest(WebDriver driver, WebDriverWait wait){
+
         this.driver = driver;
+        this.wait = wait;
     }
 
-    public void waitForPageLoad(WebDriverWait wait){
+    public void waitForPageLoad(){
         wait.until(ExpectedConditions.presenceOfElementLocated(highSchoolCountry));
     }
 
@@ -60,13 +63,13 @@ public class EducationInformationPageShortest {
         driver.findElement(previouslyTakenClasses).click();
     }
 
-    public void waitForCompleteDegree(WebDriverWait wait){ wait.until(ExpectedConditions.visibilityOfElementLocated(completeDegree)); }
+    public void waitForCompleteDegree(){ wait.until(ExpectedConditions.visibilityOfElementLocated(completeDegree)); }
 
     public void setCompleteDegree(){
         driver.findElement(completeDegree).click();
     }
 
-    public void waitForCompleteDegreeAtKSU(WebDriverWait wait) { wait.until(ExpectedConditions.visibilityOfElementLocated(completeDegreeAtKSU)); }
+    public void waitForCompleteDegreeAtKSU() { wait.until(ExpectedConditions.visibilityOfElementLocated(completeDegreeAtKSU)); }
 
     public void setCompleteDegreeAtKSU(){
         driver.findElement(completeDegreeAtKSU).click();

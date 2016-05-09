@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class SecurityQuestions {
     WebDriver driver;
+    WebDriverWait wait;
 
     //Create UI Elements
     private By question = By.id("id_passwordQuestion");
@@ -17,11 +18,13 @@ public class SecurityQuestions {
     private By submit = By.id("submit_button");
     private By alertMessage = By.cssSelector("div.alert.alert-danger > p");
 
-    public SecurityQuestions(WebDriver driver){
+    public SecurityQuestions(WebDriver driver, WebDriverWait wait){
+
         this.driver = driver;
+        this.wait = wait;
     }
 
-    public void waitForPageLoad(WebDriverWait wait){
+    public void waitForPageLoad(){
         wait.until(ExpectedConditions.presenceOfElementLocated(question));
     }
 

@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PersonalInformationPageShortest {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     private By term = By.id("undergradForm_data_application_term2165");
     private By dataForOther = By.id("undergradForm_data_forOthertrue");
@@ -34,11 +35,13 @@ public class PersonalInformationPageShortest {
     private By parentsKsResident = By.id("ksParentsResidentfalse");
     private By submit = By.id("undergradForm_next");
 
-    public PersonalInformationPageShortest(WebDriver driver){
+    public PersonalInformationPageShortest(WebDriver driver, WebDriverWait wait){
+
         this.driver = driver;
+        this.wait = wait;
     }
 
-    public void waitForPageLoad(WebDriverWait wait){
+    public void waitForPageLoad(){
         wait.until(ExpectedConditions.presenceOfElementLocated(term));
     }
 
@@ -46,7 +49,7 @@ public class PersonalInformationPageShortest {
         driver.findElement(term).click();
     }
 
-    public void waitForRelationship(WebDriverWait wait){ wait.until(ExpectedConditions.visibilityOf( driver.findElement(relationship)));}
+    public void waitForRelationship(){ wait.until(ExpectedConditions.visibilityOf( driver.findElement(relationship)));}
 
     public void setDataForOther(){
         driver.findElement(dataForOther).click();
@@ -120,13 +123,13 @@ public class PersonalInformationPageShortest {
         driver.findElement(usCitizen).click();
     }
 
-    public void waitForKsResident(WebDriverWait wait) { wait.until(ExpectedConditions.visibilityOf(driver.findElement(ksResident))); }
+    public void waitForKsResident() { wait.until(ExpectedConditions.visibilityOf(driver.findElement(ksResident))); }
 
     public void setKsResident(){
         driver.findElement(ksResident).click();
     }
 
-    public void waitForInKsSinceBirth(WebDriverWait wait){ wait.until(ExpectedConditions.visibilityOf(driver.findElement(inKsSinceBirth))); }
+    public void waitForInKsSinceBirth(){ wait.until(ExpectedConditions.visibilityOf(driver.findElement(inKsSinceBirth))); }
 
     public void setInKsSinceBirth(){
         driver.findElement(inKsSinceBirth).click();

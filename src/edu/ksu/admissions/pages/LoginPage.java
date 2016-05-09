@@ -11,16 +11,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class LoginPage {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     private By eID = By.id("username");
     private By password = By.id("password");
     private By submit = By.id("submit_button");
 
-    public LoginPage(WebDriver driver){
+    public LoginPage(WebDriver driver, WebDriverWait wait){
+
         this.driver = driver;
+        this.wait = wait;
     }
 
-    public void waitForPageLoad(WebDriverWait wait){
+    public void waitForPageLoad(){
         wait.until(ExpectedConditions.presenceOfElementLocated(eID));
     }
 

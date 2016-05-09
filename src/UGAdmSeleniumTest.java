@@ -71,24 +71,25 @@ public class UGAdmSeleniumTest {
     /**
      * Test shortest route end to end
      */
-//    @Test
-//    public void testShortestRoute() throws Exception{
-//        System.out.println("Testing Undergrad Admissions Shortest Route");
-//        try{
-//            for(int i = 0; i < drivers.size(); i++){
-//                drivers.get(i).get(baseURL);
-//                testPageOne(drivers.get(i), true);
-//                testLoginPage(drivers.get(i));
-//                testPersonalInformationPageShortest(drivers.get(i));
-//                testAddressInformationShortest(drivers.get(i));
-//                testEducationInformationPageShortest(drivers.get(i));
-//                testDemographicInformationPageShortest(drivers.get(i));
-//                testScholarshipPageShortest(drivers.get(i));
-//            }
-//        } catch(Exception e) {
-//            System.err.println("ERROR in test script: Undergrad Admissions Shortest Route\n"+e);
-//        }
-//    }
+    @Test
+    public void testShortestRoute() throws Exception{
+        System.out.println("Testing Undergrad Admissions Shortest Route");
+        try{
+            for(WebDriver driver : drivers){
+                WebDriverWait wait = new WebDriverWait(driver, 20);
+                driver.get(baseURL);
+                testPageOne(driver, wait, true);
+                testLoginPage(driver, wait);
+                testPersonalInformationPageShortest(driver, wait);
+                testAddressInformationShortest(driver, wait);
+                testEducationInformationPageShortest(driver, wait);
+                testDemographicInformationPageShortest(driver, wait);
+                testScholarshipPageShortest(driver, wait);
+            }
+        } catch(Exception e) {
+            System.err.println("ERROR in test script: Undergrad Admissions Shortest Route\n"+e);
+        }
+    }
 
     /**
      * Test longest route end to end
@@ -96,29 +97,35 @@ public class UGAdmSeleniumTest {
     @Test
     public void testLongestRoute() throws Exception{
         System.out.println("Testing Undergrad Admissions Longest Route");
-        try{
-            for(int i = 0; i < drivers.size(); i++){
-                drivers.get(i).get(baseURL);
-                testPageOne(drivers.get(i), false);
-                testCreateEID(drivers.get(i));
-                testRegisterEID(drivers.get(i));
-                testChooseEID(drivers.get(i));
-                testChoosePassword(drivers.get(i));
-                testSecurityQuestions(drivers.get(i));
-                testReviewPage(drivers.get(i));
-            }
-        } catch(Exception e){
-            System.err.println("ERROR in test script: Undergrad Admissions Longest Route");
-            System.err.println("ERROR in eprofile");
-            System.err.println(e);
-        }
+//        try{
+//            for(WebDriver driver : drivers){
+//                WebDriverWait wait = new WebDriverWait(driver, 20);
+//                driver.get(baseURL);
+//                testPageOne(driver, wait, false);
+//                testCreateEID(driver, wait);
+//                testRegisterEID(driver, wait);
+//                testChooseEID(driver, wait);
+//                testChoosePassword(driver, wait);
+//                testSecurityQuestions(driver, wait);
+//                testReviewPage(driver, wait);
+//            }
+//        } catch(Exception e){
+//            System.err.println("ERROR in test script: Undergrad Admissions Longest Route");
+//            System.err.println("ERROR in eprofile");
+//            System.err.println(e);
+//        }
 
         try{
             for(WebDriver driver : drivers){
+                WebDriverWait wait = new WebDriverWait(driver, 20);
                 driver.get(baseURL);
-                testPageOne(driver, true);
-                testLoginPage(driver);
-
+                testPageOne(driver, wait, true);
+                testLoginPage(driver, wait);
+                testPersonalInformationPageLongest(driver, wait);
+                testAddressInformationLongest(driver, wait);
+                testEducationInformationPageLongest(driver, wait);
+                testDemographicInformationPageLongest(driver, wait);
+                testScholarshipPageLongest(driver, wait);
             }
 
         } catch(Exception e) {
@@ -127,11 +134,10 @@ public class UGAdmSeleniumTest {
         }
     }
 
-    private void testPageOne(WebDriver driver, Boolean hasEID){
+    private void testPageOne(WebDriver driver, WebDriverWait wait, Boolean hasEID){
         System.out.println("Testing Page One");
-        AdmissionsPageOne admissionsPageOne = new AdmissionsPageOne(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        admissionsPageOne.waitForPageLoad(wait);
+        AdmissionsPageOne admissionsPageOne = new AdmissionsPageOne(driver, wait);
+        admissionsPageOne.waitForPageLoad();
         if(hasEID)
             admissionsPageOne.hasID();
         else
@@ -141,11 +147,10 @@ public class UGAdmSeleniumTest {
         System.out.println("Page One Test Successful");
     }
 
-    private void testCreateEID(WebDriver driver){
+    private void testCreateEID(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing CreateEID Page (Name, Birthday, Email)");
-        CreateEID createEID = new CreateEID(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        createEID.waitForPageLoad(wait);
+        CreateEID createEID = new CreateEID(driver, wait);
+        createEID.waitForPageLoad();
         createEID.setFirstName(firstName);
         createEID.setLastName("Test");
         createEID.setBirthDate("1", "January", "1996");
@@ -161,11 +166,10 @@ public class UGAdmSeleniumTest {
         System.out.println("CreateEID Page Test Successful");
     }
 
-    private void testRegisterEID(WebDriver driver){
+    private void testRegisterEID(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing RegisterEID Page (Phone Number, Address)");
-        RegisterEID registerEID = new RegisterEID(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        registerEID.waitForPageLoad(wait);
+        RegisterEID registerEID = new RegisterEID(driver, wait);
+        registerEID.waitForPageLoad();
         registerEID.setPhoneNumber("1234567890");
         registerEID.clearAddress();
         registerEID.setCity("Manhattan");
@@ -182,41 +186,38 @@ public class UGAdmSeleniumTest {
         System.out.println("RegisterEID Page Test Successful");
     }
 
-    private void testChooseEID(WebDriver driver){
+    private void testChooseEID(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing ChooseEID Page");
-        ChooseEID chooseEID = new ChooseEID(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        chooseEID.waitForPageLoad(wait);
+        ChooseEID chooseEID = new ChooseEID(driver, wait);
+        chooseEID.waitForPageLoad();
         chooseEID.selectCustomEID();
         chooseEID.setCustomEID("testuser13");
         chooseEID.submit();
         System.out.println("ChooseEID Page Test Successful");
     }
 
-    private void testChoosePassword(WebDriver driver){
+    private void testChoosePassword(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing ChoosePassword Page");
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        ChoosePassword choosePassword = new ChoosePassword(driver);
-        choosePassword.waitForPageLoad(wait);
+        ChoosePassword choosePassword = new ChoosePassword(driver, wait);
+        choosePassword.waitForPageLoad();
         choosePassword.setPassword("1234567Ab!");
-        choosePassword.checkPassValidation(wait);
+        choosePassword.checkPassValidation();
         choosePassword.setConfirmPassword("7654321Ab!");
-        choosePassword.checkFailValidation(wait);
+        choosePassword.checkFailValidation();
         choosePassword.submit();
         assertEquals("Password entries do not match.", choosePassword.getAlertMessage());
         choosePassword.setPassword("1234567Ab!");
-        choosePassword.checkPassValidation(wait);
+        choosePassword.checkPassValidation();
         choosePassword.setConfirmPassword("1234567Ab!");
-        choosePassword.checkMatchValidation(wait);
+        choosePassword.checkMatchValidation();
         choosePassword.submit();
         System.out.println("ChoosePassword Page Test Successful");
     }
 
-    private void testSecurityQuestions(WebDriver driver){
+    private void testSecurityQuestions(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing SecurityQuestions Page");
-        SecurityQuestions securityQuestions = new SecurityQuestions(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        securityQuestions.waitForPageLoad(wait);
+        SecurityQuestions securityQuestions = new SecurityQuestions(driver, wait);
+        securityQuestions.waitForPageLoad();
         securityQuestions.setQuestion("Is this a test?");
         securityQuestions.submit();
         assertEquals("You must enter Securtiy Answer.", securityQuestions.getAlertMessage());
@@ -225,35 +226,32 @@ public class UGAdmSeleniumTest {
         System.out.println("SecurityQuestions Page Test Successful");
     }
 
-    private void testReviewPage(WebDriver driver){
+    private void testReviewPage(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing ReviewPage");
-        ReviewPage reviewPage = new ReviewPage(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        reviewPage.waitForPageLoad(wait);
+        ReviewPage reviewPage = new ReviewPage(driver, wait);
+        reviewPage.waitForPageLoad();
         reviewPage.finish();
         assertEquals("Success!", reviewPage.getAlertMessage());
         System.out.println("ReviewPage Test Successful");
     }
 
-    private void testLoginPage(WebDriver driver){
+    private void testLoginPage(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Login Page");
-        LoginPage loginPage = new LoginPage(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        loginPage.waitForPageLoad(wait);
+        LoginPage loginPage = new LoginPage(driver, wait);
+        loginPage.waitForPageLoad();
         loginPage.setEID("dmeierer");
         loginPage.setPassword("23Rt^JHS88");
         loginPage.submit();
         System.out.println("Login Page Test Successful");
     }
 
-    private void testPersonalInformationPageShortest(WebDriver driver){
+    private void testPersonalInformationPageShortest(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Personal Information Page (Shortest Route)");
-        PersonalInformationPageShortest pips = new PersonalInformationPageShortest(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        pips.waitForPageLoad(wait);
+        PersonalInformationPageShortest pips = new PersonalInformationPageShortest(driver, wait);
+        pips.waitForPageLoad();
         pips.setTerm();
         pips.setDataForOther();
-        pips.waitForRelationship(wait);
+        pips.waitForRelationship();
         pips.setRelationship();
         pips.setGender();
         pips.setFirstName(firstName);
@@ -263,30 +261,62 @@ public class UGAdmSeleniumTest {
         pips.setBirthCountry("United States");
         pips.setBirthPlace("Manhattan");
         pips.setPhoneNumber("1234567890");
-        pips.setEmailAddress("test@ksu.edu");
-        pips.setConfirmEmail("test@ksu.edu");
+        pips.setEmailAddress(firstName+"Test@ksu.edu");
+        pips.setConfirmEmail(firstName+"Test@ksu.edu");
         pips.setUsCitizen();
-        pips.waitForKsResident(wait);
+        pips.waitForKsResident();
         pips.setKsResident();
-        pips.waitForInKsSinceBirth(wait);
+        pips.waitForInKsSinceBirth();
         pips.setInKsSinceBirth();
         pips.setParentsKsResident();
         pips.submit();
         System.out.println("Personal Information Page (Shortest Route) Test Successful");
     }
 
-    private void testAddressInformationShortest(WebDriver driver){
+    private void testPersonalInformationPageLongest(WebDriver driver, WebDriverWait wait){
+        System.out.println("Testing Personal Information Page (Longest Route)");
+        PersonalInformationPageLongest pipl = new PersonalInformationPageLongest(driver, wait);
+        pipl.waitForPageLoad();
+        pipl.setTerm();
+        pipl.setDataForOther();
+        pipl.waitForRelationship();
+        pipl.setRelationship();
+        pipl.setGender();
+        pipl.setFirstName(firstName);
+        pipl.setLastName("Test");
+        pipl.setAdditionalNames();
+        pipl.setBirthDate("January", "1", "1996");
+        pipl.setBirthCountry("Afghanistan");
+        pipl.setBirthPlace("Kabul");
+        pipl.setPhoneNumber("1234567890");
+        pipl.setEmailAddress(firstName + "Test@ksu.edu");
+        pipl.setConfirmEmail(firstName + "Test@ksu.edu");
+        pipl.setUsCitizen();
+        pipl.waitForPermanentResident();
+        pipl.setPermanentResident();
+        pipl.waitForInternationalStudent();
+        pipl.setInternationalStudent();
+        pipl.waitForCountryOfCitizenship();
+        pipl.setCountryOfCitizenship("Afghanistan");
+        pipl.setCurrentVisa();
+        pipl.waitForVisaType();
+        pipl.setVisaType();
+        pipl.setRequestingVisa();
+        pipl.submit();
+        System.out.println("Personal Information Page (Longest Route) Test Successful");
+    }
+
+    private void testAddressInformationShortest(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Address Information Page (Shortest Route)");
-        AddressInformationPageShortest aips = new AddressInformationPageShortest(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        aips.waitForPageLoad(wait);
+        AddressInformationPageShortest aips = new AddressInformationPageShortest(driver, wait);
+        aips.waitForPageLoad();
         aips.setCountry();
-        aips.waitForAddress(wait);
+        aips.waitForAddress();
         aips.setAddress("123 Manhattan Ave");
         aips.setCity("Manhattan");
         aips.setState();
         aips.setZipCode("66502");
-        aips.waitForCounty(wait);
+        aips.waitForCounty();
         aips.setCounty("Riley");
         aips.setSameAddress();
         aips.setRelationship();
@@ -297,20 +327,37 @@ public class UGAdmSeleniumTest {
         System.out.println("Address Information Page (Shortest Route) Test Successful");
     }
 
-    private void testEducationInformationPageShortest(WebDriver driver){
+    private void testAddressInformationLongest(WebDriver driver, WebDriverWait wait){
+        System.out.println("Testing Address Information Page (Longest Route)");
+        AddressInformationPageLongest aipl = new AddressInformationPageLongest(driver, wait);
+        aipl.waitForPageLoad();
+        aipl.setCountry();
+        aipl.waitForAddress();
+        aipl.setAddress("سرک 60 متره میدان هوایی‎");
+        aipl.setCity("Kabul");
+        aipl.setSameMailingAddress();
+        aipl.setSameAddress();
+        aipl.setRelationship();
+        aipl.setContactFirstName(firstName);
+        aipl.setContactLastName("Test");
+        aipl.setAddAnotherRelationship();
+        aipl.submit();
+        System.out.println("Address Information Page (Longest Route) Test Successful");
+    }
+
+    private void testEducationInformationPageShortest(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Education Information Page (Shortest Route)");
-        EducationInformationPageShortest eips = new EducationInformationPageShortest(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        eips.waitForPageLoad(wait);
+        EducationInformationPageShortest eips = new EducationInformationPageShortest(driver, wait);
+        eips.waitForPageLoad();
         eips.setHighSchoolCountry("United States");
         eips.setSchoolType();
         eips.setPlannedGraduationMonth();
         eips.setPlannedGraduationYear();
         eips.setPreviouslyAttendedKSU();
         eips.setPreviouslyTakenClasses();
-        eips.waitForCompleteDegree(wait);
+        eips.waitForCompleteDegree();
         eips.setCompleteDegree();
-        eips.waitForCompleteDegreeAtKSU(wait);
+        eips.waitForCompleteDegreeAtKSU();
         eips.setCompleteDegreeAtKSU();
         eips.setKsuLocation();
         eips.setMajor();
@@ -318,29 +365,84 @@ public class UGAdmSeleniumTest {
         System.out.println("Education Information Page (Shortest Route) Test Successful");
     }
 
-    private void testDemographicInformationPageShortest(WebDriver driver){
+    private void testEducationInformationPageLongest(WebDriver driver, WebDriverWait wait){
+        System.out.println("Testing Education Information Page (Longest Route)");
+        EducationInformationPageLongest eipl = new EducationInformationPageLongest(driver, wait);
+        eipl.waitForPageLoad();
+        eipl.setHighSchoolCountry("England");
+        eipl.waitForHighSchool();
+        eipl.setHighSchool("Appleton Thorn Primary School");
+        eipl.setPlannedGraduationMonth();
+        eipl.setPlannedGraduationYear();
+        eipl.setPreviouslyAttendedKSU();
+        eipl.setPreviouslyTakenClasses();
+        eipl.waitForCollegeCountry();
+        eipl.setCollegeCountry("England");
+        eipl.waitForCollegeName();
+        eipl.setCollegeName("King's College");
+        eipl.setCreditHours("15");
+        eipl.setAttendanceMonthStart("January");
+        eipl.setAttendanceYearStart("2016");
+        eipl.setAttendanceMontEnd("May");
+        eipl.setAttendanceYearEnd("2016");
+        eipl.setOfficialTranscript();
+        eipl.setCompleteDegree();
+        eipl.waitForMinor();
+        eipl.setMinor();
+        eipl.waitForBaccalaureate();
+        eipl.setBaccalaureate();
+        eipl.setKsuLocation();
+        eipl.setMajor();
+        eipl.submit();
+        System.out.println("Testing Education Information Page (Longest Route) Test Sucessful");
+    }
+
+    private void testDemographicInformationPageShortest(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Demographic Information Page (Shortest Route)");
-        DemographicInformationPageShortest dips = new DemographicInformationPageShortest(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        dips.waitForPageLoad(wait);
+        DemographicInformationPageShortest dips = new DemographicInformationPageShortest(driver, wait);
+        dips.waitForPageLoad();
         dips.setPrimaryLanguage();
         dips.setOtherLanguage();
         dips.submit();
         System.out.println("Demographic Information Page (Shortest Route) Test Successful");
     }
 
-    private void testScholarshipPageShortest(WebDriver driver){
+    private void testDemographicInformationPageLongest(WebDriver driver, WebDriverWait wait){
+        System.out.println("Testing Demographic Information Page (Longest Route)");
+        DemographicInformationPageLongest dipl = new DemographicInformationPageLongest(driver, wait);
+        dipl.waitForPageLoad();
+        dipl.setPrimaryLanguage();
+        dipl.setOtherLanguage();
+        dipl.setParentsDegree();
+        dipl.setMilitary();
+        dipl.waitForMilitaryMonthStart();
+        dipl.setMilitaryStart("July", "2011");
+        dipl.setMilitaryEnd("June", "2016");
+        dipl.submit();
+        System.out.println("Demographic Information Page (Longest Route) Test Successful");
+    }
+
+    private void testScholarshipPageShortest(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Scholarship Page (Shortest Route)");
-        ScholarshipPageShortest sps = new ScholarshipPageShortest(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        sps.waitForPageLoad(wait);
+        ScholarshipPageShortest sps = new ScholarshipPageShortest(driver, wait);
+        sps.waitForPageLoad();
         sps.setSSN(Integer.toString(SSN));
         sps.submit();
         System.out.println("Scholarship Page (Shortest Route) Test Successful");
     }
 
+    private void testScholarshipPageLongest(WebDriver driver, WebDriverWait wait){
+        System.out.println("Testing Scholarship Page (Longest Route)");
+        ScholarshipPageLongest spl = new ScholarshipPageLongest(driver, wait);
+        spl.waitForPageLoad();
+        spl.skip();
+        System.out.println("Scholarship Page (Longest Route) Test Successful");
+    }
+
     @After
     public void tearDown() throws Exception{
 
+        for(WebDriver driver : drivers)
+            driver.quit();
     }
 }

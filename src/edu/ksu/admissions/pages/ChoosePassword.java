@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class ChoosePassword {
     private WebDriver driver;
+    private WebDriverWait wait;
 
     //Create UI Elements
     private By password = By.id("id_password");
@@ -20,11 +21,13 @@ public class ChoosePassword {
     private By submit = By.id("submit_button");
     private By alertMessage = By.cssSelector("div.alert.alert-danger > p");
 
-    public ChoosePassword(WebDriver driver){
+    public ChoosePassword(WebDriver driver, WebDriverWait wait){
+
         this.driver = driver;
+        this.wait = wait;
     }
 
-    public void waitForPageLoad(WebDriverWait wait){
+    public void waitForPageLoad(){
         wait.until(ExpectedConditions.presenceOfElementLocated(password));
     }
 
@@ -46,15 +49,15 @@ public class ChoosePassword {
         return driver.findElement(alertMessage).getText();
     }
 
-    public void checkPassValidation(WebDriverWait wait){
+    public void checkPassValidation(){
         wait.until(ExpectedConditions.presenceOfElementLocated(passValidation));
     }
 
-    public void checkFailValidation(WebDriverWait wait){
+    public void checkFailValidation(){
         wait.until(ExpectedConditions.presenceOfElementLocated(failValidation));
     }
 
-    public void checkMatchValidation(WebDriverWait wait){
+    public void checkMatchValidation(){
         wait.until(ExpectedConditions.presenceOfElementLocated(matchValidation));
     }
 }

@@ -10,17 +10,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class ChooseEID {
     private WebDriver driver;
+    private WebDriverWait wait;
 
     //Create UI Elements
     private By customEID = By.id("eid_**custom**");
     private By eID = By.id("customEid");
     private By submit = By.id("submit_button");
 
-    public ChooseEID(WebDriver driver){
+    public ChooseEID(WebDriver driver, WebDriverWait wait){
+
         this.driver = driver;
+        this.wait = wait;
     }
 
-    public void waitForPageLoad(WebDriverWait wait){
+    public void waitForPageLoad(){
         wait.until(ExpectedConditions.presenceOfElementLocated(customEID));
     }
 

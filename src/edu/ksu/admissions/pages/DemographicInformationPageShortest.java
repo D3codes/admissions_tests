@@ -11,16 +11,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class DemographicInformationPageShortest {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     private By primaryLanguage = By.id("englishIsPrimarytrue");
     private By otherLanguage = By.id("otherLanguagefalse");
     private By submit = By.id("undergradForm_next");
 
-    public DemographicInformationPageShortest(WebDriver driver){
+    public DemographicInformationPageShortest(WebDriver driver, WebDriverWait wait){
+
         this.driver = driver;
+        this.wait = wait;
     }
 
-    public void waitForPageLoad(WebDriverWait wait) {
+    public void waitForPageLoad() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("hispanicFlagtrue")));
     }
 

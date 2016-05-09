@@ -10,16 +10,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class ReviewPage {
     private WebDriver driver;
+    private WebDriverWait wait;
 
     //Set UI Elements
     private By finish = By.cssSelector("input.btn.btn-primary");
     private By alertMessage = By.cssSelector("h3.beginContent");
 
-    public ReviewPage(WebDriver driver) {
+    public ReviewPage(WebDriver driver, WebDriverWait wait) {
+
         this.driver = driver;
+        this.wait = wait;
     }
 
-    public void waitForPageLoad(WebDriverWait wait){
+    public void waitForPageLoad(){
         wait.until(ExpectedConditions.presenceOfElementLocated(finish));
     }
 

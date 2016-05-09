@@ -11,17 +11,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class AdmissionsPageOne {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     //Set UI Elements
     private By hasID = By.id("ChooseTerm_choose_data_haveEidtrue");
     private By noID = By.id("ChooseTerm_choose_data_haveEidfalse");
     private By submit = By.id("ChooseTerm_choose_0");
 
-    public AdmissionsPageOne(WebDriver driver){
+    public AdmissionsPageOne(WebDriver driver, WebDriverWait wait){
+
         this.driver = driver;
+        this.wait = wait;
     }
 
-    public void waitForPageLoad(WebDriverWait wait){
+    public void waitForPageLoad(){
         wait.until(ExpectedConditions.presenceOfElementLocated(hasID));;
     }
 
