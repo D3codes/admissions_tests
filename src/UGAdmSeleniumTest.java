@@ -2,7 +2,6 @@ import edu.ksu.admissions.pages.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,7 +23,7 @@ public class UGAdmSeleniumTest {
     private WebDriver chrome;
     private WebDriver safari;
     private List<WebDriver> drivers;
-    private static final String alphaChars = "abcdefghijklmnopqrstuvwxyz";
+    private ArrayList<String> names;
     private String firstName;
     private static final int SSN_MAX = 999999999;
     private static final int SSN_MIN = 100000000;
@@ -57,15 +56,9 @@ public class UGAdmSeleniumTest {
         baseURL = "https://admissions.test.ome.k-state.edu/app/open/ChooseTerm_open.action";
         Random random = new Random();
         SSN = random.nextInt(SSN_MAX - SSN_MIN + 1) + SSN_MIN;
-        firstName = "";
-        int nameLength = random.nextInt(20 - 3 + 1) + 3;
-        for(int i = 0; i < nameLength; i++){
-            if(i == 0){
-                firstName += Character.toUpperCase(alphaChars.charAt(random.nextInt(alphaChars.length())));
-            } else {
-                firstName += alphaChars.charAt(random.nextInt(alphaChars.length()));
-            }
-        }
+        ReadIn in = new ReadIn();
+        names = in.readFile("src/names.txt");
+        firstName = names.get(random.nextInt(names.size()));
     }
 
     /**
