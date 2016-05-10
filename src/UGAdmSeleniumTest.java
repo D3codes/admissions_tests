@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.log4testng.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,8 @@ import java.util.Random;
  * Created by davidfreeman on 4/22/16.
  */
 public class UGAdmSeleniumTest {
+
+    private static final Logger LOG = Logger.getLogger(UGAdmSeleniumTest.class);
 
     private String baseURL;
     private WebDriver fireFox;
@@ -33,7 +36,7 @@ public class UGAdmSeleniumTest {
     public void setUp() throws Exception{
 
         try{
-            System.out.println("Setting up Drivers");
+            LOG.info("Setting up Drivers");
             drivers = new ArrayList<WebDriver>();
             fireFox = new FirefoxDriver();
             if(System.getProperty("os.name").equals("Mac OS X")) {
@@ -50,8 +53,8 @@ public class UGAdmSeleniumTest {
             drivers.add(chrome);
 
         }catch(Exception e){
-            System.out.println("ERROR setting up Drivers");
-            System.err.println(e);
+            LOG.error("ERROR setting up Drivers");
+            LOG.error(e);
         }
         baseURL = "https://admissions.test.ome.k-state.edu/app/open/ChooseTerm_open.action";
         Random random = new Random();
@@ -66,7 +69,7 @@ public class UGAdmSeleniumTest {
      */
     @Test
     public void testShortestRoute() throws Exception{
-        System.out.println("Testing Undergrad Admissions Shortest Route");
+        LOG.info("Testing Undergrad Admissions Shortest Route");
         try{
             for(WebDriver driver : drivers){
                 WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -78,9 +81,11 @@ public class UGAdmSeleniumTest {
                 testEducationInformationPageShortest(driver, wait);
                 testDemographicInformationPageShortest(driver, wait);
                 testScholarshipPageShortest(driver, wait);
+                testReviewPage(driver, wait);
             }
         } catch(Exception e) {
-            System.err.println("ERROR in test script: Undergrad Admissions Shortest Route\n"+e);
+            LOG.error("ERROR in test script: Undergrad Admissions Shortest Route");
+            LOG.error(e);
         }
     }
 
@@ -89,7 +94,7 @@ public class UGAdmSeleniumTest {
      */
     @Test
     public void testLongestRoute() throws Exception{
-        System.out.println("Testing Undergrad Admissions Longest Route");try{
+        LOG.info("Testing Undergrad Admissions Longest Route");try{
             for(WebDriver driver : drivers){
                 WebDriverWait wait = new WebDriverWait(driver, 20);
                 driver.get(baseURL);
@@ -100,16 +105,17 @@ public class UGAdmSeleniumTest {
                 testEducationInformationPageLongest(driver, wait);
                 testDemographicInformationPageLongest(driver, wait);
                 testScholarshipPageLongest(driver, wait);
+                testReviewPage(driver, wait);
             }
 
         } catch(Exception e) {
-            System.err.println("ERROR in test script: Undergrad Admissions Longest Route");
-            System.err.println(e);
+            LOG.error("ERROR in test script: Undergrad Admissions Longest Route");
+            LOG.error(e);
         }
     }
 
     private void testPageOne(WebDriver driver, WebDriverWait wait, Boolean hasEID){
-        System.out.println("Testing Page One");
+        LOG.info("Testing Page One");
         AdmissionsPageOne admissionsPageOne = new AdmissionsPageOne(driver, wait);
         admissionsPageOne.waitForPageLoad();
         if(hasEID)
@@ -118,21 +124,21 @@ public class UGAdmSeleniumTest {
             admissionsPageOne.noID();
 
         admissionsPageOne.submit();
-        System.out.println("Page One Test Successful");
+        LOG.info("Page One Test Successful");
     }
 
     private void testLoginPage(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing Login Page");
+        LOG.info("Testing Login Page");
         LoginPage loginPage = new LoginPage(driver, wait);
         loginPage.waitForPageLoad();
         loginPage.setEID("dmeierer");
         loginPage.setPassword("23Rt^JHS88");
         loginPage.submit();
-        System.out.println("Login Page Test Successful");
+        LOG.info("Login Page Test Successful");
     }
 
     private void testPersonalInformationPageShortest(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing Personal Information Page (Shortest Route)");
+        LOG.info("Testing Personal Information Page (Shortest Route)");
         PersonalInformationPageShortest pips = new PersonalInformationPageShortest(driver, wait);
         pips.waitForPageLoad();
         pips.setTerm();
@@ -156,11 +162,11 @@ public class UGAdmSeleniumTest {
         pips.setInKsSinceBirth();
         pips.setParentsKsResident();
         pips.submit();
-        System.out.println("Personal Information Page (Shortest Route) Test Successful");
+        LOG.info("Personal Information Page (Shortest Route) Test Successful");
     }
 
     private void testPersonalInformationPageLongest(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing Personal Information Page (Longest Route)");
+        LOG.info("Testing Personal Information Page (Longest Route)");
         PersonalInformationPageLongest pipl = new PersonalInformationPageLongest(driver, wait);
         pipl.waitForPageLoad();
         pipl.setTerm();
@@ -189,11 +195,11 @@ public class UGAdmSeleniumTest {
         pipl.setVisaType();
         pipl.setRequestingVisa();
         pipl.submit();
-        System.out.println("Personal Information Page (Longest Route) Test Successful");
+        LOG.info("Personal Information Page (Longest Route) Test Successful");
     }
 
     private void testAddressInformationShortest(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing Address Information Page (Shortest Route)");
+        LOG.info("Testing Address Information Page (Shortest Route)");
         AddressInformationPageShortest aips = new AddressInformationPageShortest(driver, wait);
         aips.waitForPageLoad();
         aips.setCountry();
@@ -210,11 +216,11 @@ public class UGAdmSeleniumTest {
         aips.setContactLastName("Doe");
         aips.setAddAnotherRelationship();
         aips.submit();
-        System.out.println("Address Information Page (Shortest Route) Test Successful");
+        LOG.info("Address Information Page (Shortest Route) Test Successful");
     }
 
     private void testAddressInformationLongest(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing Address Information Page (Longest Route)");
+        LOG.info("Testing Address Information Page (Longest Route)");
         AddressInformationPageLongest aipl = new AddressInformationPageLongest(driver, wait);
         aipl.waitForPageLoad();
         aipl.setCountry();
@@ -224,15 +230,15 @@ public class UGAdmSeleniumTest {
         aipl.setSameMailingAddress();
         aipl.setSameAddress();
         aipl.setRelationship();
-        aipl.setContactFirstName(firstName);
-        aipl.setContactLastName("Test");
+        aipl.setContactFirstName("John");
+        aipl.setContactLastName("Doe");
         aipl.setAddAnotherRelationship();
         aipl.submit();
-        System.out.println("Address Information Page (Longest Route) Test Successful");
+        LOG.info("Address Information Page (Longest Route) Test Successful");
     }
 
     private void testEducationInformationPageShortest(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing Education Information Page (Shortest Route)");
+        LOG.info("Testing Education Information Page (Shortest Route)");
         EducationInformationPageShortest eips = new EducationInformationPageShortest(driver, wait);
         eips.waitForPageLoad();
         eips.setHighSchoolCountry("United States");
@@ -248,11 +254,11 @@ public class UGAdmSeleniumTest {
         eips.setKsuLocation();
         eips.setMajor();
         eips.submit();
-        System.out.println("Education Information Page (Shortest Route) Test Successful");
+        LOG.info("Education Information Page (Shortest Route) Test Successful");
     }
 
     private void testEducationInformationPageLongest(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing Education Information Page (Longest Route)");
+        LOG.info("Testing Education Information Page (Longest Route)");
         EducationInformationPageLongest eipl = new EducationInformationPageLongest(driver, wait);
         eipl.waitForPageLoad();
         eipl.setHighSchoolCountry("England");
@@ -280,21 +286,21 @@ public class UGAdmSeleniumTest {
         eipl.setKsuLocation();
         eipl.setMajor();
         eipl.submit();
-        System.out.println("Testing Education Information Page (Longest Route) Test Sucessful");
+        LOG.info("Testing Education Information Page (Longest Route) Test Sucessful");
     }
 
     private void testDemographicInformationPageShortest(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing Demographic Information Page (Shortest Route)");
+        LOG.info("Testing Demographic Information Page (Shortest Route)");
         DemographicInformationPageShortest dips = new DemographicInformationPageShortest(driver, wait);
         dips.waitForPageLoad();
         dips.setPrimaryLanguage();
         dips.setOtherLanguage();
         dips.submit();
-        System.out.println("Demographic Information Page (Shortest Route) Test Successful");
+        LOG.info("Demographic Information Page (Shortest Route) Test Successful");
     }
 
     private void testDemographicInformationPageLongest(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing Demographic Information Page (Longest Route)");
+        LOG.info("Testing Demographic Information Page (Longest Route)");
         DemographicInformationPageLongest dipl = new DemographicInformationPageLongest(driver, wait);
         dipl.waitForPageLoad();
         dipl.setPrimaryLanguage();
@@ -305,30 +311,39 @@ public class UGAdmSeleniumTest {
         dipl.setMilitaryStart("July", "2011");
         dipl.setMilitaryEnd("June", "2016");
         dipl.submit();
-        System.out.println("Demographic Information Page (Longest Route) Test Successful");
+        LOG.info("Demographic Information Page (Longest Route) Test Successful");
     }
 
     private void testScholarshipPageShortest(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing Scholarship Page (Shortest Route)");
+        LOG.info("Testing Scholarship Page (Shortest Route)");
         ScholarshipPageShortest sps = new ScholarshipPageShortest(driver, wait);
         sps.waitForPageLoad();
         sps.setSSN(Integer.toString(SSN));
         sps.submit();
-        System.out.println("Scholarship Page (Shortest Route) Test Successful");
+        LOG.info("Scholarship Page (Shortest Route) Test Successful");
     }
 
     private void testScholarshipPageLongest(WebDriver driver, WebDriverWait wait){
-        System.out.println("Testing Scholarship Page (Longest Route)");
+        LOG.info("Testing Scholarship Page (Longest Route)");
         ScholarshipPageLongest spl = new ScholarshipPageLongest(driver, wait);
         spl.waitForPageLoad();
         spl.skip();
-        System.out.println("Scholarship Page (Longest Route) Test Successful");
+        LOG.info("Scholarship Page (Longest Route) Test Successful");
+    }
+
+    private void testReviewPage(WebDriver driver, WebDriverWait wait){
+        LOG.info("Testing Review Page");
+        ReviewPage reviewPage = new ReviewPage(driver, wait);
+        reviewPage.waitForPageLoad();
+        reviewPage.getInfo();
+        System.out.println(reviewPage.getRelationship());
+        LOG.info("Review Page Test Successful");
     }
 
     @After
     public void tearDown() throws Exception{
 
-        for(WebDriver driver : drivers)
-            driver.quit();
+//        for(WebDriver driver : drivers)
+//            driver.quit();
     }
 }
