@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae6653b0-5387-46cb-beb6-1e318cb8224a" name="Default" comment="eprofile tests added">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/ReviewPage.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/longest/ReviewPageLongest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/AddressInformationPageLongest.java" afterPath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/longest/AddressInformationPageLongest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/AddressInformationPageShortest.java" afterPath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/AddressInformationPageShortest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/DemographicInformationPageLongest.java" afterPath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/longest/DemographicInformationPageLongest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/DemographicInformationPageShortest.java" afterPath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/DemographicInformationPageShortest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/EducationInformationPageLongest.java" afterPath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/longest/EducationInformationPageLongest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/EducationInformationPageShortest.java" afterPath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/EducationInformationPageShortest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/PersonalInformationPageLongest.java" afterPath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/longest/PersonalInformationPageLongest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/PersonalInformationPageShortest.java" afterPath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/PersonalInformationPageShortest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/ReviewPage.java" afterPath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/ReviewPageShortest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/ScholarshipPageLongest.java" afterPath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/longest/ScholarshipPageLongest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/ScholarshipPageShortest.java" afterPath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/ScholarshipPageShortest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UGAdmSeleniumTest.java" afterPath="$PROJECT_DIR$/src/UGAdmSeleniumTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -26,45 +37,68 @@
     <favorites_list name="admissions_tests" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="UGAdmSeleniumTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UGAdmSeleniumTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4598" max-vertical-offset="5325">
-              <caret line="337" column="29" selection-start-line="337" selection-start-column="29" selection-end-line="337" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReviewPage.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/ReviewPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.12" vertical-offset="0" max-vertical-offset="1380">
-              <caret line="84" column="104" selection-start-line="84" selection-start-column="104" selection-end-line="84" selection-end-column="104" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#562#570#0" expanded="true" />
-                <element signature="e#732#733#0" expanded="true" />
-                <element signature="e#814#815#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginPage.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/LoginPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-              <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="UGAdmSeleniumTest.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/UGAdmSeleniumTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="5136" max-vertical-offset="5805">
+                  <caret line="369" column="27" selection-start-line="369" selection-start-column="27" selection-end-line="369" selection-end-column="27" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ReviewPageLongest.java" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/longest/ReviewPageLongest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.89686096" vertical-offset="15" max-vertical-offset="750">
+                  <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ReviewPageShortest.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/ReviewPageShortest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1275">
+                  <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="LoginPage.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/LoginPage.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+                  <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="ReviewPageShortest.java" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/ReviewPageShortest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.33632287" vertical-offset="0" max-vertical-offset="1275">
+                  <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -100,8 +134,9 @@
         <option value="$PROJECT_DIR$/src/edu/ksu/admissions/pages/SecurityQuestions.java" />
         <option value="$PROJECT_DIR$/src/ReadIn.java" />
         <option value="$PROJECT_DIR$/src/names.txt" />
-        <option value="$PROJECT_DIR$/src/UGAdmSeleniumTest.java" />
         <option value="$PROJECT_DIR$/src/edu/ksu/admissions/pages/ReviewPage.java" />
+        <option value="$PROJECT_DIR$/src/edu/ksu/admissions/pages/longest/ReviewPageLongest.java" />
+        <option value="$PROJECT_DIR$/src/UGAdmSeleniumTest.java" />
       </list>
     </option>
   </component>
@@ -137,6 +172,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -187,10 +223,53 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admissions_tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admissions_tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shortest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admissions_tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admissions_tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="longest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -364,13 +443,13 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14583333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3842151" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17604166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3842151" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -401,6 +480,32 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/UGAdmSeleniumTest.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5325">
+          <caret line="337" column="29" selection-start-line="337" selection-start-column="29" selection-end-line="337" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/ReviewPageShortest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1380">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/LoginPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="630">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UGAdmSeleniumTest.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3315" max-vertical-offset="4995">
           <caret line="266" column="60" selection-start-line="265" selection-start-column="33" selection-end-line="266" selection-end-column="60" />
           <folding>
@@ -419,7 +524,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/PersonalInformationPageShortest.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/PersonalInformationPageShortest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="390">
           <caret line="18" column="82" selection-start-line="18" selection-start-column="82" selection-end-line="18" selection-end-column="82" />
@@ -450,7 +555,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/PersonalInformationPageShortest.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/PersonalInformationPageShortest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="390">
           <caret line="18" column="82" selection-start-line="18" selection-start-column="82" selection-end-line="18" selection-end-column="82" />
@@ -522,18 +627,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/AddressInformationPageShortest.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/AddressInformationPageShortest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="1440">
           <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
           <folding>
-            <element signature="e#1300#1301#0" expanded="true" />
-            <element signature="e#1380#1381#0" expanded="true" />
+            <element signature="e#1309#1310#0" expanded="true" />
+            <element signature="e#1389#1390#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/EducationInformationPageShortest.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/EducationInformationPageShortest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29389313" vertical-offset="324" max-vertical-offset="1140">
           <caret line="45" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
@@ -541,44 +646,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/EducationInformationPageLongest.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/longest/EducationInformationPageLongest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.4503816" vertical-offset="0" max-vertical-offset="2235">
           <caret line="84" column="111" selection-start-line="84" selection-start-column="111" selection-end-line="84" selection-end-column="111" />
           <folding>
-            <element signature="e#2071#2072#0" expanded="true" />
-            <element signature="e#2161#2162#0" expanded="true" />
-            <element signature="e#4856#4857#0" expanded="true" />
-            <element signature="e#4918#4919#0" expanded="true" />
-            <element signature="e#5075#5076#0" expanded="true" />
-            <element signature="e#5133#5134#0" expanded="true" />
-            <element signature="e#5264#5265#0" expanded="true" />
-            <element signature="e#5313#5314#0" expanded="true" />
-            <element signature="e#5468#5469#0" expanded="true" />
-            <element signature="e#5525#5526#0" expanded="true" />
-            <element signature="e#5560#5561#0" expanded="true" />
-            <element signature="e#5615#5616#0" expanded="true" />
-            <element signature="e#5784#5785#0" expanded="true" />
-            <element signature="e#5834#5835#0" expanded="true" />
+            <element signature="e#2079#2080#0" expanded="true" />
+            <element signature="e#2169#2170#0" expanded="true" />
+            <element signature="e#4864#4865#0" expanded="true" />
+            <element signature="e#4926#4927#0" expanded="true" />
+            <element signature="e#5083#5084#0" expanded="true" />
+            <element signature="e#5141#5142#0" expanded="true" />
+            <element signature="e#5272#5273#0" expanded="true" />
+            <element signature="e#5321#5322#0" expanded="true" />
+            <element signature="e#5476#5477#0" expanded="true" />
+            <element signature="e#5533#5534#0" expanded="true" />
+            <element signature="e#5568#5569#0" expanded="true" />
+            <element signature="e#5623#5624#0" expanded="true" />
+            <element signature="e#5792#5793#0" expanded="true" />
+            <element signature="e#5842#5843#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/DemographicInformationPageShortest.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/DemographicInformationPageShortest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/DemographicInformationPageLongest.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/longest/DemographicInformationPageLongest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.06" vertical-offset="0" max-vertical-offset="960">
           <caret line="61" column="80" selection-start-line="61" selection-start-column="80" selection-end-line="61" selection-end-column="80" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/ScholarshipPageShortest.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/ScholarshipPageShortest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
           <caret line="37" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
@@ -586,14 +691,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/ScholarshipPageLongest.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/longest/ScholarshipPageLongest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49618322" vertical-offset="0" max-vertical-offset="786">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/PersonalInformationPageShortest.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/PersonalInformationPageShortest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1815">
           <caret line="131" column="38" selection-start-line="131" selection-start-column="38" selection-end-line="131" selection-end-column="38" />
@@ -601,7 +706,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/PersonalInformationPageLongest.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/longest/PersonalInformationPageLongest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.59923667" vertical-offset="1374" max-vertical-offset="2160">
           <caret line="151" column="32" selection-start-line="151" selection-start-column="32" selection-end-line="151" selection-end-column="32" />
@@ -620,11 +725,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.889313" vertical-offset="0" max-vertical-offset="1575">
           <caret line="99" column="7" selection-start-line="99" selection-start-column="7" selection-end-line="99" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/AddressInformationPageLongest.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/longest/AddressInformationPageLongest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45710456" vertical-offset="364" max-vertical-offset="1140">
           <caret line="53" column="90" selection-start-line="53" selection-start-column="90" selection-end-line="53" selection-end-column="90" />
@@ -636,41 +740,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18096514" vertical-offset="0" max-vertical-offset="746">
           <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#261#269#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/LoginPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/shortest/ReviewPageShortest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1275">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UGAdmSeleniumTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4598" max-vertical-offset="5325">
-          <caret line="337" column="29" selection-start-line="337" selection-start-column="29" selection-end-line="337" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="5136" max-vertical-offset="5805">
+          <caret line="369" column="27" selection-start-line="369" selection-start-column="27" selection-end-line="369" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/ReviewPage.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/ksu/admissions/pages/longest/ReviewPageLongest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.12" vertical-offset="0" max-vertical-offset="1380">
-          <caret line="84" column="104" selection-start-line="84" selection-start-column="104" selection-end-line="84" selection-end-column="104" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#562#570#0" expanded="true" />
-            <element signature="e#732#733#0" expanded="true" />
-            <element signature="e#814#815#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.89686096" vertical-offset="15" max-vertical-offset="750">
+          <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

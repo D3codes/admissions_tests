@@ -1,7 +1,10 @@
 import edu.ksu.admissions.pages.*;
+import edu.ksu.admissions.pages.longest.*;
+import edu.ksu.admissions.pages.shortest.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -81,7 +84,7 @@ public class UGAdmSeleniumTest {
                 testEducationInformationPageShortest(driver, wait);
                 testDemographicInformationPageShortest(driver, wait);
                 testScholarshipPageShortest(driver, wait);
-                testReviewPage(driver, wait);
+                testReviewPageShortest(driver, wait);
             }
         } catch(Exception e) {
             LOG.error("ERROR in test script: Undergrad Admissions Shortest Route");
@@ -105,7 +108,7 @@ public class UGAdmSeleniumTest {
                 testEducationInformationPageLongest(driver, wait);
                 testDemographicInformationPageLongest(driver, wait);
                 testScholarshipPageLongest(driver, wait);
-                testReviewPage(driver, wait);
+                testReviewPageLongest(driver, wait);
             }
 
         } catch(Exception e) {
@@ -331,13 +334,42 @@ public class UGAdmSeleniumTest {
         LOG.info("Scholarship Page (Longest Route) Test Successful");
     }
 
-    private void testReviewPage(WebDriver driver, WebDriverWait wait){
-        LOG.info("Testing Review Page");
-        ReviewPage reviewPage = new ReviewPage(driver, wait);
+    private void testReviewPageShortest(WebDriver driver, WebDriverWait wait){
+        LOG.info("Testing Review Page (Shortest Route)");
+        ReviewPageShortest reviewPage = new ReviewPageShortest(driver, wait);
         reviewPage.waitForPageLoad();
         reviewPage.getInfo();
-        System.out.println(reviewPage.getRelationship());
-        LOG.info("Review Page Test Successful");
+        assertEquals("Counselor", reviewPage.getRelationship());
+        assertEquals(Integer.toString(SSN), reviewPage.getSSN());
+        assertEquals("Male", reviewPage.getGender());
+        assertEquals(firstName + " Test", reviewPage.getName());
+        assertEquals("01/01/96", reviewPage.getDOB());
+        assertEquals("United States", reviewPage.getCountryOfBirth());
+        assertEquals("Manhattan", reviewPage.getCityOfBirth());
+        assertEquals("1234567890", reviewPage.getPhoneNumber());
+        assertEquals(firstName+"Test@ksu.edu", reviewPage.getEmail());
+        assertEquals("Yes", reviewPage.getUSCitizen());
+        assertEquals("Yes", reviewPage.getKansasResident());
+        assertEquals("United States", reviewPage.getMailingCountry());
+        assertEquals("RL", reviewPage.getMailingCounty());
+        assertEquals("123 Manhattan Ave", reviewPage.getMailingAddress());
+        assertEquals("Manhattan KS, 66502", reviewPage.getMailingCity());
+        assertEquals("Father", reviewPage.getFamilyRelationship());
+        assertEquals("John Doe", reviewPage.getFamilyName());
+        assertEquals("United States", reviewPage.getHighSchoolCountry());
+        assertEquals("GED", reviewPage.getHighSchoolType());
+        assertEquals("May 2017", reviewPage.getGradDate());
+        LOG.info("Review Page (Shortest Route) Test Successful");
+    }
+
+    private void testReviewPageLongest(WebDriver driver, WebDriverWait wait){
+        LOG.info("Testing Review Page (Longest Route)");
+        ReviewPageLongest reviewPage = new ReviewPageLongest(driver, wait);
+        reviewPage.waitForPageLoad();
+        reviewPage.getInfo();
+        reviewPage.print();
+
+        LOG.info("Review Page (Longest Route) Test Successful");
     }
 
     @After

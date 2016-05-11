@@ -1,4 +1,4 @@
-package edu.ksu.admissions.pages;
+package edu.ksu.admissions.pages.shortest;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by davidfreeman on 5/10/16.
  */
-public class ReviewPage {
+public class ReviewPageShortest {
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -20,7 +20,7 @@ public class ReviewPage {
 
     private ArrayList<String> review = new ArrayList<String>();
 
-    public ReviewPage(WebDriver driver, WebDriverWait wait){
+    public ReviewPageShortest(WebDriver driver, WebDriverWait wait){
         this.driver = driver;
         this.wait = wait;
     }

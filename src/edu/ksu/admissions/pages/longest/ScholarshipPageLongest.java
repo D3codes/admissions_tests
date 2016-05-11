@@ -1,4 +1,4 @@
-package edu.ksu.admissions.pages;
+package edu.ksu.admissions.pages.longest;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
