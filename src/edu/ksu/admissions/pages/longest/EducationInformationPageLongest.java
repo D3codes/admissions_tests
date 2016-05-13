@@ -75,7 +75,7 @@ public class EducationInformationPageLongest {
         driver.findElement(previouslyTakenClasses).click();
     }
 
-    public void waitForCollegeCountry() { wait.until(ExpectedConditions.presenceOfElementLocated(collegeCountry)); }
+    public void waitForCollegeCountry() { wait.until(ExpectedConditions.visibilityOfElementLocated(collegeCountry)); }
 
     public void setCollegeCountry(String country){
         driver.findElement(collegeCountry).click();

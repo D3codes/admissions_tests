@@ -367,15 +367,41 @@ public class UGAdmSeleniumTest {
         ReviewPageLongest reviewPage = new ReviewPageLongest(driver, wait);
         reviewPage.waitForPageLoad();
         reviewPage.getInfo();
-        reviewPage.print();
-
+        assertEquals("Parent/Guardian", reviewPage.getRelationship());
+        assertEquals("Male", reviewPage.getGender());
+        assertEquals(firstName + " Test", reviewPage.getName());
+        assertEquals("01/01/96", reviewPage.getDOB());
+        assertEquals("Afghanistan", reviewPage.getCountryOfBirth());
+        assertEquals("Kabul", reviewPage.getCityOfBirth());
+        assertEquals("1234567890", reviewPage.getPhoneNumber());
+        assertEquals(firstName+"Test@ksu.edu", reviewPage.getEmail());
+        assertEquals("No", reviewPage.getUSCitizen());
+        assertEquals("No", reviewPage.getPermanentResident());
+        assertEquals("Yes", reviewPage.getInternationalStudent());
+        assertEquals("AFG", reviewPage.getCountryOfCitizenship());
+        assertEquals("Student (F1)", reviewPage.getVisaType());
+        assertEquals("Afghanistan", reviewPage.getPermanentAddressCountry());
+        assertEquals("سرک 60 متره میدان هوایی", reviewPage.getPermanentAddress());
+        assertEquals("Kabul", reviewPage.getPermanentAddressCity());
+        assertEquals("Father", reviewPage.getFamilyRelationship());
+        assertEquals("John Doe", reviewPage.getFamilyName());
+        assertEquals("England", reviewPage.getHighSchoolCountry());
+        assertEquals("Appleton Thorn Primary School", reviewPage.getHighSchool());
+        assertEquals("May 2017", reviewPage.getGradDate());
+        assertEquals("Yes", reviewPage.getPreviouslyAttendedKState());
+        assertEquals("England", reviewPage.getPreviousCollegeCountry());
+        assertEquals("King's College", reviewPage.getPreviousCollege());
+        assertEquals("15.0", reviewPage.getPreviousCreditHours());
+        assertEquals("January 2016 to May 2016", reviewPage.getDatesOfAttendance());
+        assertEquals("Yes", reviewPage.getActiveMilitary());
+        assertEquals("Jul 2011 to Jun 2016", reviewPage.getDatesOfService());
         LOG.info("Review Page (Longest Route) Test Successful");
     }
 
     @After
     public void tearDown() throws Exception{
 
-//        for(WebDriver driver : drivers)
-//            driver.quit();
+        for(WebDriver driver : drivers)
+            driver.quit();
     }
 }
