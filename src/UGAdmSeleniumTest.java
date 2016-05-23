@@ -1,6 +1,4 @@
 import edu.ksu.admissions.pages.*;
-import edu.ksu.admissions.pages.longest.*;
-import edu.ksu.admissions.pages.shortest.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,6 +32,8 @@ public class UGAdmSeleniumTest {
     private static final int SSN_MAX = 999999999;
     private static final int SSN_MIN = 100000000;
     private int SSN;
+    private static final boolean SHORTEST = true;
+    private static final boolean LONGEST = false;
 
     @Before
     public void setUp() throws Exception{
@@ -142,201 +142,211 @@ public class UGAdmSeleniumTest {
 
     private void testPersonalInformationPageShortest(WebDriver driver, WebDriverWait wait){
         LOG.info("Testing Personal Information Page (Shortest Route)");
-        PersonalInformationPageShortest pips = new PersonalInformationPageShortest(driver, wait);
-        pips.waitForPageLoad();
-        pips.setTerm();
-        pips.setDataForOther();
-        pips.waitForRelationship();
-        pips.setRelationship();
-        pips.setGender();
-        pips.setFirstName(firstName);
-        pips.setLastName("Test");
-        pips.setAdditionalNames();
-        pips.setBirthDate("January","1","1996");
-        pips.setBirthCountry("United States");
-        pips.setBirthPlace("Manhattan");
-        pips.setPhoneNumber("1234567890");
-        pips.setEmailAddress(firstName+"Test@ksu.edu");
-        pips.setConfirmEmail(firstName+"Test@ksu.edu");
-        pips.setUsCitizen();
-        pips.waitForKsResident();
-        pips.setKsResident();
-        pips.waitForInKsSinceBirth();
-        pips.setInKsSinceBirth();
-        pips.setParentsKsResident();
-        pips.submit();
+        PersonalInformationPage personalInformationPage = new PersonalInformationPage(driver, wait);
+        personalInformationPage.waitForPageLoad();
+        personalInformationPage.setTerm();
+        personalInformationPage.setDataForOther();
+        personalInformationPage.waitForRelationship();
+        personalInformationPage.setRelationshipCounselor();
+        personalInformationPage.setGender();
+        personalInformationPage.setFirstName(firstName);
+        personalInformationPage.setLastName("Test");
+        personalInformationPage.setAdditionalNames();
+        personalInformationPage.setBirthDate("January","1","1996");
+        personalInformationPage.setBirthCountry("United States");
+        personalInformationPage.setBirthPlace("Manhattan");
+        personalInformationPage.setPhoneNumber("1234567890");
+        personalInformationPage.setEmailAddress(firstName+"Test@ksu.edu");
+        personalInformationPage.setConfirmEmail(firstName+"Test@ksu.edu");
+        personalInformationPage.setUsCitizentrue();
+        personalInformationPage.waitForKsResident();
+        personalInformationPage.setKsResident();
+        personalInformationPage.waitForInKsSinceBirth();
+        personalInformationPage.setInKsSinceBirth();
+        personalInformationPage.setParentsKsResident();
+        personalInformationPage.submit();
         LOG.info("Personal Information Page (Shortest Route) Test Successful");
     }
 
     private void testPersonalInformationPageLongest(WebDriver driver, WebDriverWait wait){
         LOG.info("Testing Personal Information Page (Longest Route)");
-        PersonalInformationPageLongest pipl = new PersonalInformationPageLongest(driver, wait);
-        pipl.waitForPageLoad();
-        pipl.setTerm();
-        pipl.setDataForOther();
-        pipl.waitForRelationship();
-        pipl.setRelationship();
-        pipl.setGender();
-        pipl.setFirstName(firstName);
-        pipl.setLastName("Test");
-        pipl.setAdditionalNames();
-        pipl.setBirthDate("January", "1", "1996");
-        pipl.setBirthCountry("Afghanistan");
-        pipl.setBirthPlace("Kabul");
-        pipl.setPhoneNumber("1234567890");
-        pipl.setEmailAddress(firstName + "Test@ksu.edu");
-        pipl.setConfirmEmail(firstName + "Test@ksu.edu");
-        pipl.setUsCitizen();
-        pipl.waitForPermanentResident();
-        pipl.setPermanentResident();
-        pipl.waitForInternationalStudent();
-        pipl.setInternationalStudent();
-        pipl.waitForCountryOfCitizenship();
-        pipl.setCountryOfCitizenship("Afghanistan");
-        pipl.setCurrentVisa();
-        pipl.waitForVisaType();
-        pipl.setVisaType();
-        pipl.setRequestingVisa();
-        pipl.submit();
+        PersonalInformationPage personalInformationPage = new PersonalInformationPage(driver, wait);
+        personalInformationPage.waitForPageLoad();
+        personalInformationPage.setTerm();
+        personalInformationPage.setDataForOther();
+        personalInformationPage.waitForRelationship();
+        personalInformationPage.setRelationshipFamily();
+        personalInformationPage.setGender();
+        personalInformationPage.setFirstName(firstName);
+        personalInformationPage.setLastName("Test");
+        personalInformationPage.setAdditionalNames();
+        personalInformationPage.setBirthDate("January", "1", "1996");
+        personalInformationPage.setBirthCountry("Afghanistan");
+        personalInformationPage.setBirthPlace("Kabul");
+        personalInformationPage.setPhoneNumber("1234567890");
+        personalInformationPage.setEmailAddress(firstName + "Test@ksu.edu");
+        personalInformationPage.setConfirmEmail(firstName + "Test@ksu.edu");
+        personalInformationPage.setUsCitizenfalse();
+        personalInformationPage.waitForPermanentResident();
+        personalInformationPage.setPermanentResident();
+        personalInformationPage.waitForInternationalStudent();
+        personalInformationPage.setInternationalStudent();
+        personalInformationPage.waitForCountryOfCitizenship();
+        personalInformationPage.setCountryOfCitizenship("Afghanistan");
+        personalInformationPage.setCurrentVisa();
+        personalInformationPage.waitForVisaType();
+        personalInformationPage.setVisaType();
+        personalInformationPage.setRequestingVisa();
+        personalInformationPage.submit();
         LOG.info("Personal Information Page (Longest Route) Test Successful");
     }
 
     private void testAddressInformationShortest(WebDriver driver, WebDriverWait wait){
         LOG.info("Testing Address Information Page (Shortest Route)");
-        AddressInformationPageShortest aips = new AddressInformationPageShortest(driver, wait);
-        aips.waitForPageLoad();
-        aips.setCountry();
-        aips.waitForAddress();
-        aips.setAddress("123 Manhattan Ave");
-        aips.setCity("Manhattan");
-        aips.setState();
-        aips.setZipCode("66502");
-        aips.waitForCounty();
-        aips.setCounty("Riley");
-        aips.setSameAddress();
-        aips.setRelationship();
-        aips.setContactFirstName("John");
-        aips.setContactLastName("Doe");
-        aips.setAddAnotherRelationship();
-        aips.submit();
+        AddressInformationPage addressInformationPage = new AddressInformationPage(driver, wait);
+        addressInformationPage.waitForPageLoad();
+        addressInformationPage.setCountryUS();
+        addressInformationPage.waitForAddress();
+        addressInformationPage.setAddress("123 Manhattan Ave");
+        addressInformationPage.setCity("Manhattan");
+        addressInformationPage.setState();
+        addressInformationPage.setZipCode("66502");
+        addressInformationPage.waitForCounty();
+        addressInformationPage.setCounty("Riley");
+        addressInformationPage.setSameAddress();
+        addressInformationPage.setRelationship();
+        addressInformationPage.setContactFirstName("John");
+        addressInformationPage.setContactLastName("Doe");
+        addressInformationPage.setAddAnotherRelationship();
+        addressInformationPage.submit();
         LOG.info("Address Information Page (Shortest Route) Test Successful");
     }
 
     private void testAddressInformationLongest(WebDriver driver, WebDriverWait wait){
         LOG.info("Testing Address Information Page (Longest Route)");
-        AddressInformationPageLongest aipl = new AddressInformationPageLongest(driver, wait);
-        aipl.waitForPageLoad();
-        aipl.setCountry();
-        aipl.waitForAddress();
-        aipl.setAddress("سرک 60 متره میدان هوایی‎");
-        aipl.setCity("Kabul");
-        aipl.setSameMailingAddress();
-        aipl.setSameAddress();
-        aipl.setRelationship();
-        aipl.setContactFirstName("John");
-        aipl.setContactLastName("Doe");
-        aipl.setAddAnotherRelationship();
-        aipl.submit();
+        AddressInformationPage addressInformationPage = new AddressInformationPage(driver, wait);
+        addressInformationPage.waitForPageLoad();
+        addressInformationPage.setCountryAFG();
+        addressInformationPage.waitForAddress();
+        addressInformationPage.setAddress("سرک 60 متره میدان هوایی‎");
+        addressInformationPage.setCity("Kabul");
+        addressInformationPage.setSameMailingAddress();
+        addressInformationPage.setSameAddress();
+        addressInformationPage.setRelationship();
+        addressInformationPage.setContactFirstName("John");
+        addressInformationPage.setContactLastName("Doe");
+        addressInformationPage.setAddAnotherRelationship();
+        addressInformationPage.submit();
         LOG.info("Address Information Page (Longest Route) Test Successful");
     }
 
     private void testEducationInformationPageShortest(WebDriver driver, WebDriverWait wait){
         LOG.info("Testing Education Information Page (Shortest Route)");
-        EducationInformationPageShortest eips = new EducationInformationPageShortest(driver, wait);
-        eips.waitForPageLoad();
-        eips.setHighSchoolCountry("United States");
-        eips.setSchoolType();
-        eips.setPlannedGraduationMonth();
-        eips.setPlannedGraduationYear();
-        eips.setPreviouslyAttendedKSU();
-        eips.setPreviouslyTakenClasses();
-        eips.waitForCompleteDegree();
-        eips.setCompleteDegree();
-        eips.waitForCompleteDegreeAtKSU();
-        eips.setCompleteDegreeAtKSU();
-        eips.setKsuLocation();
-        eips.setMajor();
-        eips.submit();
+        EducationInformationPage educationInformationPage = new EducationInformationPage(driver, wait);
+        educationInformationPage.waitForPageLoad();
+        educationInformationPage.setHighSchoolCountry("United States");
+        educationInformationPage.setSchoolType();
+        educationInformationPage.setPlannedGraduationMonth();
+        educationInformationPage.setPlannedGraduationYear();
+        educationInformationPage.setPreviouslyAttendedKSUfalse();
+        educationInformationPage.setPreviouslyTakenClassesfalse();
+        educationInformationPage.waitForCompleteDegree();
+        educationInformationPage.setCompleteDegreetrue();
+        educationInformationPage.waitForCompleteDegreeAtKSU();
+        educationInformationPage.setCompleteDegreeAtKSU();
+        educationInformationPage.setKsuLocationMAN();
+        educationInformationPage.setMajor();
+        educationInformationPage.submit();
         LOG.info("Education Information Page (Shortest Route) Test Successful");
     }
 
     private void testEducationInformationPageLongest(WebDriver driver, WebDriverWait wait){
         LOG.info("Testing Education Information Page (Longest Route)");
-        EducationInformationPageLongest eipl = new EducationInformationPageLongest(driver, wait);
-        eipl.waitForPageLoad();
-        eipl.setHighSchoolCountry("England");
-        eipl.waitForHighSchool();
-        eipl.setHighSchool("Appleton Thorn Primary School");
-        eipl.setPlannedGraduationMonth();
-        eipl.setPlannedGraduationYear();
-        eipl.setPreviouslyAttendedKSU();
-        eipl.setPreviouslyTakenClasses();
-        eipl.waitForCollegeCountry();
-        eipl.setCollegeCountry("England");
-        eipl.waitForCollegeName();
-        eipl.setCollegeName("King's College");
-        eipl.setCreditHours("15");
-        eipl.setAttendanceMonthStart("January");
-        eipl.setAttendanceYearStart("2016");
-        eipl.setAttendanceMontEnd("May");
-        eipl.setAttendanceYearEnd("2016");
-        eipl.setOfficialTranscript();
-        eipl.setCompleteDegree();
-        eipl.waitForMinor();
-        eipl.setMinor();
-        eipl.waitForBaccalaureate();
-        eipl.setBaccalaureate();
-        eipl.setKsuLocation();
-        eipl.setMajor();
-        eipl.submit();
+        EducationInformationPage educationInformationPage = new EducationInformationPage(driver, wait);
+        educationInformationPage.waitForPageLoad();
+        educationInformationPage.setHighSchoolCountry("England");
+        educationInformationPage.waitForHighSchool();
+        educationInformationPage.setHighSchool("Appleton Thorn Primary School");
+        educationInformationPage.setPlannedGraduationMonth();
+        educationInformationPage.setPlannedGraduationYear();
+        educationInformationPage.setPreviouslyAttendedKSUtrue();
+        educationInformationPage.setPreviouslyTakenClassestrue();
+        educationInformationPage.waitForCollegeCountry();
+        educationInformationPage.setCollegeCountry("England");
+        educationInformationPage.waitForCollegeName();
+        educationInformationPage.setCollegeName("King's College");
+        educationInformationPage.setCreditHours("15");
+        educationInformationPage.setAttendanceMonthStart("January");
+        educationInformationPage.setAttendanceYearStart("2016");
+        educationInformationPage.setAttendanceMontEnd("May");
+        educationInformationPage.setAttendanceYearEnd("2016");
+        educationInformationPage.setOfficialTranscript();
+        educationInformationPage.setCompleteDegreefalse();
+        educationInformationPage.waitForMinor();
+        educationInformationPage.setMinorTrue();
+        educationInformationPage.waitForBaccalaureate();
+        educationInformationPage.setBaccalaureate();
+        educationInformationPage.setKsuLocationDL();
+        educationInformationPage.setMinor();
+        educationInformationPage.submit();
         LOG.info("Testing Education Information Page (Longest Route) Test Sucessful");
     }
 
     private void testDemographicInformationPageShortest(WebDriver driver, WebDriverWait wait){
         LOG.info("Testing Demographic Information Page (Shortest Route)");
-        DemographicInformationPageShortest dips = new DemographicInformationPageShortest(driver, wait);
-        dips.waitForPageLoad();
-        dips.setPrimaryLanguage();
-        dips.setOtherLanguage();
-        dips.submit();
+        DemographicInformationPage demographicInformationPage = new DemographicInformationPage(driver, wait);
+        demographicInformationPage.waitForPageLoad();
+        demographicInformationPage.setEnglishPrimarytrue();
+        demographicInformationPage.setOtherLanguagefalse();
+        demographicInformationPage.waitForConductInformation();
+        demographicInformationPage.setEverExpelled();
+        demographicInformationPage.setFelonyCharges();
+        demographicInformationPage.setGuiltyPlea();
+        demographicInformationPage.setRegisteredName();
+        demographicInformationPage.submit();
         LOG.info("Demographic Information Page (Shortest Route) Test Successful");
     }
 
     private void testDemographicInformationPageLongest(WebDriver driver, WebDriverWait wait){
         LOG.info("Testing Demographic Information Page (Longest Route)");
-        DemographicInformationPageLongest dipl = new DemographicInformationPageLongest(driver, wait);
-        dipl.waitForPageLoad();
-        dipl.setPrimaryLanguage();
-        dipl.setOtherLanguage();
-        dipl.setParentsDegree();
-        dipl.setMilitary();
-        dipl.waitForMilitaryMonthStart();
-        dipl.setMilitaryStart("July", "2011");
-        dipl.setMilitaryEnd("June", "2016");
-        dipl.submit();
+        DemographicInformationPage demographicInformationPage = new DemographicInformationPage(driver, wait);
+        demographicInformationPage.waitForPageLoad();
+        demographicInformationPage.setEnglishPrimarytrue();
+        demographicInformationPage.setOtherLanguagefalse();
+        demographicInformationPage.setParentsDegree();
+        demographicInformationPage.setMilitary();
+        demographicInformationPage.waitForMilitaryMonthStart();
+        demographicInformationPage.setMilitaryStart("July", "2011");
+        demographicInformationPage.setMilitaryEnd("June", "2016");
+        demographicInformationPage.waitForConductInformation();
+        demographicInformationPage.setEverExpelled();
+        demographicInformationPage.setFelonyCharges();
+        demographicInformationPage.setGuiltyPlea();
+        demographicInformationPage.setRegisteredName();
+        demographicInformationPage.submit();
         LOG.info("Demographic Information Page (Longest Route) Test Successful");
     }
 
     private void testScholarshipPageShortest(WebDriver driver, WebDriverWait wait){
         LOG.info("Testing Scholarship Page (Shortest Route)");
-        ScholarshipPageShortest sps = new ScholarshipPageShortest(driver, wait);
-        sps.waitForPageLoad();
-        sps.setSSN(Integer.toString(SSN));
-        sps.submit();
+        ScholarshipPage scholarshipPage = new ScholarshipPage(driver, wait);
+        scholarshipPage.waitForPageLoad(SHORTEST);
+        scholarshipPage.setSSN(Integer.toString(SSN));
+        scholarshipPage.submit();
         LOG.info("Scholarship Page (Shortest Route) Test Successful");
     }
 
     private void testScholarshipPageLongest(WebDriver driver, WebDriverWait wait){
         LOG.info("Testing Scholarship Page (Longest Route)");
-        ScholarshipPageLongest spl = new ScholarshipPageLongest(driver, wait);
-        spl.waitForPageLoad();
-        spl.skip();
+        ScholarshipPage scholarshipPage = new ScholarshipPage(driver, wait);
+        scholarshipPage.waitForPageLoad(LONGEST);
+        scholarshipPage.skip();
         LOG.info("Scholarship Page (Longest Route) Test Successful");
     }
 
     private void testReviewPageShortest(WebDriver driver, WebDriverWait wait){
         LOG.info("Testing Review Page (Shortest Route)");
-        ReviewPageShortest reviewPage = new ReviewPageShortest(driver, wait);
+        ReviewPage reviewPage = new ReviewPage(driver, wait);
         reviewPage.waitForPageLoad();
         reviewPage.getInfo();
         assertEquals("Counselor", reviewPage.getRelationship());
@@ -354,17 +364,17 @@ public class UGAdmSeleniumTest {
         assertEquals("RL", reviewPage.getMailingCounty());
         assertEquals("123 Manhattan Ave", reviewPage.getMailingAddress());
         assertEquals("Manhattan KS, 66502", reviewPage.getMailingCity());
-        assertEquals("Father", reviewPage.getFamilyRelationship());
-        assertEquals("John Doe", reviewPage.getFamilyName());
-        assertEquals("United States", reviewPage.getHighSchoolCountry());
+        assertEquals("Father", reviewPage.getFamilyRelationship(SHORTEST));
+        assertEquals("John Doe", reviewPage.getFamilyName(SHORTEST));
+        assertEquals("United States", reviewPage.getHighSchoolCountry(SHORTEST));
         assertEquals("GED", reviewPage.getHighSchoolType());
-        assertEquals("May 2017", reviewPage.getGradDate());
+        assertEquals("May 2017", reviewPage.getGradDate(SHORTEST));
         LOG.info("Review Page (Shortest Route) Test Successful");
     }
 
     private void testReviewPageLongest(WebDriver driver, WebDriverWait wait){
         LOG.info("Testing Review Page (Longest Route)");
-        ReviewPageLongest reviewPage = new ReviewPageLongest(driver, wait);
+        ReviewPage reviewPage = new ReviewPage(driver, wait);
         reviewPage.waitForPageLoad();
         reviewPage.getInfo();
         assertEquals("Parent/Guardian", reviewPage.getRelationship());
@@ -383,11 +393,11 @@ public class UGAdmSeleniumTest {
         assertEquals("Afghanistan", reviewPage.getPermanentAddressCountry());
         assertEquals("سرک 60 متره میدان هوایی", reviewPage.getPermanentAddress());
         assertEquals("Kabul", reviewPage.getPermanentAddressCity());
-        assertEquals("Father", reviewPage.getFamilyRelationship());
-        assertEquals("John Doe", reviewPage.getFamilyName());
-        assertEquals("England", reviewPage.getHighSchoolCountry());
+        assertEquals("Father", reviewPage.getFamilyRelationship(LONGEST));
+        assertEquals("John Doe", reviewPage.getFamilyName(LONGEST));
+        assertEquals("England", reviewPage.getHighSchoolCountry(LONGEST));
         assertEquals("Appleton Thorn Primary School", reviewPage.getHighSchool());
-        assertEquals("May 2017", reviewPage.getGradDate());
+        assertEquals("May 2017", reviewPage.getGradDate(LONGEST));
         assertEquals("Yes", reviewPage.getPreviouslyAttendedKState());
         assertEquals("England", reviewPage.getPreviousCollegeCountry());
         assertEquals("King's College", reviewPage.getPreviousCollege());

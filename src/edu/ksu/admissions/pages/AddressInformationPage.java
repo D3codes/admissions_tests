@@ -1,4 +1,4 @@
-package edu.ksu.admissions.pages.shortest;
+package edu.ksu.admissions.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by davidfreeman on 4/28/16.
  */
-public class AddressInformationPageShortest {
+public class AddressInformationPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -21,13 +21,14 @@ public class AddressInformationPageShortest {
     private By zipCode = By.id("mailingZip_1");
     private By county = By.id("county_1");
     private By sameAddress = By.id("undergradForm_data_contact1_sameAddresstrue");
+    private By sameMailingAddress = By.id("intlAddrSametrue");
     private By relationship = By.id("contact1_relationship");
     private By contactFirstName = By.id("contact1_firstName");
     private By contactLastName = By.id("contact1_lastName");
     private By addAnotherRelationship = By.id("undergradForm_data_hasContact2false");
     private By submit = By.id("undergradForm_next");
 
-    public AddressInformationPageShortest(WebDriver driver, WebDriverWait wait){
+    public AddressInformationPage(WebDriver driver, WebDriverWait wait){
 
         this.driver = driver;
         this.wait = wait;
@@ -37,9 +38,14 @@ public class AddressInformationPageShortest {
         wait.until(ExpectedConditions.presenceOfElementLocated(country));
     }
 
-    public void setCountry(){
+    public void setCountryUS(){
         driver.findElement(country).click();
         new Select(driver.findElement(country)).selectByVisibleText("United States");
+    }
+
+    public void setCountryAFG(){
+        driver.findElement(country).click();
+        new Select(driver.findElement(country)).selectByVisibleText("Afghanistan");
     }
 
     public void waitForAddress(){ wait.until(ExpectedConditions.visibilityOfElementLocated(address)); }
@@ -74,6 +80,8 @@ public class AddressInformationPageShortest {
     public void setSameAddress(){
         driver.findElement(sameAddress).click();
     }
+
+    public void setSameMailingAddress() { driver.findElement(sameMailingAddress).click(); }
 
     public void setRelationship(){
         driver.findElement(relationship).click();

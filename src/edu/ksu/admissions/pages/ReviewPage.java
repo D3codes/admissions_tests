@@ -1,4 +1,4 @@
-package edu.ksu.admissions.pages.longest;
+package edu.ksu.admissions.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,25 +8,25 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.ArrayList;
 
 /**
- * Created by davidfreeman on 5/11/16.
+ * Created by davidfreeman on 5/10/16.
  */
-public class ReviewPageLongest {
+public class ReviewPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
 
     private By main = By.id("ksu-main-content");
-    private By certify = By.id("certificationAgree");
+    private By certification = By.id("certificationAgree");
 
     private ArrayList<String> review = new ArrayList<String>();
 
-    public ReviewPageLongest(WebDriver driver, WebDriverWait wait){
+    public ReviewPage(WebDriver driver, WebDriverWait wait){
         this.driver = driver;
         this.wait = wait;
     }
 
     public void waitForPageLoad(){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(certify));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(certification));
     }
 
     public void getInfo(){
@@ -44,11 +44,13 @@ public class ReviewPageLongest {
         }
     }
 
-    public String getRelationship() { return review.get(5).substring(review.get(5).indexOf("applicant") + 10); }
+    public String getRelationship(){ return review.get(5).substring(review.get(5).indexOf("applicant") + 10);}
 
-    public String getGender() { return review.get(7).substring(review.get(7).indexOf("Gender") + 7); }
+    public String getSSN() { return review.get(6).substring(review.get(6).indexOf("Number") + 7); }
 
-    public String getName() { return review.get(9).substring(review.get(9).indexOf("Name") + 5); }
+    public String getGender() { return review.get(7).substring(review.get(7).indexOf("Gender") + 7);}
+
+    public String getName() { return review.get(9).substring(review.get(9).indexOf("Name") + 5);}
 
     public String getDOB() { return review.get(11).substring(review.get(11).indexOf("Birth") + 6); }
 
@@ -61,6 +63,16 @@ public class ReviewPageLongest {
     public String getEmail() { return review.get(17).substring(review.get(17).indexOf("Address") + 8); }
 
     public String getUSCitizen() { return review.get(20).substring(review.get(20).indexOf("Citizen") + 8); }
+
+    public String getKansasResident() { return review.get(21).substring(review.get(21).indexOf("Resident") + 9); }
+
+    public String getMailingCountry() { return review.get(26).substring(review.get(26).indexOf("Country") + 8); }
+
+    public String getMailingCounty() { return review.get(27).substring(review.get(27).indexOf("County") + 7); }
+
+    public String getMailingAddress() { return review.get(28).substring(review.get(28).indexOf("Address") + 8); }
+
+    public String getMailingCity() { return review.get(29); }
 
     public String getPermanentResident() { return review.get(21).substring(review.get(21).indexOf("Resident") + 9); }
 
@@ -76,15 +88,45 @@ public class ReviewPageLongest {
 
     public String getPermanentAddressCity() { return review.get(30); }
 
-    public String getFamilyRelationship() { return review.get(36).substring(review.get(36).indexOf("Relationship") + 13); }
+    public String getFamilyRelationship(boolean isShortest) {
 
-    public String getFamilyName() { return review.get(37).substring(review.get(37).indexOf("Name") + 5); }
+        int line = 36;
+        if(isShortest)
+            line = 31;
 
-    public String getHighSchoolCountry() { return review.get(43).substring(review.get(43).indexOf("country") + 8); }
+        return review.get(line).substring(review.get(line).indexOf("Relationship") + 13);
+    }
+
+    public String getFamilyName(boolean isShortest) {
+
+        int line = 37;
+        if(isShortest)
+            line = 32;
+
+        return review.get(line).substring(review.get(line).indexOf("Name") + 5);
+    }
+
+    public String getHighSchoolCountry(boolean isShortest) {
+
+        int line = 43;
+        if(isShortest)
+            line = 39;
+
+        return review.get(line).substring(review.get(line).indexOf("country") + 8);
+    }
+
+    public String getHighSchoolType() { return review.get(40).substring(review.get(40).indexOf("type") + 5); }
 
     public String getHighSchool() { return review.get(44).substring(review.get(44).indexOf("School") + 7); }
 
-    public String getGradDate() { return review.get(45).substring(review.get(45).indexOf("date") + 5); }
+    public String getGradDate(boolean isShortest) {
+
+        int line = 45;
+        if(isShortest)
+            line = 41;
+
+        return review.get(line).substring(review.get(line).indexOf("date") + 5);
+    }
 
     public String getPreviouslyAttendedKState() { return review.get(51).substring(review.get(51).indexOf("K-State") + 8); }
 
@@ -100,5 +142,3 @@ public class ReviewPageLongest {
 
     public String getDatesOfService() { return review.get(77).substring(review.get(77).indexOf("service") + 8); }
 }
-
-

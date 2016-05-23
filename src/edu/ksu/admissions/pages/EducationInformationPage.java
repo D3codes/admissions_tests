@@ -1,4 +1,4 @@
-package edu.ksu.admissions.pages.longest;
+package edu.ksu.admissions.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,17 +9,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by davidfreeman on 5/9/16.
  */
-public class EducationInformationPageLongest {
+public class EducationInformationPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
 
     private By highSchoolCountry = By.id("highSchoolCountry");
+    private By schoolType = By.id("highSchoolTypeGED");
     private By highSchool = By.id("highSchoolName");
     private By plannedGraduationMonth = By.id("highSchoolGradMonth");
     private By plannedGraduationYear = By.id("highSchoolGradYear");
-    private By previouslyAttendedKSU = By.id("undergradForm_data_academicInfo_readmittrue");
-    private By previouslyTakenClasses = By.id("undergradForm_data_academicInfo_takenCollegetrue");
+    private By previouslyAttendedKSUtrue = By.id("undergradForm_data_academicInfo_readmittrue");
+    private By previouslyAttendedKSUfalse = By.id("undergradForm_data_academicInfo_readmitfalse");
+    private By previouslyTakenClassestrue = By.id("undergradForm_data_academicInfo_takenCollegetrue");
+    private By previouslyTakenClassesfalse = By.id("undergradForm_data_academicInfo_takenCollegefalse");
     private By collegeCountry = By.id("collegeCountry_0");
     private By collegeName = By.id("collegeName_0");
     private By creditHours = By.id("creditHours_0");
@@ -28,14 +31,18 @@ public class EducationInformationPageLongest {
     private By attendanceMonthEnd = By.id("undergradForm_data_previousColleges_0__toMonth");
     private By attendanceYearEnd = By.id("undergradForm_data_previousColleges_0__toYear");
     private By officialTranscript = By.id("requiredCheckbox");
-    private By completeDegree = By.id("undergradForm_data_academicInfo_planCompleteDegreefalse");
-    private By minor = By.id("undergradForm_data_academicInfo_postDegreeMinortrue");
+    private By completeDegreetrue = By.id("undergradForm_data_academicInfo_planCompleteDegreetrue");
+    private By completeDegreefalse = By.id("undergradForm_data_academicInfo_planCompleteDegreefalse");
+    private By completeDegreeAtKSU = By.id("undergradForm_data_academicInfo_planCompleteKStateDegreetrue");
+    private By minorTrue = By.id("undergradForm_data_academicInfo_postDegreeMinortrue");
     private By baccalaureate = By.id("undergradForm_data_academicInfo_completedDegreeFirsttrue");
-    private By ksuLocation = By.id("campusDL");
-    private By major = By.id("minors");
+    private By ksuLocationDL = By.id("campusDL");
+    private By ksuLocationMAN = By.id("campusMAN");
+    private By minors = By.id("minors");
+    private By major = By.id("majors");
     private By submit = By.id("undergradForm_next");
 
-    public EducationInformationPageLongest(WebDriver driver, WebDriverWait wait){
+    public EducationInformationPage(WebDriver driver, WebDriverWait wait){
 
         this.driver = driver;
         this.wait = wait;
@@ -52,6 +59,10 @@ public class EducationInformationPageLongest {
 
     public void waitForHighSchool(){ wait.until(ExpectedConditions.visibilityOfElementLocated(highSchool)); }
 
+    public void setSchoolType(){
+        driver.findElement(schoolType).click();
+    }
+
     public void setHighSchool(String hs){
         driver.findElement(highSchool).clear();
         driver.findElement(highSchool).sendKeys(hs);
@@ -67,13 +78,17 @@ public class EducationInformationPageLongest {
         new Select(driver.findElement(plannedGraduationYear)).selectByVisibleText("2017");
     }
 
-    public void setPreviouslyAttendedKSU(){
-        driver.findElement(previouslyAttendedKSU).click();
+    public void setPreviouslyAttendedKSUtrue(){
+        driver.findElement(previouslyAttendedKSUtrue).click();
     }
 
-    public void setPreviouslyTakenClasses(){
-        driver.findElement(previouslyTakenClasses).click();
+    public void setPreviouslyAttendedKSUfalse() { driver.findElement(previouslyAttendedKSUfalse).click(); }
+
+    public void setPreviouslyTakenClassestrue(){
+        driver.findElement(previouslyTakenClassestrue).click();
     }
+
+    public void setPreviouslyTakenClassesfalse() { driver.findElement(previouslyTakenClassesfalse).click(); }
 
     public void waitForCollegeCountry() { wait.until(ExpectedConditions.visibilityOfElementLocated(collegeCountry)); }
 
@@ -118,16 +133,24 @@ public class EducationInformationPageLongest {
         driver.findElement(officialTranscript).click();
     }
 
-    public void waitForCompleteDegree(){ wait.until(ExpectedConditions.visibilityOfElementLocated(completeDegree)); }
+    public void waitForCompleteDegree(){ wait.until(ExpectedConditions.visibilityOfElementLocated(completeDegreetrue)); }
 
-    public void setCompleteDegree(){
-        driver.findElement(completeDegree).click();
+    public void setCompleteDegreetrue() { driver.findElement(completeDegreetrue).click(); }
+
+    public void setCompleteDegreefalse(){
+        driver.findElement(completeDegreefalse).click();
     }
 
-    public void waitForMinor() { wait.until(ExpectedConditions.visibilityOfElementLocated(minor)); }
+    public void waitForCompleteDegreeAtKSU() { wait.until(ExpectedConditions.visibilityOfElementLocated(completeDegreeAtKSU)); }
 
-    public void setMinor(){
-        driver.findElement(minor).click();
+    public void setCompleteDegreeAtKSU(){
+        driver.findElement(completeDegreeAtKSU).click();
+    }
+
+    public void waitForMinor() { wait.until(ExpectedConditions.visibilityOfElementLocated(minorTrue)); }
+
+    public void setMinorTrue(){
+        driver.findElement(minorTrue).click();
     }
 
     public void waitForBaccalaureate() { wait.until(ExpectedConditions.visibilityOfElementLocated(baccalaureate)); }
@@ -136,8 +159,15 @@ public class EducationInformationPageLongest {
         driver.findElement(baccalaureate).click();
     }
 
-    public void setKsuLocation(){
-        driver.findElement(ksuLocation).click();
+    public void setKsuLocationDL(){
+        driver.findElement(ksuLocationDL).click();
+    }
+
+    public void setKsuLocationMAN() { driver.findElement(ksuLocationMAN).click(); }
+
+    public void setMinor(){
+        driver.findElement(minors).click();
+        new Select(driver.findElement(minors)).selectByIndex(5);
     }
 
     public void setMajor(){

@@ -1,4 +1,4 @@
-package edu.ksu.admissions.pages.longest;
+package edu.ksu.admissions.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,14 +9,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by davidfreeman on 5/6/16.
  */
-public class PersonalInformationPageLongest {
+public class PersonalInformationPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
 
     private By term = By.id("undergradForm_data_application_term2165");
     private By dataForOther = By.id("undergradForm_data_forOthertrue");
-    private By relationship = By.id("undergradForm_data_roleStringFamily");
+    private By relationshipFamily = By.id("undergradForm_data_roleStringFamily");
+    private By relationshipCounselor = By.id("undergradForm_data_roleStringCounselor");
     private By gender = By.id("genderM");
     private By firstName = By.id("firstName");
     private By lastName = By.id("lastName");
@@ -29,7 +30,11 @@ public class PersonalInformationPageLongest {
     private By phoneNumber = By.id("phone1");
     private By emailAddress = By.id("email");
     private By confirmEmail = By.id("emailConfirm");
-    private By usCitizen = By.id("usCitizenfalse");
+    private By usCitizentrue = By.id("usCitizentrue");
+    private By usCitizenfalse = By.id("usCitizenfalse");
+    private By ksResident = By.id("ksResidenttrue");
+    private By inKsSinceBirth = By.id("inKsSinceBirthFlagtrue");
+    private By parentsKsResident = By.id("ksParentsResidentfalse");
     private By permanentResident = By.id("usPermanentResidentfalse");
     private By internationalStudent = By.id("internationalStudenttrue");
     private By countryOfCitizenship = By.id("citizenCountry");
@@ -38,7 +43,7 @@ public class PersonalInformationPageLongest {
     private By requestingVisa = By.id("admitVisaType");
     private By submit = By.id("undergradForm_next");
 
-    public PersonalInformationPageLongest(WebDriver driver, WebDriverWait wait){
+    public PersonalInformationPage(WebDriver driver, WebDriverWait wait){
 
         this.driver = driver;
         this.wait = wait;
@@ -52,15 +57,17 @@ public class PersonalInformationPageLongest {
         driver.findElement(term).click();
     }
 
-    public void waitForRelationship(){ wait.until(ExpectedConditions.visibilityOf( driver.findElement(relationship)));}
+    public void waitForRelationship(){ wait.until(ExpectedConditions.visibilityOf( driver.findElement(relationshipFamily)));}
 
     public void setDataForOther(){
         driver.findElement(dataForOther).click();
     }
 
-    public void setRelationship(){
-        driver.findElement(relationship).click();
+    public void setRelationshipFamily(){
+        driver.findElement(relationshipFamily).click();
     }
+
+    public void setRelationshipCounselor() { driver.findElement(relationshipCounselor).click(); }
 
     public void setGender(){
         driver.findElement(gender).click();
@@ -122,8 +129,26 @@ public class PersonalInformationPageLongest {
         driver.findElement(confirmEmail).sendKeys(email);
     }
 
-    public void setUsCitizen(){
-        driver.findElement(usCitizen).click();
+    public void setUsCitizentrue() { driver.findElement(usCitizentrue).click(); }
+
+    public void setUsCitizenfalse(){
+        driver.findElement(usCitizenfalse).click();
+    }
+
+    public void waitForKsResident() { wait.until(ExpectedConditions.visibilityOf(driver.findElement(ksResident))); }
+
+    public void setKsResident(){
+        driver.findElement(ksResident).click();
+    }
+
+    public void waitForInKsSinceBirth(){ wait.until(ExpectedConditions.visibilityOf(driver.findElement(inKsSinceBirth))); }
+
+    public void setInKsSinceBirth(){
+        driver.findElement(inKsSinceBirth).click();
+    }
+
+    public void setParentsKsResident(){
+        driver.findElement(parentsKsResident).click();
     }
 
     public void waitForPermanentResident() { wait.until(ExpectedConditions.visibilityOfElementLocated(permanentResident)); }
