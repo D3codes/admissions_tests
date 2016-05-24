@@ -73,8 +73,8 @@ public class UGAdmSeleniumTest {
     @Test
     public void testShortestRoute() throws Exception{
         LOG.info("Testing Undergrad Admissions Shortest Route");
-        try{
-            for(WebDriver driver : drivers){
+        for(WebDriver driver : drivers){
+            try {
                 WebDriverWait wait = new WebDriverWait(driver, 20);
                 driver.get(baseURL);
                 testPageOne(driver, wait, true);
@@ -85,10 +85,14 @@ public class UGAdmSeleniumTest {
                 testDemographicInformationPageShortest(driver, wait);
                 testScholarshipPageShortest(driver, wait);
                 testReviewPageShortest(driver, wait);
+            } catch(Exception e){
+                LOG.error("ERROR in test script: Undergrad Admissions Shortest Route");
+                String driverType = "Safari Driver";
+                if(driver instanceof FirefoxDriver) { driverType = "Firefox Driver"; }
+                else if(driver instanceof ChromeDriver) { driverType = "Chrome Driver"; }
+                LOG.error("ERROR in " + driverType);
+                LOG.error(e);
             }
-        } catch(Exception e) {
-            LOG.error("ERROR in test script: Undergrad Admissions Shortest Route");
-            LOG.error(e);
         }
     }
 
@@ -97,8 +101,9 @@ public class UGAdmSeleniumTest {
      */
     @Test
     public void testLongestRoute() throws Exception{
-        LOG.info("Testing Undergrad Admissions Longest Route");try{
-            for(WebDriver driver : drivers){
+        LOG.info("Testing Undergrad Admissions Longest Route");
+        for(WebDriver driver : drivers){
+            try {
                 WebDriverWait wait = new WebDriverWait(driver, 20);
                 driver.get(baseURL);
                 testPageOne(driver, wait, true);
@@ -109,11 +114,14 @@ public class UGAdmSeleniumTest {
                 testDemographicInformationPageLongest(driver, wait);
                 testScholarshipPageLongest(driver, wait);
                 testReviewPageLongest(driver, wait);
+            } catch(Exception e) {
+                LOG.error("ERROR in test script: Undergrad Admissions Longest Route");
+                String driverType = "Safari Driver";
+                if(driver instanceof FirefoxDriver){ driverType = "Firefox Driver"; }
+                else if(driver instanceof ChromeDriver) { driverType = "Chrome Driver"; }
+                LOG.error("ERROR in " + driverType);
+                LOG.error(e);
             }
-
-        } catch(Exception e) {
-            LOG.error("ERROR in test script: Undergrad Admissions Longest Route");
-            LOG.error(e);
         }
     }
 
