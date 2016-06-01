@@ -29,9 +29,9 @@ public class UGAdmSeleniumTest {
     private List<WebDriver> drivers;
     private ArrayList<String> names;
     private String firstName;
+    private int SSN;
     private static final int SSN_MAX = 999999999;
     private static final int SSN_MIN = 100000000;
-    private int SSN;
     private static final boolean SHORTEST = true;
     private static final boolean LONGEST = false;
 
@@ -54,7 +54,6 @@ public class UGAdmSeleniumTest {
             chrome = new ChromeDriver();
             drivers.add(fireFox);
             drivers.add(chrome);
-
         }catch(Exception e){
             LOG.error("ERROR setting up Drivers");
             LOG.error(e);
