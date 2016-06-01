@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae6653b0-5387-46cb-beb6-1e318cb8224a" name="Default" comment="major refactoring of pages">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ReadIn.java" afterPath="$PROJECT_DIR$/src/main/java/ReadIn.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/UGAdmSeleniumTest.java" afterPath="$PROJECT_DIR$/src/test/java/UGAdmSeleniumTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/AddressInformationPage.java" afterPath="$PROJECT_DIR$/src/test/java/edu/ksu/admissions/pages/AddressInformationPage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/AdmissionsPageOne.java" afterPath="$PROJECT_DIR$/src/test/java/edu/ksu/admissions/pages/AdmissionsPageOne.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/DemographicInformationPage.java" afterPath="$PROJECT_DIR$/src/test/java/edu/ksu/admissions/pages/DemographicInformationPage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/EducationInformationPage.java" afterPath="$PROJECT_DIR$/src/test/java/edu/ksu/admissions/pages/EducationInformationPage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/LoginPage.java" afterPath="$PROJECT_DIR$/src/test/java/edu/ksu/admissions/pages/LoginPage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/PersonalInformationPage.java" afterPath="$PROJECT_DIR$/src/test/java/edu/ksu/admissions/pages/PersonalInformationPage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/ReviewPage.java" afterPath="$PROJECT_DIR$/src/test/java/edu/ksu/admissions/pages/ReviewPage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/ksu/admissions/pages/ScholarshipPage.java" afterPath="$PROJECT_DIR$/src/test/java/edu/ksu/admissions/pages/ScholarshipPage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/linux/chromedriver" afterPath="$PROJECT_DIR$/src/main/resources/linux/chromedriver" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/mac/chromedriver" afterPath="$PROJECT_DIR$/src/main/resources/mac/chromedriver" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/names.txt" afterPath="$PROJECT_DIR$/src/main/resources/names.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/windows/chromedriver.exe" afterPath="$PROJECT_DIR$/src/main/resources/windows/chromedriver.exe" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/linux/chromedriver" afterPath="$PROJECT_DIR$/src/main/resources/linux/chromedriver" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admissions_tests.iml" afterPath="$PROJECT_DIR$/admissions_tests.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="admissions_tests.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,28 +32,26 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="3555" max-vertical-offset="6390">
               <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EducationInformationPage.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="EducationInformationPage.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/edu/ksu/admissions/pages/EducationInformationPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.093333334" vertical-offset="0" max-vertical-offset="2415">
+            <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="2415">
               <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1185">
-              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.26666668" vertical-offset="60" max-vertical-offset="1185">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -180,6 +162,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -292,8 +276,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -340,15 +322,15 @@
       <recent name="$PROJECT_DIR$/src/test/java" />
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="edu.ksu.admissions.pages" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/linux" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main" />
       <recent name="$PROJECT_DIR$/src/main/edu/ksu/admissions/pages" />
       <recent name="$PROJECT_DIR$/src/windows" />
-      <recent name="$PROJECT_DIR$/src/linux" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="edu.ksu.admissions.pages" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.UGAdmSeleniumTest">
@@ -480,7 +462,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="240" width="1920" height="1200" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -537,11 +519,33 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/test/java/UGAdmSeleniumTest.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6390">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/edu/ksu/admissions/pages/EducationInformationPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="2415">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1185">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/UGAdmSeleniumTest.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="6390">
           <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -557,9 +561,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="6465">
           <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -625,15 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.053333335" vertical-offset="60" max-vertical-offset="1185">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1185">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -641,16 +634,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3555" max-vertical-offset="6390">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/edu/ksu/admissions/pages/EducationInformationPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.093333334" vertical-offset="0" max-vertical-offset="2415">
+        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="2415">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26666668" vertical-offset="60" max-vertical-offset="1185">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
