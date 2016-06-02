@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ae6653b0-5387-46cb-beb6-1e318cb8224a" name="Default" comment="major refactoring of pages">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/edu/ksu/admissions/pages/EducationInformationPage.java" afterPath="$PROJECT_DIR$/src/test/java/edu/ksu/admissions/pages/EducationInformationPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.txt" afterPath="$PROJECT_DIR$/README.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/UGAdmSeleniumTest.java" afterPath="$PROJECT_DIR$/src/test/java/UGAdmSeleniumTest.java" />
     </list>
     <ignored path="admissions_tests.iws" />
@@ -29,7 +30,7 @@
       <file leaf-file-name="UGAdmSeleniumTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/UGAdmSeleniumTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4" vertical-offset="690" max-vertical-offset="7725">
+            <state vertical-scroll-proportion="1.0133333" vertical-offset="0" max-vertical-offset="7725">
               <caret line="90" column="26" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
               <folding />
             </state>
@@ -59,7 +60,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/UGAdmTestDriver.java" />
         <option value="$PROJECT_DIR$/src/edu/ksu/admissions/pages/PersonalInformationPage.java" />
         <option value="$PROJECT_DIR$/src/edu/ksu/admissions/pages/AddressInformationShortest.java" />
         <option value="$PROJECT_DIR$/src/edu/ksu/admissions/pages/ApplicationPageShortest.java" />
@@ -110,6 +110,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/edu/ksu/admissions/pages/EducationInformationPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/UGAdmSeleniumTest.java" />
+        <option value="$PROJECT_DIR$/README.txt" />
       </list>
     </option>
   </component>
@@ -667,9 +668,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.026666667" vertical-offset="0" max-vertical-offset="1125">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/UGAdmSeleniumTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4" vertical-offset="690" max-vertical-offset="7725">
+        <state vertical-scroll-proportion="1.0133333" vertical-offset="0" max-vertical-offset="7725">
           <caret line="90" column="26" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
           <folding />
         </state>
