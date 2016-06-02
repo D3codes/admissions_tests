@@ -120,6 +120,35 @@ public class UGAdmSeleniumTest {
         }
     }
 
+    /**
+     * Test self reporting
+     */
+    @Test
+    public void testSelfReporting() throws Exception{
+        System.out.println("Testing Self Reporting");
+        for(WebDriver driver : drivers){
+            try{
+                WebDriverWait wait = new WebDriverWait(driver, 20);
+                driver.get(baseURL);
+                testPageOne(driver, wait, true);
+                testLoginPage(driver, wait);
+                testPersonalInformationPageShortest(driver, wait);
+                testAddressInformationShortest(driver, wait);
+                testEducationInformationPageWithSelfReporting(driver, wait);
+                testDemographicInformationPageShortest(driver, wait);
+                testScholarshipPageShortest(driver, wait);
+                testReviewPageWithSelfReporting(driver, wait);
+            } catch(Exception e) {
+                System.err.println("ERROR in test script: Self Reporting");
+                String driverType = "Safari Driver";
+                if(driver instanceof FirefoxDriver){ driverType = "Firefox Driver"; }
+                else if(driver instanceof ChromeDriver) { driverType = "Chrome Driver"; }
+                System.err.println("ERROR in " + driverType);
+                System.err.println(e);
+            }
+        }
+    }
+
     private void testPageOne(WebDriver driver, WebDriverWait wait, Boolean hasEID){
         System.out.println("Testing Page One");
         AdmissionsPageOne admissionsPageOne = new AdmissionsPageOne(driver, wait);
@@ -292,7 +321,51 @@ public class UGAdmSeleniumTest {
         educationInformationPage.setKsuLocationDL();
         educationInformationPage.setMinor();
         educationInformationPage.submit();
-        System.out.println("Testing Education Information Page (Longest Route) Test Sucessful");
+        System.out.println("Education Information Page (Longest Route) Test Successful");
+    }
+
+    private void testEducationInformationPageWithSelfReporting(WebDriver driver, WebDriverWait wait){
+        System.out.println("Testing Education Information Page With Self Reporting");
+        EducationInformationPage educationInformationPage = new EducationInformationPage(driver, wait);
+        educationInformationPage.waitForPageLoad();
+        educationInformationPage.setHighSchoolCountry("United States");
+        educationInformationPage.setSchoolTypeForSelfReporting();
+        educationInformationPage.waitForHighSchoolState();
+        educationInformationPage.setHighSchoolState();
+        educationInformationPage.waitForHighSchool();
+        educationInformationPage.setHighSchool("Lansing High School (Lansing)");
+        educationInformationPage.setPlannedGraduationMonth();
+        educationInformationPage.setPlannedGraduationYear();
+        educationInformationPage.waitForSelfReporting();
+        educationInformationPage.setSelfReporting();
+        educationInformationPage.waitForGPAScale();
+        educationInformationPage.setGPAScale();
+        educationInformationPage.setGPAWeight();
+        educationInformationPage.waitForGPA();
+        educationInformationPage.setGPA();
+        educationInformationPage.setRanking();
+        educationInformationPage.setTerm();
+        educationInformationPage.setNinthGradeTranscript();
+        educationInformationPage.setTenthGradeTranscript();
+        educationInformationPage.setEleventhGradeTranscript();
+        educationInformationPage.setTwelthGradeTranscript();
+        educationInformationPage.setACT();
+        educationInformationPage.waitForCompositeScore();
+        educationInformationPage.setCompositeScore("32");
+        educationInformationPage.setEnglishScore("32");
+        educationInformationPage.setMathScore("32");
+        educationInformationPage.setReadingScore("32");
+        educationInformationPage.setScienceScore("32");
+        educationInformationPage.setPreviouslyAttendedKSUfalse();
+        educationInformationPage.setPreviouslyTakenClassesfalse();
+        educationInformationPage.waitForCompleteDegree();
+        educationInformationPage.setCompleteDegreetrue();
+        educationInformationPage.waitForCompleteDegreeAtKSU();
+        educationInformationPage.setCompleteDegreeAtKSU();
+        educationInformationPage.setKsuLocationMAN();
+        educationInformationPage.setMajor();
+        educationInformationPage.submit();
+        System.out.println("Education Information Page With Self Reporting Test Successful");
     }
 
     private void testDemographicInformationPageShortest(WebDriver driver, WebDriverWait wait){
@@ -371,7 +444,7 @@ public class UGAdmSeleniumTest {
         assertEquals("John Doe", reviewPage.getFamilyName(SHORTEST));
         assertEquals("United States", reviewPage.getHighSchoolCountry(SHORTEST));
         assertEquals("GED", reviewPage.getHighSchoolType());
-        assertEquals("May 2017", reviewPage.getGradDate(SHORTEST));
+        assertEquals("May 2016", reviewPage.getGradDate(SHORTEST));
         System.out.println("Review Page (Shortest Route) Test Successful");
     }
 
@@ -400,7 +473,7 @@ public class UGAdmSeleniumTest {
         assertEquals("John Doe", reviewPage.getFamilyName(LONGEST));
         assertEquals("England", reviewPage.getHighSchoolCountry(LONGEST));
         assertEquals("Appleton Thorn Primary School", reviewPage.getHighSchool());
-        assertEquals("May 2017", reviewPage.getGradDate(LONGEST));
+        assertEquals("May 2016", reviewPage.getGradDate(LONGEST));
         assertEquals("Yes", reviewPage.getPreviouslyAttendedKState());
         assertEquals("England", reviewPage.getPreviousCollegeCountry());
         assertEquals("King's College", reviewPage.getPreviousCollege());
@@ -409,6 +482,33 @@ public class UGAdmSeleniumTest {
         assertEquals("Yes", reviewPage.getActiveMilitary());
         assertEquals("Jul 2011 to Jun 2016", reviewPage.getDatesOfService());
         System.out.println("Review Page (Longest Route) Test Successful");
+    }
+
+    private void testReviewPageWithSelfReporting(WebDriver driver, WebDriverWait wait){
+        System.out.println("Testing Review Page (Self Reporting)");
+        ReviewPage reviewPage = new ReviewPage(driver, wait);
+        reviewPage.waitForPageLoad();
+        reviewPage.getInfo();
+        assertEquals("Counselor", reviewPage.getRelationship());
+        assertEquals(Integer.toString(SSN), reviewPage.getSSN());
+        assertEquals("Male", reviewPage.getGender());
+        assertEquals(firstName + " Test", reviewPage.getName());
+        assertEquals("01/01/96", reviewPage.getDOB());
+        assertEquals("United States", reviewPage.getCountryOfBirth());
+        assertEquals("Manhattan", reviewPage.getCityOfBirth());
+        assertEquals("1234567890", reviewPage.getPhoneNumber());
+        assertEquals(firstName+"Test@ksu.edu", reviewPage.getEmail());
+        assertEquals("Yes", reviewPage.getUSCitizen());
+        assertEquals("Yes", reviewPage.getKansasResident());
+        assertEquals("United States", reviewPage.getMailingCountry());
+        assertEquals("RL", reviewPage.getMailingCounty());
+        assertEquals("123 Manhattan Ave", reviewPage.getMailingAddress());
+        assertEquals("Manhattan KS, 66502", reviewPage.getMailingCity());
+        assertEquals("Father", reviewPage.getFamilyRelationship(SHORTEST));
+        assertEquals("John Doe", reviewPage.getFamilyName(SHORTEST));
+        assertEquals("United States", reviewPage.getHighSchoolCountry(SHORTEST));
+        assertEquals("High school", reviewPage.getHighSchoolType());
+        System.out.println("Review Page (Self Reporting) Test Successful");
     }
 
     @After
