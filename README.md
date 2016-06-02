@@ -1,4 +1,5 @@
 <b>Admissions App Automated Tests</b>
+<br>
 This project contains test scripts intended for aspects the the K-State Admissions App
 
 <b>Technologies Used</b>
