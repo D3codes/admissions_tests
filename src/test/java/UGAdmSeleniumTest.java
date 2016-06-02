@@ -88,6 +88,7 @@ public class UGAdmSeleniumTest {
                 System.err.println("ERROR in " + driverType);
                 System.err.println(e);
             }
+            driver.quit();
         }
     }
 
@@ -117,6 +118,7 @@ public class UGAdmSeleniumTest {
                 System.err.println("ERROR in " + driverType);
                 System.err.println(e);
             }
+            driver.quit();
         }
     }
 
@@ -146,6 +148,7 @@ public class UGAdmSeleniumTest {
                 System.err.println("ERROR in " + driverType);
                 System.err.println(e);
             }
+            driver.quit();
         }
     }
 
@@ -514,7 +517,7 @@ public class UGAdmSeleniumTest {
     @After
     public void tearDown() throws Exception{
 
-        for(WebDriver driver : drivers)
-            driver.quit();
+//        for(WebDriver driver : drivers)
+//            driver.quit();
     }
 }
