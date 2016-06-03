@@ -18,11 +18,12 @@ public class ReviewPage {
     private By main = By.id("ksu-main-content");
     private By certification = By.id("certificationAgree");
 
-    private ArrayList<String> review = new ArrayList<String>();
+    private ArrayList<String> review;
 
     public ReviewPage(WebDriver driver, WebDriverWait wait){
         this.driver = driver;
         this.wait = wait;
+        review = new ArrayList<String>();
     }
 
     public void waitForPageLoad(){
@@ -42,6 +43,11 @@ public class ReviewPage {
                 tmp += whole.charAt(i);
             }
         }
+    }
+
+    public void printInfo(){
+      for(String line : review)
+        System.out.println(line);
     }
 
     public String getRelationship(){ return review.get(5).substring(review.get(5).indexOf("applicant") + 10);}
@@ -141,4 +147,44 @@ public class ReviewPage {
     public String getActiveMilitary() { return review.get(76).substring(review.get(76).indexOf("Military") + 9); }
 
     public String getDatesOfService() { return review.get(77).substring(review.get(77).indexOf("service") + 8); }
+
+    public String getDescendant1() { return review.get(80); }
+
+    public String getDescendant2() { return review.get(81); }
+
+    public String getDescendant3() { return review.get(82); }
+
+    public String getDescendant4() { return review.get(83); }
+
+    public String getDescendant5() { return review.get(84); }
+
+    public String getDescendant6() { return review.get(85); }
+
+    public String getEmployer1() { return review.get(86); }
+
+    public String getEmployer2() { return review.get(87); }
+
+    public String getEmployer3() { return review.get(88); }
+
+    public String getGeneral1() { return review.get(89); }
+
+    public String getGeneral2() { return review.get(90); }
+
+    public String getGeneral3() { return review.get(91); }
+
+    public String getGeneral4() { return review.get(92); }
+
+    public String getGeneral5() { return review.get(93); }
+
+    public String getGeneral6() { return review.get(94); }
+
+    public String getGeneral7() { return review.get(95); }
+
+    public String getGeneral8() { return review.get(96); }
+
+    public String getGeneral9() { return review.get(97); }
+
+    public String getGeneral10() { return review.get(98); }
+
+    public String getGeneral11() { return review.get(99); }
 }
