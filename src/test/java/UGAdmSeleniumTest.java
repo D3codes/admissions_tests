@@ -351,7 +351,7 @@ public class UGAdmSeleniumTest {
         educationInformationPage.setNinthGradeTranscript();
         educationInformationPage.setTenthGradeTranscript();
         educationInformationPage.setEleventhGradeTranscript();
-        educationInformationPage.setTwelthGradeTranscript();
+        educationInformationPage.setTwelfthGradeTranscript();
         educationInformationPage.setACT();
         educationInformationPage.waitForCompositeScore();
         educationInformationPage.setCompositeScore("32");

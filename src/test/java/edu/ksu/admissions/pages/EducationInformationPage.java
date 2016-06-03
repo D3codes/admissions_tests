@@ -66,10 +66,10 @@ public class EducationInformationPage {
     private By eleventhGradeCourses = By.id("undergradForm_data_grade11_courseCode");
     private By eleventhGradeTerm1 = By.id("undergradForm_data_grade11_term1Grade");
     private By eleventhGradeTerm2 = By.id("undergradForm_data_grade11_term2Grade");
-    private By lessTwelthGradeClasses = By.id("delButton12");
-    private By twelthGradeCourses = By.id("undergradForm_data_grade12_courseCode");
-    private By twelthGradeTerm1 = By.id("undergradForm_data_grade12_term1Grade");
-    private By twelthGradeTerm2 = By.id("undergradForm_data_grade12_term2Grade");
+    private By lessTwelfthGradeClasses = By.id("delButton12");
+    private By twelfthGradeCourses = By.id("undergradForm_data_grade12_courseCode");
+    private By twelfthGradeTerm1 = By.id("undergradForm_data_grade12_term1Grade");
+    private By twelfthGradeTerm2 = By.id("undergradForm_data_grade12_term2Grade");
     private By ACT = By.id("actScores");
     private By compositeScore = By.id("data.selfReportInfo.actComposite");
     private By englishScore = By.id("data.selfReportInfo.actEnglish");
@@ -248,14 +248,14 @@ public class EducationInformationPage {
         }
     }
 
-    public void setTwelthGradeTranscript(){
+    public void setTwelfthGradeTranscript(){
 
         for(int i = 0; i < 3; i++)
-            driver.findElement(lessTwelthGradeClasses).click();
+            driver.findElement(lessTwelfthGradeClasses).click();
 
-        List<WebElement> courses = driver.findElements(twelthGradeCourses);
-        List<WebElement> term1 = driver.findElements(twelthGradeTerm1);
-        List<WebElement> term2 = driver.findElements(twelthGradeTerm2);
+        List<WebElement> courses = driver.findElements(twelfthGradeCourses);
+        List<WebElement> term1 = driver.findElements(twelfthGradeTerm1);
+        List<WebElement> term2 = driver.findElements(twelfthGradeTerm2);
         for(int i = 0; i < courses.size(); i++) {
             courses.get(i).click();
             switch (i) {
