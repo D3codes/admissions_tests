@@ -14,9 +14,6 @@ public class ScholarshipPage {
     private WebDriverWait wait;
 
     private By ssn = By.id("nationalId");
-    private By submit = By.id("undergradForm_next");
-    private By skip = By.id("skip");
-
     private By activities = By.id("activities");
     private By awards = By.id("awards");
     private By roles = By.id("roles");
@@ -40,6 +37,8 @@ public class ScholarshipPage {
     private By general9 = By.id("general_108");
     private By general10 = By.id("general_109");
     private By general11 = By.id("general_110");
+    private By submit = By.id("undergradForm_next");
+    private By skip = By.id("skip");
 
     public ScholarshipPage(WebDriver driver, WebDriverWait wait){
 
