@@ -148,43 +148,184 @@ public class ReviewPage {
 
     public String getDatesOfService() { return review.get(77).substring(review.get(77).indexOf("service") + 8); }
 
-    public String getDescendant1() { return review.get(80); }
+    public String getDescendant1(Boolean conductQuestions) {
 
-    public String getDescendant2() { return review.get(81); }
+      int line = 75;
+      if(conductQuestions)
+        line = 80;
 
-    public String getDescendant3() { return review.get(82); }
+      return review.get(line);
+     }
 
-    public String getDescendant4() { return review.get(83); }
+    public String getDescendant2(Boolean conductQuestions) {
 
-    public String getDescendant5() { return review.get(84); }
+      int line = 76;
+      if(conductQuestions)
+        line = 81;
 
-    public String getDescendant6() { return review.get(85); }
+      return review.get(line);
+     }
 
-    public String getEmployer1() { return review.get(86); }
+    public String getDescendant3(Boolean conductQuestions) {
 
-    public String getEmployer2() { return review.get(87); }
+      int line = 77;
+      if(conductQuestions)
+        line = 82;
 
-    public String getEmployer3() { return review.get(88); }
+      return review.get(line);
+    }
 
-    public String getGeneral1() { return review.get(89); }
+    public String getDescendant4(Boolean conductQuestions) {
 
-    public String getGeneral2() { return review.get(90); }
+      int line = 78;
+      if(conductQuestions)
+        line = 83;
 
-    public String getGeneral3() { return review.get(91); }
+      return review.get(line);
+    }
 
-    public String getGeneral4() { return review.get(92); }
+    public String getDescendant5(Boolean conductQuestions) {
 
-    public String getGeneral5() { return review.get(93); }
+      int line = 79;
+      if(conductQuestions)
+        line = 84;
 
-    public String getGeneral6() { return review.get(94); }
+      return review.get(line);
+    }
 
-    public String getGeneral7() { return review.get(95); }
+    public String getDescendant6(Boolean conductQuestions) {
 
-    public String getGeneral8() { return review.get(96); }
+      int line = 80;
+      if(conductQuestions)
+        line = 85;
 
-    public String getGeneral9() { return review.get(97); }
+      return review.get(line);
+    }
 
-    public String getGeneral10() { return review.get(98); }
+    public String getEmployer1(Boolean conductQuestions) {
 
-    public String getGeneral11() { return review.get(99); }
+      int line = 81;
+      if(conductQuestions)
+        line = 86;
+
+      return review.get(line);
+    }
+
+    public String getEmployer2(Boolean conductQuestions) {
+
+      int line = 82;
+      if(conductQuestions)
+        line = 87;
+
+      return review.get(line);
+    }
+
+    public String getEmployer3(Boolean conductQuestions) {
+
+      int line = 83;
+      if(conductQuestions)
+        line = 88;
+
+      return review.get(line);
+    }
+
+    public String getGeneral1(Boolean conductQuestions) {
+
+      int line = 84;
+      if(conductQuestions)
+        line = 89;
+
+      return review.get(line);
+    }
+
+    public String getGeneral2(Boolean conductQuestions) {
+
+      int line = 85;
+      if(conductQuestions)
+        line = 90;
+
+      return review.get(line);
+    }
+
+    public String getGeneral3(Boolean conductQuestions) {
+
+      int line = 86;
+      if(conductQuestions)
+        line = 91;
+
+      return review.get(line);
+    }
+
+    public String getGeneral4(Boolean conductQuestions) {
+
+      int line = 87;
+      if(conductQuestions)
+        line = 92;
+
+      return review.get(line);
+    }
+
+    public String getGeneral5(Boolean conductQuestions) {
+
+      int line = 88;
+      if(conductQuestions)
+        line = 93;
+
+      return review.get(line);
+    }
+
+
+    public String getGeneral6(Boolean conductQuestions) {
+
+      int line = 89;
+      if(conductQuestions)
+        line = 94;
+
+      return review.get(line);
+    }
+
+    public String getGeneral7(Boolean conductQuestions) {
+
+      int line = 90;
+      if(conductQuestions)
+        line = 95;
+
+      return review.get(line);
+    }
+
+    public String getGeneral8(Boolean conductQuestions) {
+
+      int line = 91;
+      if(conductQuestions)
+        line = 96;
+
+      return review.get(line);
+    }
+
+    public String getGeneral9(Boolean conductQuestions) {
+
+      int line = 92;
+      if(conductQuestions)
+        line = 97;
+
+      return review.get(line);
+    }
+
+    public String getGeneral10(Boolean conductQuestions) {
+
+      int line = 93;
+      if(conductQuestions)
+        line = 98;
+
+      return review.get(line);
+    }
+
+    public String getGeneral11(Boolean conductQuestions) {
+
+      int line = 94;
+      if(conductQuestions)
+        line = 99;
+
+      return review.get(line);
+    }
 }

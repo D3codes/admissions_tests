@@ -30,6 +30,7 @@ public class UGAdmSeleniumTest {
     private static final int SSN_MIN = 100000000;
     private static final boolean SHORTEST = true;
     private static final boolean LONGEST = false;
+    private boolean CONDUCT_QUESTIONS = true;
 
     @Before
     public void setUp() throws Exception{
@@ -88,7 +89,6 @@ public class UGAdmSeleniumTest {
                 System.err.println("ERROR in " + driverType);
                 System.err.println(e);
             }
-            driver.quit();
         }
     }
 
@@ -118,12 +118,11 @@ public class UGAdmSeleniumTest {
                 System.err.println("ERROR in " + driverType);
                 System.err.println(e);
             }
-            driver.quit();
         }
     }
 
     /**
-     * Test self reporting
+     * Test shortest route with self reporting
      */
     @Test
     public void testSelfReporting() throws Exception{
@@ -148,7 +147,6 @@ public class UGAdmSeleniumTest {
                 System.err.println("ERROR in " + driverType);
                 System.err.println(e);
             }
-            driver.quit();
         }
     }
 
@@ -377,11 +375,16 @@ public class UGAdmSeleniumTest {
         demographicInformationPage.waitForPageLoad();
         demographicInformationPage.setEnglishPrimarytrue();
         demographicInformationPage.setOtherLanguagefalse();
-        demographicInformationPage.waitForConductInformation();
-        demographicInformationPage.setEverExpelled();
-        demographicInformationPage.setFelonyCharges();
-        demographicInformationPage.setGuiltyPlea();
-        demographicInformationPage.setRegisteredName();
+        try{
+          demographicInformationPage.waitForConductInformation();
+          demographicInformationPage.setEverExpelled();
+          demographicInformationPage.setFelonyCharges();
+          demographicInformationPage.setGuiltyPlea();
+          demographicInformationPage.setRegisteredName();
+        } catch(Exception e) {
+          System.err.println("ERROR in Demographic Information Page: Conduct Questions Not Present");
+          CONDUCT_QUESTIONS = false;
+        }
         demographicInformationPage.submit();
         System.out.println("Demographic Information Page (Shortest Route) Test Successful");
     }
@@ -397,11 +400,16 @@ public class UGAdmSeleniumTest {
         demographicInformationPage.waitForMilitaryMonthStart();
         demographicInformationPage.setMilitaryStart("July", "2011");
         demographicInformationPage.setMilitaryEnd("June", "2016");
-        demographicInformationPage.waitForConductInformation();
-        demographicInformationPage.setEverExpelled();
-        demographicInformationPage.setFelonyCharges();
-        demographicInformationPage.setGuiltyPlea();
-        demographicInformationPage.setRegisteredName();
+        try{
+          demographicInformationPage.waitForConductInformation();
+          demographicInformationPage.setEverExpelled();
+          demographicInformationPage.setFelonyCharges();
+          demographicInformationPage.setGuiltyPlea();
+          demographicInformationPage.setRegisteredName();
+        } catch(Exception e) {
+          System.err.println("ERROR in Demographic Information Page: Conduct Questions not Present");
+          CONDUCT_QUESTIONS = false;
+        }
         demographicInformationPage.submit();
         System.out.println("Demographic Information Page (Longest Route) Test Successful");
     }
@@ -454,26 +462,26 @@ public class UGAdmSeleniumTest {
         assertEquals("United States", reviewPage.getHighSchoolCountry(SHORTEST));
         assertEquals("GED", reviewPage.getHighSchoolType());
         assertEquals("May 2016", reviewPage.getGradDate(SHORTEST));
-        assertEquals("I am a descendant of Gertrude Ely/Edward William Bergmann", reviewPage.getDescendant1());
-        assertEquals("I am a descendant of Dr. and Mrs. Fredrick E. Emery", reviewPage.getDescendant2());
-        assertEquals("I am a descendant of Ira H. Graham", reviewPage.getDescendant3());
-        assertEquals("I am a descendant of William and Melissa Harold", reviewPage.getDescendant4());
-        assertEquals("I am a descendant of Gladys M. Heywood", reviewPage.getDescendant5());
-        assertEquals("I am a descendant of James B. and L. Roxie Hollinger", reviewPage.getDescendant6());
-        assertEquals("My parents are employed by J. H. Bowman Co", reviewPage.getEmployer1());
-        assertEquals("My parents are employed by Kice Metal Products", reviewPage.getEmployer2());
-        assertEquals("My parents are employed by L & S Machine, Tru-Circle Manufacturing or Hospice of Wichita (parents or grandparents)", reviewPage.getEmployer3());
-        assertEquals("  I am currently enrolled in the College of Business and I am interested in working for an Agribusiness Company", reviewPage.getGeneral1());
-        assertEquals("  I am or have been a member of FFA", reviewPage.getGeneral2());
-        assertEquals("  I am/will be enrolled in the College of Technology and Aviation and am a Schwan employee", reviewPage.getGeneral3());
-        assertEquals("  I am a student with an interest in pursuing a career in agribusiness (i.e. farm input supply, food processing, or marketing and distribution)", reviewPage.getGeneral4());
-        assertEquals("  I will be employed at least part time throughout the school year and be a full time student.", reviewPage.getGeneral5());
-        assertEquals("  I am a single parent.", reviewPage.getGeneral6());
-        assertEquals("  I am, or have a family member that is, a member of the American Society of Baking.", reviewPage.getGeneral7());
-        assertEquals("  I am from the Dallas/Fort Worth, Texas area.", reviewPage.getGeneral8());
-        assertEquals("  I have lost one or both of my parents.", reviewPage.getGeneral9());
-        assertEquals("  I have participated on a US FIRST Robotics Team at my high school", reviewPage.getGeneral10());
-        assertEquals("  I am a student in the College of Agriculture interested in Dairy.", reviewPage.getGeneral11());
+        assertEquals("I am a descendant of Gertrude Ely/Edward William Bergmann", reviewPage.getDescendant1(CONDUCT_QUESTIONS));
+        assertEquals("I am a descendant of Dr. and Mrs. Fredrick E. Emery", reviewPage.getDescendant2(CONDUCT_QUESTIONS));
+        assertEquals("I am a descendant of Ira H. Graham", reviewPage.getDescendant3(CONDUCT_QUESTIONS));
+        assertEquals("I am a descendant of William and Melissa Harold", reviewPage.getDescendant4(CONDUCT_QUESTIONS));
+        assertEquals("I am a descendant of Gladys M. Heywood", reviewPage.getDescendant5(CONDUCT_QUESTIONS));
+        assertEquals("I am a descendant of James B. and L. Roxie Hollinger", reviewPage.getDescendant6(CONDUCT_QUESTIONS));
+        assertEquals("My parents are employed by J. H. Bowman Co", reviewPage.getEmployer1(CONDUCT_QUESTIONS));
+        assertEquals("My parents are employed by Kice Metal Products", reviewPage.getEmployer2(CONDUCT_QUESTIONS));
+        assertEquals("My parents are employed by L & S Machine, Tru-Circle Manufacturing or Hospice of Wichita (parents or grandparents)", reviewPage.getEmployer3(CONDUCT_QUESTIONS));
+        assertEquals("  I am currently enrolled in the College of Business and I am interested in working for an Agribusiness Company", reviewPage.getGeneral1(CONDUCT_QUESTIONS));
+        assertEquals("  I am or have been a member of FFA", reviewPage.getGeneral2(CONDUCT_QUESTIONS));
+        assertEquals("  I am/will be enrolled in the College of Technology and Aviation and am a Schwan employee", reviewPage.getGeneral3(CONDUCT_QUESTIONS));
+        assertEquals("  I am a student with an interest in pursuing a career in agribusiness (i.e. farm input supply, food processing, or marketing and distribution)", reviewPage.getGeneral4(CONDUCT_QUESTIONS));
+        assertEquals("  I will be employed at least part time throughout the school year and be a full time student.", reviewPage.getGeneral5(CONDUCT_QUESTIONS));
+        assertEquals("  I am a single parent.", reviewPage.getGeneral6(CONDUCT_QUESTIONS));
+        assertEquals("  I am, or have a family member that is, a member of the American Society of Baking.", reviewPage.getGeneral7(CONDUCT_QUESTIONS));
+        assertEquals("  I am from the Dallas/Fort Worth, Texas area.", reviewPage.getGeneral8(CONDUCT_QUESTIONS));
+        assertEquals("  I have lost one or both of my parents.", reviewPage.getGeneral9(CONDUCT_QUESTIONS));
+        assertEquals("  I have participated on a US FIRST Robotics Team at my high school", reviewPage.getGeneral10(CONDUCT_QUESTIONS));
+        assertEquals("  I am a student in the College of Agriculture interested in Dairy.", reviewPage.getGeneral11(CONDUCT_QUESTIONS));
         System.out.println("Review Page (Shortest Route) Test Successful");
     }
 
@@ -543,7 +551,7 @@ public class UGAdmSeleniumTest {
     @After
     public void tearDown() throws Exception{
 
-//        for(WebDriver driver : drivers)
-//            driver.quit();
+       for(WebDriver driver : drivers)
+           driver.quit();
     }
 }
