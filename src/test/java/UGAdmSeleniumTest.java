@@ -30,7 +30,7 @@ public class UGAdmSeleniumTest {
     private static final int SSN_MIN = 100000000;
     private static final boolean SHORTEST = true;
     private static final boolean LONGEST = false;
-    private boolean CONDUCT_QUESTIONS = true;
+    private boolean CONDUCT_QUESTIONS;
 
     @Before
     public void setUp() throws Exception{
@@ -61,6 +61,7 @@ public class UGAdmSeleniumTest {
         ReadIn in = new ReadIn();
         names = in.readFile("src/main/resources/names.txt");
         firstName = names.get(random.nextInt(names.size()));
+        CONDUCT_QUESTIONS = true;
     }
 
     /**
