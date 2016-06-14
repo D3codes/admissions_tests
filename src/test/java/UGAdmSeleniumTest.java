@@ -43,7 +43,7 @@ public class UGAdmSeleniumTest {
                 safari = new SafariDriver();
                 drivers.add(safari);
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/mac/chromedriver");
-            } else if(System.getProperty("os.name").startsWith("Windows")){
+            } else if(System.getProperty("os.name").contains("Windows")){
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/windows/chromedriver");
             } else {
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/linux/chromedriver");
@@ -376,16 +376,17 @@ public class UGAdmSeleniumTest {
         demographicInformationPage.waitForPageLoad();
         demographicInformationPage.setEnglishPrimarytrue();
         demographicInformationPage.setOtherLanguagefalse();
-        try{
-          demographicInformationPage.waitForConductInformation();
-          demographicInformationPage.setEverExpelled();
-          demographicInformationPage.setFelonyCharges();
-          demographicInformationPage.setGuiltyPlea();
-          demographicInformationPage.setRegisteredName();
-        } catch(Exception e) {
-          System.err.println("ERROR in Demographic Information Page: Conduct Questions Not Present");
-          CONDUCT_QUESTIONS = false;
-        }
+        if(CONDUCT_QUESTIONS)
+          try{
+            demographicInformationPage.waitForConductInformation();
+            demographicInformationPage.setEverExpelled();
+            demographicInformationPage.setFelonyCharges();
+            demographicInformationPage.setGuiltyPlea();
+            demographicInformationPage.setRegisteredName();
+          } catch(Exception e) {
+            System.err.println("ERROR in Demographic Information Page: Conduct Questions Not Present");
+            CONDUCT_QUESTIONS = false;
+          }
         demographicInformationPage.submit();
         System.out.println("Demographic Information Page (Shortest Route) Test Successful");
     }
@@ -401,16 +402,17 @@ public class UGAdmSeleniumTest {
         demographicInformationPage.waitForMilitaryMonthStart();
         demographicInformationPage.setMilitaryStart("July", "2011");
         demographicInformationPage.setMilitaryEnd("June", "2016");
-        try{
-          demographicInformationPage.waitForConductInformation();
-          demographicInformationPage.setEverExpelled();
-          demographicInformationPage.setFelonyCharges();
-          demographicInformationPage.setGuiltyPlea();
-          demographicInformationPage.setRegisteredName();
-        } catch(Exception e) {
-          System.err.println("ERROR in Demographic Information Page: Conduct Questions not Present");
-          CONDUCT_QUESTIONS = false;
-        }
+        if(CONDUCT_QUESTIONS)
+          try{
+            demographicInformationPage.waitForConductInformation();
+            demographicInformationPage.setEverExpelled();
+            demographicInformationPage.setFelonyCharges();
+            demographicInformationPage.setGuiltyPlea();
+            demographicInformationPage.setRegisteredName();
+          } catch(Exception e) {
+            System.err.println("ERROR in Demographic Information Page: Conduct Questions not Present");
+            CONDUCT_QUESTIONS = false;
+          }
         demographicInformationPage.submit();
         System.out.println("Demographic Information Page (Longest Route) Test Successful");
     }
