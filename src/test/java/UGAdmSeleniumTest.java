@@ -34,31 +34,43 @@ public class UGAdmSeleniumTest {
     @Before
     public void setUp() throws Exception{
 
-        try{
-            System.out.println("Setting up Drivers");
-            drivers = new ArrayList<WebDriver>();
-            System.out.println(System.getProperty("os.name")+" detected");
-            System.out.println("Running tests with:");
-            System.out.println("-----FireFox-----");
-            fireFox = new FirefoxDriver();
-            if(System.getProperty("os.name").equals("Mac OS X")) {
-                System.out.println("-----Safari-----");
-                safari = new SafariDriver();
-                drivers.add(safari);
-                System.setProperty("webdriver.chrome.driver", "src/main/resources/mac/chromedriver");
-            } else if(System.getProperty("os.name").contains("Windows")){
-                System.setProperty("webdriver.chrome.driver", "src/main/resources/windows/chromedriver");
-            } else {
-                System.setProperty("webdriver.chrome.driver", "src/main/resources/linux/chromedriver");
-            }
-            System.out.println("-----Chrome-----");
-            chrome = new ChromeDriver();
-            drivers.add(fireFox);
-            drivers.add(chrome);
-        }catch(Exception e){
-            System.err.println("ERROR setting up Drivers");
-            System.err.println(e);
+        System.out.println("Setting up Drivers");
+        drivers = new ArrayList<WebDriver>();
+
+        if(System.getProperty("os.name").equals("Mac OS X")){
+          try{
+            System.setProperty("webdriver.chrome.driver", "src/main/resources/mac/chromedriver");
+            safari = new SafariDriver();
+            drivers.add(safari);
+          }catch(Exception e){
+            System.err.println("\nERROR setting up Drivers");
+            System.err.println("Safari not detected on computer");
+            System.err.println("Please install Safari to perform a complete test\n");
+          }
+        } else if(System.getProperty("os.name").contains("Windows")){
+          System.setProperty("webdriver.chrome.driver", "src/main/resources/windows/chromedriver");
+        } else {
+          System.setProperty("webdriver.chrome.driver", "src/main/resources/linux/chromedriver");
         }
+
+        try{
+          fireFox = new FirefoxDriver();
+          drivers.add(fireFox);
+        } catch(Exception e){
+          System.err.println("\nERROR setting up Drivers");
+          System.err.println("Firefox not detected on computer");
+          System.err.println("Please install Firefox to perform a complete test\n");
+        }
+
+        try{
+          chrome = new ChromeDriver();
+          drivers.add(chrome);
+        } catch(Exception e){
+          System.err.println("\nERROR setting up Drivers");
+          System.err.println("Chrome not detected on computer");
+          System.err.println("Please install Chrome to perform a complete test\n");
+        }
+
         baseURL = "https://admissions.test.ome.k-state.edu/app/open/ChooseTerm_open.action";
         Random random = new Random();
         SSN = random.nextInt(SSN_MAX - SSN_MIN + 1) + SSN_MIN;
@@ -162,7 +174,8 @@ public class UGAdmSeleniumTest {
     }
 
     private void testPageOne(WebDriver driver, WebDriverWait wait, String driverType, Boolean hasEID){
-        System.out.println("Testing Page One with "+driverType);
+        System.out.println("----------"+driverType+"----------");
+        System.out.println("Testing Page One");
         AdmissionsPageOne admissionsPageOne = new AdmissionsPageOne(driver, wait);
         admissionsPageOne.waitForPageLoad();
         if(hasEID)
