@@ -37,6 +37,8 @@ public class UGAdmSeleniumTest {
         System.out.println("Setting up Drivers");
         drivers = new ArrayList<WebDriver>();
 
+        //checks the operating system and sets the chromedriver
+        //if the operating system is OS X, then sets up safaridriver
         if(System.getProperty("os.name").equals("Mac OS X")){
           try{
             System.setProperty("webdriver.chrome.driver", "src/main/resources/mac/chromedriver");
@@ -53,6 +55,8 @@ public class UGAdmSeleniumTest {
           System.setProperty("webdriver.chrome.driver", "src/main/resources/linux/chromedriver");
         }
 
+        //tries to set up firefox
+        //throws an error if no firefox installation is detected
         try{
           fireFox = new FirefoxDriver();
           drivers.add(fireFox);
@@ -62,6 +66,8 @@ public class UGAdmSeleniumTest {
           System.err.println("Please install Firefox to perform a complete test\n");
         }
 
+        //tries to set up ChromeDriver
+        //throws an error if no chrome installation is detected
         try{
           chrome = new ChromeDriver();
           drivers.add(chrome);
@@ -73,15 +79,16 @@ public class UGAdmSeleniumTest {
 
         baseURL = "https://admissions.test.ome.k-state.edu/app/open/ChooseTerm_open.action";
         Random random = new Random();
-        SSN = random.nextInt(SSN_MAX - SSN_MIN + 1) + SSN_MIN;
+        SSN = random.nextInt(SSN_MAX - SSN_MIN + 1) + SSN_MIN; //generates a random SSN
         ReadIn in = new ReadIn();
         names = in.readFile("src/main/resources/names.txt");
-        firstName = names.get(random.nextInt(names.size()));
+        firstName = names.get(random.nextInt(names.size())); //picks a random name from names.txt
         CONDUCT_QUESTIONS = true;
     }
 
     /**
      * Test shortest route end to end
+     * This test includes scholarship applications
      */
     @Test
     public void testShortestRoute() throws Exception{

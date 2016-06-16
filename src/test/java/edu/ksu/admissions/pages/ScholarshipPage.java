@@ -13,6 +13,7 @@ public class ScholarshipPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
+    //Set UI Elements
     private By ssn = By.id("nationalId");
     private By activities = By.id("activities");
     private By awards = By.id("awards");

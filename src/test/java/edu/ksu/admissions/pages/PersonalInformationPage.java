@@ -14,6 +14,7 @@ public class PersonalInformationPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
+    //Set UI Elements
     private By term = By.id("undergradForm_data_application_term2165");
     private By dataForOther = By.id("undergradForm_data_forOthertrue");
     private By relationshipFamily = By.id("undergradForm_data_roleStringFamily");

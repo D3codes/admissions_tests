@@ -13,6 +13,7 @@ public class LoginPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
+    //Set UI Elements
     private By eID = By.id("username");
     private By password = By.id("password");
     private By submit = By.id("submit_button");

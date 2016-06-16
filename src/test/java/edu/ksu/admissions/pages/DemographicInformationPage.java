@@ -14,6 +14,7 @@ public class DemographicInformationPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
+    //Set UI Elements
     private By englishPrimarytrue = By.id("englishIsPrimarytrue");
     private By otherLanguagefalse = By.id("otherLanguagefalse");
     private By everExpelled = By.id("nonAcademicExpulsionfalse");

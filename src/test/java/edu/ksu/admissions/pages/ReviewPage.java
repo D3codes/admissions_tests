@@ -15,6 +15,7 @@ public class ReviewPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
+    //Set UI Elements
     private By main = By.id("ksu-main-content");
     private By certification = By.id("certificationAgree");
 
@@ -30,6 +31,7 @@ public class ReviewPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(certification));
     }
 
+    //saves entire review page to the arraylist "review"
     public void getInfo(){
         String whole = driver.findElement(main).getText();
 

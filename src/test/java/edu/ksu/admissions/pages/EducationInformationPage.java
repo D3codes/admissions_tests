@@ -18,6 +18,7 @@ public class EducationInformationPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
+    //Set UI Elements
     private By highSchoolCountry = By.id("highSchoolCountry");
     private By schoolType = By.id("highSchoolTypeGED");
     private By highSchoolState = By.id("highSchoolState");
@@ -47,6 +48,7 @@ public class EducationInformationPage {
     private By major = By.id("majors");
     private By submit = By.id("undergradForm_next");
 
+    //Set UI Elements for Self Reporting
     private By schoolTypeForSelfReporting = By.id("highSchoolTypeHighSchool");
     private By selfReporting = By.id("undergradForm_data_SelfReportInfo_reportInfotrue");
     private By GPAScale = By.id("gpaScale");
