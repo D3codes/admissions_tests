@@ -38,9 +38,8 @@ public class UGAdmSeleniumTest {
         drivers = new ArrayList<WebDriver>();
 
         //checks the operating system and sets the chromedriver
-        //if the operating system is OS X, then sets up safaridriver
         if(System.getProperty("os.name").equals("Mac OS X")){
-          try{
+          try{ //if the operating system is OS X, then sets up safaridriver
             System.setProperty("webdriver.chrome.driver", "src/main/resources/mac/chromedriver");
             safari = new SafariDriver();
             drivers.add(safari);
@@ -58,7 +57,7 @@ public class UGAdmSeleniumTest {
 
         //tries to set up firefox
         //throws an error if no firefox installation is detected
-        //KNOWN SELENIUM BUG*** FireFox 47 does not work in windows
+        //***KNOWN SELENIUM BUG*** FireFox 47 does not work in windows
         //Must use FireFox 45: https://www.softexia.com/windows/web-browsers/firefox-45
         try{
           fireFox = new FirefoxDriver();
@@ -87,7 +86,7 @@ public class UGAdmSeleniumTest {
         SSN = random.nextInt(SSN_MAX - SSN_MIN + 1) + SSN_MIN; //generates a random SSN
         ReadIn in = new ReadIn();
         names = in.readFile("src/main/resources/names.txt");
-        firstName = names.get(random.nextInt(names.size())); //picks a random name from names.txt
+        firstName = names.get(random.nextInt(names.size())); //sets firstName to a random name from names.txt
         CONDUCT_QUESTIONS = true;
     }
 
@@ -411,7 +410,7 @@ public class UGAdmSeleniumTest {
         demographicInformationPage.waitForPageLoad();
         demographicInformationPage.setEnglishPrimarytrue();
         demographicInformationPage.setOtherLanguagefalse();
-        if(CONDUCT_QUESTIONS)
+        if(CONDUCT_QUESTIONS) //if the conduct questions are not present, throws an error
           try{
             demographicInformationPage.waitForConductInformation();
             demographicInformationPage.setEverExpelled();
@@ -420,7 +419,7 @@ public class UGAdmSeleniumTest {
             demographicInformationPage.setRegisteredName();
           } catch(Exception e) {
             System.err.println("ERROR in Demographic Information Page: Conduct Questions Not Present");
-            CONDUCT_QUESTIONS = false;
+            CONDUCT_QUESTIONS = false; //sets to false so the test will not check for questions again
           }
         demographicInformationPage.submit();
         System.out.println("Demographic Information Page (Shortest Route) Test Successful\n");
@@ -437,7 +436,7 @@ public class UGAdmSeleniumTest {
         demographicInformationPage.waitForMilitaryMonthStart();
         demographicInformationPage.setMilitaryStart("July", "2011");
         demographicInformationPage.setMilitaryEnd("June", "2016");
-        if(CONDUCT_QUESTIONS)
+        if(CONDUCT_QUESTIONS) //if the conduct questions are not present, throws an error
           try{
             demographicInformationPage.waitForConductInformation();
             demographicInformationPage.setEverExpelled();
@@ -446,7 +445,7 @@ public class UGAdmSeleniumTest {
             demographicInformationPage.setRegisteredName();
           } catch(Exception e) {
             System.err.println("ERROR in Demographic Information Page: Conduct Questions not Present");
-            CONDUCT_QUESTIONS = false;
+            CONDUCT_QUESTIONS = false; //sets to false so the test will not check for questions again
           }
         demographicInformationPage.submit();
         System.out.println("Demographic Information Page (Longest Route) Test Successful\n");
@@ -460,9 +459,9 @@ public class UGAdmSeleniumTest {
         scholarshipPage.setActivities("Community activites");
         scholarshipPage.setAwards("Special honors");
         scholarshipPage.setRoles("Leadership roles");
-        scholarshipPage.setDescendants();
-        scholarshipPage.setEmployers();
-        scholarshipPage.setGeneral();
+        scholarshipPage.setDescendants(); //selects max number of descendants
+        scholarshipPage.setEmployers(); //selects max number of employers
+        scholarshipPage.setGeneral(); //selects max number of general questions
         scholarshipPage.submit();
         System.out.println("Scholarship Page (Shortest Route) Test Successful\n");
     }
