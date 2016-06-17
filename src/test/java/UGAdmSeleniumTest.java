@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +58,8 @@ public class UGAdmSeleniumTest {
 
         //tries to set up firefox
         //throws an error if no firefox installation is detected
+        //KNOWN SELENIUM BUG*** FireFox 47 does not work in windows
+        //Must use FireFox 45: https://www.softexia.com/windows/web-browsers/firefox-45
         try{
           fireFox = new FirefoxDriver();
           drivers.add(fireFox);
