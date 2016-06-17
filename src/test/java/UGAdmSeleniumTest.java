@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,9 +49,10 @@ public class UGAdmSeleniumTest {
             System.err.println("\nERROR setting up Drivers");
             System.err.println("Safari not detected on computer");
             System.err.println("Please install Safari to perform a complete test\n");
+            System.err.println(e);
           }
         } else if(System.getProperty("os.name").contains("Windows")){
-          System.setProperty("webdriver.chrome.driver", "src/main/resources/windows/chromedriver");
+          System.setProperty("webdriver.chrome.driver", "src/main/resources/windows/chromedriver.exe");
         } else {
           System.setProperty("webdriver.chrome.driver", "src/main/resources/linux/chromedriver");
         }
@@ -64,6 +66,7 @@ public class UGAdmSeleniumTest {
           System.err.println("\nERROR setting up Drivers");
           System.err.println("Firefox not detected on computer");
           System.err.println("Please install Firefox to perform a complete test\n");
+          System.err.println(e);
         }
 
         //tries to set up ChromeDriver
@@ -75,6 +78,7 @@ public class UGAdmSeleniumTest {
           System.err.println("\nERROR setting up Drivers");
           System.err.println("Chrome not detected on computer");
           System.err.println("Please install Chrome to perform a complete test\n");
+          System.err.println(e);
         }
 
         baseURL = "https://admissions.test.ome.k-state.edu/app/open/ChooseTerm_open.action";
