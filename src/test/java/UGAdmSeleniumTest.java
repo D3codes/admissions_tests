@@ -47,7 +47,6 @@ public class UGAdmSeleniumTest {
             System.err.println("\nERROR setting up Drivers");
             System.err.println("Safari not detected on computer");
             System.err.println("Please install Safari to perform a complete test\n");
-            System.err.println(e);
           }
         } else if(System.getProperty("os.name").contains("Windows")){
           System.setProperty("webdriver.chrome.driver", "src/main/resources/windows/chromedriver.exe");
@@ -57,8 +56,7 @@ public class UGAdmSeleniumTest {
 
         //tries to set up firefox
         //throws an error if no firefox installation is detected
-        //***KNOWN SELENIUM BUG*** FireFox 47 does not work in windows
-        //Must use FireFox 45: https://www.softexia.com/windows/web-browsers/firefox-45
+        //or if there is an incompatable installation of firefox
         try{
           fireFox = new FirefoxDriver();
           drivers.add(fireFox);
@@ -66,7 +64,9 @@ public class UGAdmSeleniumTest {
           System.err.println("\nERROR setting up Drivers");
           System.err.println("Firefox not detected on computer");
           System.err.println("Please install Firefox to perform a complete test\n");
-          System.err.println(e);
+          System.err.println("***KNOWN SELENIUM BUG***");
+          System.err.println("Selenium does not work with FireFox 47");
+          System.err.println("Must use FireFox 45: https://www.softexia.com/windows/web-browsers/firefox-45\n");
         }
 
         //tries to set up ChromeDriver
@@ -78,7 +78,6 @@ public class UGAdmSeleniumTest {
           System.err.println("\nERROR setting up Drivers");
           System.err.println("Chrome not detected on computer");
           System.err.println("Please install Chrome to perform a complete test\n");
-          System.err.println(e);
         }
 
         baseURL = "https://admissions.test.ome.k-state.edu/app/open/ChooseTerm_open.action";
