@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -20,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 public class UGAdmSeleniumTest {
 
     private String baseURL;
-    private WebDriver fireFox, chrome, safari;
+    private WebDriver fireFox, chrome, safari, internetExplorer;
     private List<WebDriver> drivers;
     private ArrayList<String> names;
     private String firstName;
@@ -50,6 +51,15 @@ public class UGAdmSeleniumTest {
           }
         } else if(System.getProperty("os.name").contains("Windows")){
           System.setProperty("webdriver.chrome.driver", "src/main/resources/windows/chromedriver.exe");
+          try{ //if the operating system is Windows, then sets up internetExplorer driver
+            System.setProperty("webdriver.ie.driver", "src/main/resources/windows/IEDriverServer.exe");
+            internetExplorer = new InternetExplorerDriver();
+            drivers.add(internetExplorer);
+          }catch(Exception e){
+            System.err.println("\nERROR setting up Drivers");
+            System.err.println("Internet Explorer not detected on computer");
+            System.err.println("Please install Internet Explorer to perform a complete test\n");
+          }
         } else {
           System.setProperty("webdriver.chrome.driver", "src/main/resources/linux/chromedriver");
         }
