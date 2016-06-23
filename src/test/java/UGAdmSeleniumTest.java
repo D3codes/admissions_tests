@@ -110,6 +110,7 @@ public class UGAdmSeleniumTest {
             String driverType = "Safari Driver";
             if(driver instanceof FirefoxDriver) { driverType = "Firefox Driver"; }
             else if(driver instanceof ChromeDriver) { driverType = "Chrome Driver"; }
+            else if(driver instanceof InternetExplorerDriver) { driverType = "Internet Explorer Driver"; }
 
             try {
                 WebDriverWait wait = new WebDriverWait(driver, 20);
