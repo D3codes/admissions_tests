@@ -1,0 +1,117 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+
+<profiles>
+        <profile>
+            <id>defaultDeployProfile</id>
+            <properties>
+                <maven.jboss.hostname>localhost</maven.jboss.hostname>
+                <maven.jboss.port>9000</maven.jboss.port>
+                <dynamic.type>compile</dynamic.type>
+                <deployment.type>war</deployment.type>
+                <ome.jboss.ejb.port>9000</ome.jboss.ejb.port>
+                <ome.jboss.war.port>9000</ome.jboss.war.port>
+        <keas.global.propertiesPath>/home/allanjay808/Development/idm/setup/classpath</keas.global.propertiesPath>
+            </properties>
+            <repositories>
+                <repository>
+                    <id>ome-maven2</id>
+                    <name>ome-maven2</name>
+                    <url>http://rep.ome.ksu.edu/maven2-lib</url>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>ome-maven2</id>
+                    <name>ome-maven2</name>
+                    <url>http://rep.ome.ksu.edu/maven2-lib</url>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- EXAMPLE FOR MYSQL -->
+                <sonar.jdbc.url>
+                    jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = tal-vip.campus.ksu.edu)(PORT =1521))(ADDRESS = (PROTOCOL = TCP)(HOST = tyr-vip.campus.ksu.edu)(PORT = 1521))(LOAD_BALANCE = yes)(CONNECT_DATA=(SERVER = DEDICATED) (SERVICE_NAME = SVOMEA.world)(FAILOVER_MODE =(TYPE = SELECT)(METHOD = BASIC)(RETRIES = 180)(DELAY =5))))
+                </sonar.jdbc.url>
+                <sonar.jdbc.driver>oracle.jdbc.driver.OracleDriver</sonar.jdbc.driver>
+                <sonar.jdbc.username>sonar_owner</sonar.jdbc.username>
+                <sonar.jdbc.password>spew6_adagio</sonar.jdbc.password>
+
+                <!-- SERVER ON A REMOTE HOST -->
+                <sonar.host.url>https://hudson.ome.ksu.edu/sonar</sonar.host.url>
+            </properties>
+        </profile>
+
+
+        <profile>
+            <id>warDeployProfile</id>
+            <activation>
+                <property>
+                    <name>deploy</name>
+                    <value>war</value>
+                </property>
+            </activation>
+            <properties>
+                <maven.jboss.hostname>localhost</maven.jboss.hostname>
+                <maven.jboss.port>9000</maven.jboss.port>
+                <dynamic.type>compile</dynamic.type>
+                <deployment.type>war</deployment.type>
+                <ome.jboss.ejb.port>9000</ome.jboss.ejb.port>
+                <ome.jboss.war.port>9000</ome.jboss.war.port>
+            </properties>
+        </profile>
+        <profile>
+            <id>earDeployProfile</id>
+            <activation>
+                <property>
+                    <name>deploy</name>
+                    <value>ear</value>
+                </property>
+            </activation>
+
+            <properties>
+                <maven.jboss.hostname>localhost</maven.jboss.hostname>
+                <maven.jboss.port>9000</maven.jboss.port>
+                <dynamic.type>provided</dynamic.type>
+                <deployment.type>ear</deployment.type>
+                <ome.jboss.ear.port>9000</ome.jboss.ear.port>
+            </properties>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>defaultDeployProfile</activeProfile>
+    </activeProfiles>
+
+    <servers>
+        <server>
+            <id>ome-maven1</id>
+            <username>ome</username>
+            <filePermissions>664</filePermissions>
+            <directoryPermissions>775</directoryPermissions>
+        </server>
+
+        <server>
+            <id>ome-maven2</id>
+            <username>ome</username>
+            <filePermissions>664</filePermissions>
+            <directoryPermissions>775</directoryPermissions>
+        </server>
+    </servers>
+<mirrors>
+    <mirror>
+        <id>artifactory all</id>
+        <name>localhost artifactory</name>
+        <url>https://artifactory.ome.k-state.edu/artifactory/repo</url>
+        <mirrorOf>*</mirrorOf>
+    </mirror>
+</mirrors>
+</settings>

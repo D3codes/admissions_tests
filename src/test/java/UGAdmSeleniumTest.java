@@ -60,6 +60,9 @@ public class UGAdmSeleniumTest {
             System.err.println("\nERROR setting up Drivers");
             System.err.println("Internet Explorer not detected on computer");
             System.err.println("Please install Internet Explorer to perform a complete test\n");
+            System.err.println("***KNOWN SELENIUM BUG***");
+            System.err.println("Selenium does not work with Internet Explorer 11");
+            System.err.println("Must use Internet Explorer 10\n");
           }
         } else {
           System.setProperty("webdriver.chrome.driver", "src/main/resources/linux/chromedriver");
