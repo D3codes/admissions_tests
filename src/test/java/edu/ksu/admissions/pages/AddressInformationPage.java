@@ -87,6 +87,8 @@ public class AddressInformationPage {
 
     public void setSameMailingAddress() { driver.findElement(sameMailingAddress).click(); }
 
+    public void waitForRelationship() { wait.until(ExpectedConditions.visibilityOfElementLocated(relationship)); }
+
     public void setRelationship(){
         driver.findElement(relationship).click();
         new Select(driver.findElement(relationship)).selectByVisibleText("Father");

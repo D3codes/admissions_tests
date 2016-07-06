@@ -284,6 +284,7 @@ public class UGAdmSeleniumTest {
         addressInformationPage.waitForCounty();
         addressInformationPage.setCounty("Riley");
         addressInformationPage.setSameAddress();
+        addressInformationPage.waitForRelationship();
         addressInformationPage.setRelationship();
         addressInformationPage.setContactFirstName("John");
         addressInformationPage.setContactLastName("Doe");
@@ -303,6 +304,7 @@ public class UGAdmSeleniumTest {
         addressInformationPage.setCity("Kabul");
         addressInformationPage.setSameMailingAddress();
         addressInformationPage.setSameAddress();
+        addressInformationPage.waitForRelationship();
         addressInformationPage.setRelationship();
         addressInformationPage.setContactFirstName("John");
         addressInformationPage.setContactLastName("Doe");
