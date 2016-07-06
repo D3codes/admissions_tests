@@ -189,7 +189,6 @@ public class UGAdmSeleniumTest {
         System.out.println("----------"+driverType+"----------");
         System.out.println("Testing Page One");
         AdmissionsPageOne admissionsPageOne = new AdmissionsPageOne(driver, wait);
-        admissionsPageOne.waitForPageLoad();
         if(hasEID)
             admissionsPageOne.hasID();
         else
@@ -202,7 +201,6 @@ public class UGAdmSeleniumTest {
     private void testLoginPage(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Login Page");
         LoginPage loginPage = new LoginPage(driver, wait);
-        loginPage.waitForPageLoad();
         loginPage.setEID("dmeierer");
         loginPage.setPassword("23Rt^JHS88");
         loginPage.submit();
@@ -212,10 +210,8 @@ public class UGAdmSeleniumTest {
     private void testPersonalInformationPageShortest(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Personal Information Page (Shortest Route)");
         PersonalInformationPage personalInformationPage = new PersonalInformationPage(driver, wait);
-        personalInformationPage.waitForPageLoad();
         personalInformationPage.setTerm();
         personalInformationPage.setDataForOther();
-        personalInformationPage.waitForRelationship();
         personalInformationPage.setRelationshipCounselor();
         personalInformationPage.setGender();
         personalInformationPage.setFirstName(firstName);
@@ -228,9 +224,7 @@ public class UGAdmSeleniumTest {
         personalInformationPage.setEmailAddress(firstName+"Test@ksu.edu");
         personalInformationPage.setConfirmEmail(firstName+"Test@ksu.edu");
         personalInformationPage.setUsCitizentrue();
-        personalInformationPage.waitForKsResident();
         personalInformationPage.setKsResident();
-        personalInformationPage.waitForInKsSinceBirth();
         personalInformationPage.setInKsSinceBirth();
         personalInformationPage.setParentsKsResident();
         personalInformationPage.submit();
@@ -240,10 +234,8 @@ public class UGAdmSeleniumTest {
     private void testPersonalInformationPageLongest(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Personal Information Page (Longest Route)");
         PersonalInformationPage personalInformationPage = new PersonalInformationPage(driver, wait);
-        personalInformationPage.waitForPageLoad();
         personalInformationPage.setTerm();
         personalInformationPage.setDataForOther();
-        personalInformationPage.waitForRelationship();
         personalInformationPage.setRelationshipFamily();
         personalInformationPage.setGender();
         personalInformationPage.setFirstName(firstName);
@@ -256,14 +248,10 @@ public class UGAdmSeleniumTest {
         personalInformationPage.setEmailAddress(firstName + "Test@ksu.edu");
         personalInformationPage.setConfirmEmail(firstName + "Test@ksu.edu");
         personalInformationPage.setUsCitizenfalse();
-        personalInformationPage.waitForPermanentResident();
         personalInformationPage.setPermanentResident();
-        personalInformationPage.waitForInternationalStudent();
         personalInformationPage.setInternationalStudent();
-        personalInformationPage.waitForCountryOfCitizenship();
         personalInformationPage.setCountryOfCitizenship("Afghanistan");
         personalInformationPage.setCurrentVisa();
-        personalInformationPage.waitForVisaType();
         personalInformationPage.setVisaType();
         personalInformationPage.setRequestingVisa();
         personalInformationPage.submit();
@@ -273,18 +261,13 @@ public class UGAdmSeleniumTest {
     private void testAddressInformationShortest(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Address Information Page (Shortest Route)");
         AddressInformationPage addressInformationPage = new AddressInformationPage(driver, wait);
-        addressInformationPage.waitForPageLoad();
-        addressInformationPage.waitForCountry();
         addressInformationPage.setCountryUS();
-        addressInformationPage.waitForAddress();
         addressInformationPage.setAddress("123 Manhattan Ave");
         addressInformationPage.setCity("Manhattan");
         addressInformationPage.setState();
         addressInformationPage.setZipCode("66502");
-        addressInformationPage.waitForCounty();
         addressInformationPage.setCounty("Riley");
         addressInformationPage.setSameAddress();
-        addressInformationPage.waitForRelationship();
         addressInformationPage.setRelationship();
         addressInformationPage.setContactFirstName("John");
         addressInformationPage.setContactLastName("Doe");
@@ -296,15 +279,11 @@ public class UGAdmSeleniumTest {
     private void testAddressInformationLongest(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Address Information Page (Longest Route)");
         AddressInformationPage addressInformationPage = new AddressInformationPage(driver, wait);
-        addressInformationPage.waitForPageLoad();
-        addressInformationPage.waitForCountry();
         addressInformationPage.setCountryAFG();
-        addressInformationPage.waitForAddress();
         addressInformationPage.setAddress("سرک 60 متره میدان هوایی‎");
         addressInformationPage.setCity("Kabul");
         addressInformationPage.setSameMailingAddress();
         addressInformationPage.setSameAddress();
-        addressInformationPage.waitForRelationship();
         addressInformationPage.setRelationship();
         addressInformationPage.setContactFirstName("John");
         addressInformationPage.setContactLastName("Doe");
@@ -316,16 +295,13 @@ public class UGAdmSeleniumTest {
     private void testEducationInformationPageShortest(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Education Information Page (Shortest Route)");
         EducationInformationPage educationInformationPage = new EducationInformationPage(driver, wait);
-        educationInformationPage.waitForPageLoad();
         educationInformationPage.setHighSchoolCountry("United States");
         educationInformationPage.setSchoolType();
         educationInformationPage.setPlannedGraduationMonth();
         educationInformationPage.setPlannedGraduationYear();
         educationInformationPage.setPreviouslyAttendedKSUfalse();
         educationInformationPage.setPreviouslyTakenClassesfalse();
-        educationInformationPage.waitForCompleteDegree();
         educationInformationPage.setCompleteDegreetrue();
-        educationInformationPage.waitForCompleteDegreeAtKSU();
         educationInformationPage.setCompleteDegreeAtKSU();
         educationInformationPage.setKsuLocationMAN();
         educationInformationPage.setMajor();
@@ -336,17 +312,13 @@ public class UGAdmSeleniumTest {
     private void testEducationInformationPageLongest(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Education Information Page (Longest Route)");
         EducationInformationPage educationInformationPage = new EducationInformationPage(driver, wait);
-        educationInformationPage.waitForPageLoad();
         educationInformationPage.setHighSchoolCountry("England");
-        educationInformationPage.waitForHighSchool();
         educationInformationPage.setHighSchool("Appleton Thorn Primary School");
         educationInformationPage.setPlannedGraduationMonth();
         educationInformationPage.setPlannedGraduationYear();
         educationInformationPage.setPreviouslyAttendedKSUtrue();
         educationInformationPage.setPreviouslyTakenClassestrue();
-        educationInformationPage.waitForCollegeCountry();
         educationInformationPage.setCollegeCountry("England");
-        educationInformationPage.waitForCollegeName();
         educationInformationPage.setCollegeName("King's College");
         educationInformationPage.setCreditHours("15");
         educationInformationPage.setAttendanceMonthStart("January");
@@ -355,9 +327,7 @@ public class UGAdmSeleniumTest {
         educationInformationPage.setAttendanceYearEnd("2016");
         educationInformationPage.setOfficialTranscript();
         educationInformationPage.setCompleteDegreefalse();
-        educationInformationPage.waitForMinor();
         educationInformationPage.setMinorTrue();
-        educationInformationPage.waitForBaccalaureate();
         educationInformationPage.setBaccalaureate();
         educationInformationPage.setKsuLocationDL();
         educationInformationPage.setMinor();
@@ -368,21 +338,15 @@ public class UGAdmSeleniumTest {
     private void testEducationInformationPageWithSelfReporting(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Education Information Page With Self Reporting");
         EducationInformationPage educationInformationPage = new EducationInformationPage(driver, wait);
-        educationInformationPage.waitForPageLoad();
         educationInformationPage.setHighSchoolCountry("United States");
         educationInformationPage.setSchoolTypeForSelfReporting();
-        educationInformationPage.waitForHighSchoolState();
         educationInformationPage.setHighSchoolState();
-        educationInformationPage.waitForHighSchool();
         educationInformationPage.setHighSchool("Lansing High School (Lansing)");
         educationInformationPage.setPlannedGraduationMonth();
         educationInformationPage.setPlannedGraduationYear();
-        educationInformationPage.waitForSelfReporting();
         educationInformationPage.setSelfReporting();
-        educationInformationPage.waitForGPAScale();
         educationInformationPage.setGPAScale();
         educationInformationPage.setGPAWeight();
-        educationInformationPage.waitForGPA();
         educationInformationPage.setGPA();
         educationInformationPage.setRanking();
         educationInformationPage.setTerm();
@@ -391,7 +355,6 @@ public class UGAdmSeleniumTest {
         educationInformationPage.setEleventhGradeTranscript();
         educationInformationPage.setTwelfthGradeTranscript();
         educationInformationPage.setACT();
-        educationInformationPage.waitForCompositeScore();
         educationInformationPage.setCompositeScore("32");
         educationInformationPage.setEnglishScore("32");
         educationInformationPage.setMathScore("32");
@@ -399,9 +362,7 @@ public class UGAdmSeleniumTest {
         educationInformationPage.setScienceScore("32");
         educationInformationPage.setPreviouslyAttendedKSUfalse();
         educationInformationPage.setPreviouslyTakenClassesfalse();
-        educationInformationPage.waitForCompleteDegree();
         educationInformationPage.setCompleteDegreetrue();
-        educationInformationPage.waitForCompleteDegreeAtKSU();
         educationInformationPage.setCompleteDegreeAtKSU();
         educationInformationPage.setKsuLocationMAN();
         educationInformationPage.setMajor();
@@ -438,7 +399,6 @@ public class UGAdmSeleniumTest {
         demographicInformationPage.setOtherLanguagefalse();
         demographicInformationPage.setParentsDegree();
         demographicInformationPage.setMilitary();
-        demographicInformationPage.waitForMilitaryMonthStart();
         demographicInformationPage.setMilitaryStart("July", "2011");
         demographicInformationPage.setMilitaryEnd("June", "2016");
         if(CONDUCT_QUESTIONS) //if the conduct questions are not present, throws an error
@@ -459,7 +419,6 @@ public class UGAdmSeleniumTest {
     private void testScholarshipPageShortest(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Scholarship Page (Shortest Route)");
         ScholarshipPage scholarshipPage = new ScholarshipPage(driver, wait);
-        scholarshipPage.waitForPageLoad(SHORTEST);
         scholarshipPage.setSSN(Integer.toString(SSN));
         scholarshipPage.setActivities("Community activites");
         scholarshipPage.setAwards("Special honors");
@@ -474,7 +433,6 @@ public class UGAdmSeleniumTest {
     private void testScholarshipPageLongest(WebDriver driver, WebDriverWait wait){
         System.out.println("Testing Scholarship Page (Longest Route)");
         ScholarshipPage scholarshipPage = new ScholarshipPage(driver, wait);
-        scholarshipPage.waitForPageLoad(LONGEST);
         scholarshipPage.skip();
         System.out.println("Scholarship Page (Longest Route) Test Successful\n");
     }

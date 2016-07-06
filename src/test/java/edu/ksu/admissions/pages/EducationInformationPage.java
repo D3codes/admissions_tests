@@ -85,68 +85,90 @@ public class EducationInformationPage {
         this.wait = wait;
     }
 
-    public void waitForPageLoad(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(highSchoolCountry));
-    }
-
     public void setHighSchoolCountry(String country){
-        driver.findElement(highSchoolCountry).click();
-        new Select(driver.findElement(highSchoolCountry)).selectByVisibleText(country);
+      wait.until(ExpectedConditions.presenceOfElementLocated(highSchoolCountry));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(highSchoolCountry));
+      driver.findElement(highSchoolCountry).click();
+      new Select(driver.findElement(highSchoolCountry)).selectByVisibleText(country);
     }
-
-    public void waitForHighSchool(){ wait.until(ExpectedConditions.visibilityOfElementLocated(highSchool)); }
 
     public void setSchoolType(){
-        driver.findElement(schoolType).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(schoolType));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(schoolType));
+      driver.findElement(schoolType).click();
     }
 
-    public void setSchoolTypeForSelfReporting() { driver.findElement(schoolTypeForSelfReporting).click(); }
-
-    public void waitForHighSchoolState() { wait.until(ExpectedConditions.visibilityOfElementLocated(highSchoolState)); }
+    public void setSchoolTypeForSelfReporting() {
+      wait.until(ExpectedConditions.presenceOfElementLocated(schoolTypeForSelfReporting));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(schoolTypeForSelfReporting));
+      driver.findElement(schoolTypeForSelfReporting).click();
+     }
 
     public void setHighSchoolState() {
-        driver.findElement(highSchoolState).click();
-        new Select(driver.findElement(highSchoolState)).selectByVisibleText("Kansas");
+      wait.until(ExpectedConditions.presenceOfElementLocated(highSchoolState));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(highSchoolState));
+      driver.findElement(highSchoolState).click();
+      new Select(driver.findElement(highSchoolState)).selectByVisibleText("Kansas");
     }
 
     public void setHighSchool(String hs){
-        driver.findElement(highSchool).clear();
-        driver.findElement(highSchool).sendKeys(hs);
+      wait.until(ExpectedConditions.presenceOfElementLocated(highSchool));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(highSchool));
+      driver.findElement(highSchool).clear();
+      driver.findElement(highSchool).sendKeys(hs);
     }
 
     public void setPlannedGraduationMonth(){
-        driver.findElement(plannedGraduationMonth).click();
-        new Select(driver.findElement(plannedGraduationMonth)).selectByVisibleText("May");
+      wait.until(ExpectedConditions.presenceOfElementLocated(plannedGraduationMonth));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(plannedGraduationMonth));
+      driver.findElement(plannedGraduationMonth).click();
+      new Select(driver.findElement(plannedGraduationMonth)).selectByVisibleText("May");
     }
 
     public void setPlannedGraduationYear(){
-        driver.findElement(plannedGraduationYear).click();
-        new Select(driver.findElement(plannedGraduationYear)).selectByVisibleText("2016");
+      wait.until(ExpectedConditions.presenceOfElementLocated(plannedGraduationYear));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(plannedGraduationYear));
+      driver.findElement(plannedGraduationYear).click();
+      new Select(driver.findElement(plannedGraduationYear)).selectByVisibleText("2016");
     }
 
-    public void waitForSelfReporting(){ wait.until(ExpectedConditions.presenceOfElementLocated(selfReporting)); }
-
-    public void setSelfReporting(){ driver.findElement(selfReporting).click(); }
-
-    public void waitForGPAScale(){ wait.until(ExpectedConditions.visibilityOfElementLocated(GPAWeight)); }
+    public void setSelfReporting(){
+      wait.until(ExpectedConditions.presenceOfElementLocated(selfReporting));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(selfReporting));
+      driver.findElement(selfReporting).click();
+    }
 
     public void setGPAScale(){
-        driver.findElement(GPAScale).click();
-        new Select(driver.findElement(GPAScale)).selectByVisibleText("4 PT");
+      wait.until(ExpectedConditions.presenceOfElementLocated(GPAScale));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(GPAScale));
+      driver.findElement(GPAScale).click();
+      new Select(driver.findElement(GPAScale)).selectByVisibleText("4 PT");
     }
 
-    public void setGPAWeight(){ driver.findElement(GPAWeight).click(); }
-
-    public void waitForGPA() { wait.until(ExpectedConditions.visibilityOfElementLocated(GPA));}
+    public void setGPAWeight(){
+      wait.until(ExpectedConditions.presenceOfElementLocated(GPAWeight));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(GPAWeight));
+      driver.findElement(GPAWeight).click();
+    }
 
     public void setGPA(){
-        driver.findElement(GPA).clear();
-        driver.findElement(GPA).sendKeys("4.0");
+      wait.until(ExpectedConditions.presenceOfElementLocated(GPA));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(GPA));
+      driver.findElement(GPA).clear();
+      driver.findElement(GPA).sendKeys("4.0");
     }
 
-    public void setRanking(){ driver.findElement(ranking).click(); }
+    public void setRanking(){
+      wait.until(ExpectedConditions.presenceOfElementLocated(ranking));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(ranking));
+      driver.findElement(ranking).click();
+    }
 
-    public void setTerm(){ driver.findElement(term).click(); }
+    public void setTerm(){
+      wait.until(ExpectedConditions.presenceOfElementLocated(term));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(term));
+      driver.findElement(term).click();
+    }
 
     public void setNinthGradeTranscript() {
 
@@ -175,8 +197,12 @@ public class EducationInformationPage {
                 default:
                     new Select(courses.get(i)).selectByVisibleText("Advanced Math");
             }
+            wait.until(ExpectedConditions.presenceOfElementLocated(term1.get(i)));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(term1.get(i)));
             term1.get(i).click();
             new Select(term1.get(i)).selectByVisibleText("A");
+            wait.until(ExpectedConditions.presenceOfElementLocated(term2.get(i)));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(term2.get(i)));
             term2.get(i).click();
             new Select(term2.get(i)).selectByVisibleText("A");
         }
@@ -209,8 +235,12 @@ public class EducationInformationPage {
                 default:
                     new Select(courses.get(i)).selectByVisibleText("Speech");
             }
+            wait.until(ExpectedConditions.presenceOfElementLocated(term1.get(i)));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(term1.get(i)));
             term1.get(i).click();
             new Select(term1.get(i)).selectByVisibleText("A");
+            wait.until(ExpectedConditions.presenceOfElementLocated(term2.get(i)));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(term2.get(i)));
             term2.get(i).click();
             new Select(term2.get(i)).selectByVisibleText("A");
         }
@@ -243,8 +273,12 @@ public class EducationInformationPage {
                 default:
                     new Select(courses.get(i)).selectByVisibleText("Calculus");
             }
+            wait.until(ExpectedConditions.presenceOfElementLocated(term1.get(i)));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(term1.get(i)));
             term1.get(i).click();
             new Select(term1.get(i)).selectByVisibleText("A");
+            wait.until(ExpectedConditions.presenceOfElementLocated(term2.get(i)));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(term2.get(i)));
             term2.get(i).click();
             new Select(term2.get(i)).selectByVisibleText("A");
         }
@@ -277,140 +311,196 @@ public class EducationInformationPage {
                 default:
                     new Select(courses.get(i)).selectByVisibleText("Trigonometry");
             }
+            wait.until(ExpectedConditions.presenceOfElementLocated(term1.get(i)));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(term1.get(i)));
             term1.get(i).click();
             new Select(term1.get(i)).selectByVisibleText("A");
+            wait.until(ExpectedConditions.presenceOfElementLocated(term2.get(i)));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(term2.get(i)));
             term2.get(i).click();
             new Select(term2.get(i)).selectByVisibleText("A");
         }
     }
 
-    public void setACT() { driver.findElement(ACT).click(); }
-
-    public void waitForCompositeScore() { wait.until(ExpectedConditions.visibilityOfElementLocated(compositeScore)); }
+    public void setACT() {
+      wait.until(ExpectedConditions.presenceOfElementLocated(ACT));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(ACT));
+      driver.findElement(ACT).click();
+    }
 
     public void setCompositeScore(String score) {
-        driver.findElement(compositeScore).clear();
-        driver.findElement(compositeScore).sendKeys(score);
+      wait.until(ExpectedConditions.presenceOfElementLocated(compositeScore));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(compositeScore));
+      driver.findElement(compositeScore).clear();
+      driver.findElement(compositeScore).sendKeys(score);
     }
 
     public void setEnglishScore(String score) {
-        driver.findElement(englishScore).clear();
-        driver.findElement(englishScore).sendKeys(score);
+      wait.until(ExpectedConditions.presenceOfElementLocated(englishScore));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(englishScore));
+      driver.findElement(englishScore).clear();
+      driver.findElement(englishScore).sendKeys(score);
     }
 
     public void setMathScore(String score){
-        driver.findElement(mathScore).clear();
-        driver.findElement(mathScore).sendKeys(score);
+      wait.until(ExpectedConditions.presenceOfElementLocated(mathScore));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(mathScore));
+      driver.findElement(mathScore).clear();
+      driver.findElement(mathScore).sendKeys(score);
     }
 
     public void setReadingScore(String score){
-        driver.findElement(readingScore).clear();
-        driver.findElement(readingScore).sendKeys(score);
+      wait.until(ExpectedConditions.presenceOfElementLocated(readingScore));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(readingScore));
+      driver.findElement(readingScore).clear();
+      driver.findElement(readingScore).sendKeys(score);
     }
 
     public void setScienceScore(String score){
-        driver.findElement(scienceScore).clear();
-        driver.findElement(scienceScore).sendKeys(score);
+      wait.until(ExpectedConditions.presenceOfElementLocated(scienceScore));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(scienceScore));
+      driver.findElement(scienceScore).clear();
+      driver.findElement(scienceScore).sendKeys(score);
     }
 
     public void setPreviouslyAttendedKSUtrue(){
-        driver.findElement(previouslyAttendedKSUtrue).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(previouslyAttendedKSUtrue));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(previouslyAttendedKSUtrue));
+      driver.findElement(previouslyAttendedKSUtrue).click();
     }
 
-    public void setPreviouslyAttendedKSUfalse() { driver.findElement(previouslyAttendedKSUfalse).click(); }
+    public void setPreviouslyAttendedKSUfalse() {
+      wait.until(ExpectedConditions.presenceOfElementLocated(previouslyAttendedKSUfalse));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(previouslyAttendedKSUfalse));
+      driver.findElement(previouslyAttendedKSUfalse).click();
+    }
 
     public void setPreviouslyTakenClassestrue(){
-        driver.findElement(previouslyTakenClassestrue).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(previouslyTakenClassestrue));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(previouslyTakenClassestrue));
+      driver.findElement(previouslyTakenClassestrue).click();
     }
 
-    public void setPreviouslyTakenClassesfalse() { driver.findElement(previouslyTakenClassesfalse).click(); }
-
-    public void waitForCollegeCountry() { wait.until(ExpectedConditions.visibilityOfElementLocated(collegeCountry)); }
+    public void setPreviouslyTakenClassesfalse() {
+      wait.until(ExpectedConditions.presenceOfElementLocated(previouslyTakenClassesfalse));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(previouslyTakenClassesfalse));
+      driver.findElement(previouslyTakenClassesfalse).click();
+    }
 
     public void setCollegeCountry(String country){
-        driver.findElement(collegeCountry).click();
-        new Select(driver.findElement(collegeCountry)).selectByVisibleText(country);
+      wait.until(ExpectedConditions.presenceOfElementLocated(collegeCountry));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(collegeCountry));
+      driver.findElement(collegeCountry).click();
+      new Select(driver.findElement(collegeCountry)).selectByVisibleText(country);
     }
 
-    public void waitForCollegeName() { wait.until(ExpectedConditions.visibilityOfElementLocated(collegeName)); }
-
     public void setCollegeName(String college){
-        driver.findElement(collegeName).clear();
-        driver.findElement(collegeName).sendKeys(college);
+      wait.until(ExpectedConditions.presenceOfElementLocated(collegeName));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(collegeName));
+      driver.findElement(collegeName).clear();
+      driver.findElement(collegeName).sendKeys(college);
     }
 
     public void setCreditHours(String hours){
-        driver.findElement(creditHours).clear();
-        driver.findElement(creditHours).sendKeys(hours);
+      wait.until(ExpectedConditions.presenceOfElementLocated(creditHours));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(creditHours));
+      driver.findElement(creditHours).clear();
+      driver.findElement(creditHours).sendKeys(hours);
     }
 
     public void setAttendanceMonthStart(String month){
-        driver.findElement(attendanceMonthStart).click();
-        new Select(driver.findElement(attendanceMonthStart)).selectByVisibleText(month);
+      wait.until(ExpectedConditions.presenceOfElementLocated(attendanceMonthStart));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(attendanceMonthStart));
+      driver.findElement(attendanceMonthStart).click();
+      new Select(driver.findElement(attendanceMonthStart)).selectByVisibleText(month);
     }
 
     public void setAttendanceYearStart(String year){
-        driver.findElement(attendanceYearStart).click();
-        new Select(driver.findElement(attendanceYearStart)).selectByVisibleText(year);
+      wait.until(ExpectedConditions.presenceOfElementLocated(attendanceYearStart));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(attendanceYearStart));
+      driver.findElement(attendanceYearStart).click();
+      new Select(driver.findElement(attendanceYearStart)).selectByVisibleText(year);
     }
 
     public void setAttendanceMontEnd(String month){
-        driver.findElement(attendanceMonthEnd).click();
-        new Select(driver.findElement(attendanceMonthEnd)).selectByVisibleText(month);
+      wait.until(ExpectedConditions.presenceOfElementLocated(attendanceMonthEnd));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(attendanceMonthEnd));
+      driver.findElement(attendanceMonthEnd).click();
+      new Select(driver.findElement(attendanceMonthEnd)).selectByVisibleText(month);
     }
 
     public void setAttendanceYearEnd(String year){
-        driver.findElement(attendanceYearEnd).click();
-        new Select(driver.findElement(attendanceYearEnd)).selectByVisibleText(year);
+      wait.until(ExpectedConditions.presenceOfElementLocated(attendanceYearEnd));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(attendanceYearEnd));
+      driver.findElement(attendanceYearEnd).click();
+      new Select(driver.findElement(attendanceYearEnd)).selectByVisibleText(year);
     }
 
     public void setOfficialTranscript(){
-        driver.findElement(officialTranscript).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(officialTranscript));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(officialTranscript));
+      driver.findElement(officialTranscript).click();
     }
 
-    public void waitForCompleteDegree(){ wait.until(ExpectedConditions.visibilityOfElementLocated(completeDegreetrue)); }
-
-    public void setCompleteDegreetrue() { driver.findElement(completeDegreetrue).click(); }
+    public void setCompleteDegreetrue() {
+      wait.until(ExpectedConditions.presenceOfElementLocated(completeDegreetrue));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(completeDegreetrue));
+      driver.findElement(completeDegreetrue).click();
+    }
 
     public void setCompleteDegreefalse(){
-        driver.findElement(completeDegreefalse).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(completeDegreefalse));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(completeDegreefalse));
+      driver.findElement(completeDegreefalse).click();
     }
-
-    public void waitForCompleteDegreeAtKSU() { wait.until(ExpectedConditions.visibilityOfElementLocated(completeDegreeAtKSU)); }
 
     public void setCompleteDegreeAtKSU(){
-        driver.findElement(completeDegreeAtKSU).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(completeDegreeAtKSU));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(completeDegreeAtKSU));
+      driver.findElement(completeDegreeAtKSU).click();
     }
-
-    public void waitForMinor() { wait.until(ExpectedConditions.visibilityOfElementLocated(minorTrue)); }
 
     public void setMinorTrue(){
-        driver.findElement(minorTrue).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(minorTrue));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(minorTrue));
+      driver.findElement(minorTrue).click();
     }
 
-    public void waitForBaccalaureate() { wait.until(ExpectedConditions.visibilityOfElementLocated(baccalaureate)); }
-
     public void setBaccalaureate(){
-        driver.findElement(baccalaureate).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(baccalaureate));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(baccalaureate));
+      driver.findElement(baccalaureate).click();
     }
 
     public void setKsuLocationDL(){
-        driver.findElement(ksuLocationDL).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(ksuLocationDL));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(ksuLocationDL));
+      driver.findElement(ksuLocationDL).click();
     }
 
-    public void setKsuLocationMAN() { driver.findElement(ksuLocationMAN).click(); }
+    public void setKsuLocationMAN() {
+      wait.until(ExpectedConditions.presenceOfElementLocated(ksuLocationMAN));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(ksuLocationMAN));
+      driver.findElement(ksuLocationMAN).click();
+    }
 
     public void setMinor(){
-        driver.findElement(minors).click();
-        new Select(driver.findElement(minors)).selectByIndex(5);
+      wait.until(ExpectedConditions.presenceOfElementLocated(minors));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(minors));
+      driver.findElement(minors).click();
+      new Select(driver.findElement(minors)).selectByIndex(5);
     }
 
     public void setMajor(){
-        driver.findElement(major).click();
-        new Select(driver.findElement(major)).selectByIndex(5);
+      wait.until(ExpectedConditions.presenceOfElementLocated(major));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(major));
+      driver.findElement(major).click();
+      new Select(driver.findElement(major)).selectByIndex(5);
     }
 
     public void submit(){
-        driver.findElement(submit).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(submit));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(submit));
+      driver.findElement(submit).click();
     }
 }

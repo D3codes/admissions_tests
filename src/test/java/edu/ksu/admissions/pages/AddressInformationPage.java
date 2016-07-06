@@ -34,89 +34,97 @@ public class AddressInformationPage {
         this.wait = wait;
     }
 
-    public void waitForPageLoad(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(country));
-    }
-
-    public void waitForCountry(){
-      wait.until(ExpectedConditions.visibilityOfElementLocated(country));
-    }
-
     public void setCountryUS(){
-        driver.findElement(country).click();
-        new Select(driver.findElement(country)).selectByVisibleText("United States");
-        driver.findElement(country).click();
-        new Select(driver.findElement(country)).selectByVisibleText("United States");
+      wait.until(ExpectedConditions.presenceOfElementLocated(country));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(country));
+      driver.findElement(country).click();
+      new Select(driver.findElement(country)).selectByVisibleText("United States");
     }
 
     public void setCountryAFG(){
-        driver.findElement(country).click();
-        new Select(driver.findElement(country)).selectByVisibleText("Afghanistan");
+      wait.until(ExpectedConditions.presenceOfElementLocated(country));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(country));
+      driver.findElement(country).click();
+      new Select(driver.findElement(country)).selectByVisibleText("Afghanistan");
     }
 
-    public void waitForAddress(){ wait.until(ExpectedConditions.visibilityOfElementLocated(address)); }
-
     public void setAddress(String addr){
-        driver.findElement(address).clear();
-        driver.findElement(address).sendKeys(addr);
+      wait.until(ExpectedConditions.presenceOfElementLocated(address));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(address));
+      driver.findElement(address).clear();
+      driver.findElement(address).sendKeys(addr);
     }
 
     public void setCity(String city){
-        driver.findElement(this.city).clear();
-        driver.findElement(this.city).sendKeys(city);
+      wait.until(ExpectedConditions.presenceOfElementLocated(city));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(city));
+      driver.findElement(this.city).clear();
+      driver.findElement(this.city).sendKeys(city);
     }
 
     public void setState(){
-        driver.findElement(state).click();
-        new Select(driver.findElement(state)).selectByVisibleText("Kansas");
-        driver.findElement(state).click();
-        new Select(driver.findElement(state)).selectByVisibleText("Kansas");
+      wait.until(ExpectedConditions.presenceOfElementLocated(state));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(state));
+      driver.findElement(state).click();
+      new Select(driver.findElement(state)).selectByVisibleText("Kansas");
     }
 
     public void setZipCode(String zip){
-        driver.findElement(zipCode).clear();
-        driver.findElement(zipCode).sendKeys(zip);
+      wait.until(ExpectedConditions.presenceOfElementLocated(zipCode));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(zipCode));
+      driver.findElement(zipCode).clear();
+      driver.findElement(zipCode).sendKeys(zip);
     }
 
-    public void waitForCounty(){ wait.until(ExpectedConditions.visibilityOfElementLocated(county)); }
-
     public void setCounty(String county){
-        driver.findElement(this.county).click();
-        new Select(driver.findElement(this.county)).selectByVisibleText(county);
+      wait.until(ExpectedConditions.presenceOfElementLocated(county));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(county));
+      driver.findElement(this.county).click();
+      new Select(driver.findElement(this.county)).selectByVisibleText(county);
     }
 
     public void setSameAddress(){
-        driver.findElement(sameAddress).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(sameAddress));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(sameAddress));
+      driver.findElement(sameAddress).click();
     }
 
-    public void setSameMailingAddress() { driver.findElement(sameMailingAddress).click(); }
-
-    public void waitForRelationship() {
-      wait.until(ExpectedConditions.visibilityOfElementLocated(relationship));
+    public void setSameMailingAddress() {
+      wait.until(ExpectedConditions.presenceOfElementLocated(sameMailingAddress));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(sameMailingAddress));
+      driver.findElement(sameMailingAddress).click();
     }
 
     public void setRelationship(){
-        driver.findElement(relationship).click();
-        new Select(driver.findElement(relationship)).selectByVisibleText("Father");
-        driver.findElement(relationship).click();
-        new Select(driver.findElement(relationship)).selectByVisibleText("Father");
+      wait.until(ExpectedConditions.presenceOfElementLocated(relationship));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(relationship));
+      driver.findElement(relationship).click();
+      new Select(driver.findElement(relationship)).selectByVisibleText("Father");
     }
 
     public void  setContactFirstName(String name){
-        driver.findElement(contactFirstName).clear();
-        driver.findElement(contactFirstName).sendKeys(name);
+      wait.until(ExpectedConditions.presenceOfElementLocated(contactFirstName));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(contactFirstName));
+      driver.findElement(contactFirstName).clear();
+      driver.findElement(contactFirstName).sendKeys(name);
     }
 
     public void setContactLastName(String name){
-        driver.findElement(contactLastName).clear();
-        driver.findElement(contactLastName).sendKeys(name);
+      wait.until(ExpectedConditions.presenceOfElementLocated(contactLastName));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(contactLastName));
+      driver.findElement(contactLastName).clear();
+      driver.findElement(contactLastName).sendKeys(name);
     }
 
     public void setAddAnotherRelationship(){
-        driver.findElement(addAnotherRelationship).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(addAnotherRelationship));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(addAnotherRelationship));
+      driver.findElement(addAnotherRelationship).click();
     }
 
     public void submit(){
-        driver.findElement(submit).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(submit));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(submit));
+      driver.findElement(submit).click();
     }
 }

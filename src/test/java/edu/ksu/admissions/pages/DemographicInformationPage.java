@@ -40,44 +40,80 @@ public class DemographicInformationPage {
     }
 
     public void setEnglishPrimarytrue(){
-        driver.findElement(englishPrimarytrue).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(englishPrimarytrue));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(englishPrimarytrue));
+      driver.findElement(englishPrimarytrue).click();
     }
 
     public void setOtherLanguagefalse(){
-        driver.findElement(otherLanguagefalse).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(otherLanguagefalse));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(otherLanguagefalse));
+      driver.findElement(otherLanguagefalse).click();
     }
 
-    public void setParentsDegree() { driver.findElement(parentsDegree).click(); }
+    public void setParentsDegree() {
+      wait.until(ExpectedConditions.presenceOfElementLocated(parentsDegree));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(parentsDegree));
+      driver.findElement(parentsDegree).click();
+    }
 
-    public void setMilitary() { driver.findElement(military).click(); }
-
-    public void waitForMilitaryMonthStart() { wait.until(ExpectedConditions.visibilityOfElementLocated(militaryMonthStart)); }
+    public void setMilitary() {
+      wait.until(ExpectedConditions.presenceOfElementLocated(military));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(military));
+      driver.findElement(military).click();
+    }
 
     public void setMilitaryStart(String month, String year){
-        driver.findElement(militaryMonthStart).click();
-        new Select(driver.findElement(militaryMonthStart)).selectByVisibleText(month);
-        driver.findElement(militaryYearStart).click();
-        new Select(driver.findElement(militaryYearStart)).selectByVisibleText(year);
+      wait.until(ExpectedConditions.presenceOfElementLocated(militaryMonthStart));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(militaryMonthStart));
+      driver.findElement(militaryMonthStart).click();
+      new Select(driver.findElement(militaryMonthStart)).selectByVisibleText(month);
+      wait.until(ExpectedConditions.presenceOfElementLocated(militaryYearStart));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(militaryYearStart));
+      driver.findElement(militaryYearStart).click();
+      new Select(driver.findElement(militaryYearStart)).selectByVisibleText(year);
     }
 
     public void setMilitaryEnd(String month, String year){
-        driver.findElement(militaryMonthEnd).click();
-        new Select(driver.findElement(militaryMonthEnd)).selectByVisibleText(month);
-        driver.findElement(militaryYearEnd).click();
-        new Select(driver.findElement(militaryYearEnd)).selectByVisibleText(year);
+      wait.until(ExpectedConditions.presenceOfElementLocated(militaryMonthEnd));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(militaryMonthEnd));
+      driver.findElement(militaryMonthEnd).click();
+      new Select(driver.findElement(militaryMonthEnd)).selectByVisibleText(month);
+      wait.until(ExpectedConditions.presenceOfElementLocated(militaryYearEnd));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(militaryYearEnd));
+      driver.findElement(militaryYearEnd).click();
+      new Select(driver.findElement(militaryYearEnd)).selectByVisibleText(year);
     }
 
     public void waitForConductInformation(){ wait.until(ExpectedConditions.presenceOfElementLocated(everExpelled)); }
 
-    public void setEverExpelled() { driver.findElement(everExpelled).click(); }
+    public void setEverExpelled() {
+      wait.until(ExpectedConditions.presenceOfElementLocated(everExpelled));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(everExpelled));
+      driver.findElement(everExpelled).click();
+    }
 
-    public void setFelonyCharges() { driver.findElement(felonyCharges).click(); }
+    public void setFelonyCharges() {
+      wait.until(ExpectedConditions.presenceOfElementLocated(felonyCharges));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(felonyCharges));
+      driver.findElement(felonyCharges).click();
+    }
 
-    public void setGuiltyPlea() { driver.findElement(guiltyPlea).click(); }
+    public void setGuiltyPlea() {
+      wait.until(ExpectedConditions.presenceOfElementLocated(guiltyPlea));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(guiltyPlea));
+      driver.findElement(guiltyPlea).click();
+    }
 
-    public void setRegisteredName() { driver.findElement(registeredName).click(); }
+    public void setRegisteredName() {
+      wait.until(ExpectedConditions.presenceOfElementLocated(registeredName));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(registeredName));
+      driver.findElement(registeredName).click();
+    }
 
     public void submit(){
-        driver.findElement(submit).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(submit));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(submit));
+      driver.findElement(submit).click();
     }
 }

@@ -24,19 +24,21 @@ public class AdmissionsPageOne {
         this.wait = wait;
     }
 
-    public void waitForPageLoad(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(hasID));;
-    }
-
     public void hasID(){
-        driver.findElement(hasID).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(hasID));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(hasID));
+      driver.findElement(hasID).click();
     }
 
     public void noID(){
-        driver.findElement(noID).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(noID));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(noID));
+      driver.findElement(noID).click();
     }
 
     public void submit(){
-        driver.findElement(submit).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(submit));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(submit));
+      driver.findElement(submit).click();
     }
 }

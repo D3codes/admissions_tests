@@ -47,35 +47,37 @@ public class ScholarshipPage {
         this.wait = wait;
     }
 
-    public void waitForPageLoad(boolean isShortest){
-
-        if(isShortest)
-            wait.until(ExpectedConditions.presenceOfElementLocated(ssn));
-        else
-            wait.until(ExpectedConditions.presenceOfElementLocated(skip));
-    }
-
     public void setSSN(String num){
-        driver.findElement(ssn).clear();
-        driver.findElement(ssn).sendKeys(num);
+      wait.until(ExpectedConditions.presenceOfElementLocated(ssn));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(ssn));
+      driver.findElement(ssn).clear();
+      driver.findElement(ssn).sendKeys(num);
     }
 
     public void setActivities(String activ){
+      wait.until(ExpectedConditions.presenceOfElementLocated(activities));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(activities));
       driver.findElement(activities).clear();
       driver.findElement(activities).sendKeys(activ);
     }
 
     public void setAwards(String award){
+      wait.until(ExpectedConditions.presenceOfElementLocated(awards));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(awards));
       driver.findElement(awards).clear();
       driver.findElement(awards).sendKeys(award);
     }
 
     public void setRoles(String role){
+      wait.until(ExpectedConditions.presenceOfElementLocated(roles));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(roles));
       driver.findElement(roles).clear();
       driver.findElement(roles).sendKeys(role);
     }
 
     public void setDescendants(){
+      wait.until(ExpectedConditions.presenceOfElementLocated(descendant1));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(descendant1));
       driver.findElement(descendant1).click();
       driver.findElement(descendant2).click();
       driver.findElement(descendant3).click();
@@ -85,12 +87,16 @@ public class ScholarshipPage {
     }
 
     public void setEmployers(){
+      wait.until(ExpectedConditions.presenceOfElementLocated(employment1));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(employment1));
       driver.findElement(employment1).click();
       driver.findElement(employment2).click();
       driver.findElement(employment3).click();
     }
 
     public void setGeneral(){
+      wait.until(ExpectedConditions.presenceOfElementLocated(general1));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(general1));
       driver.findElement(general1).click();
       driver.findElement(general2).click();
       driver.findElement(general3).click();
@@ -104,9 +110,15 @@ public class ScholarshipPage {
       driver.findElement(general11).click();
     }
 
-    public void skip() { driver.findElement(skip).click(); }
+    public void skip() {
+      wait.until(ExpectedConditions.presenceOfElementLocated(skip));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(skip));
+      driver.findElement(skip).click();
+    }
 
     public void submit(){
-        driver.findElement(submit).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(submit));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(submit));
+      driver.findElement(submit).click();
     }
 }

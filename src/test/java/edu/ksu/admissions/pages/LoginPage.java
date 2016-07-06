@@ -24,21 +24,23 @@ public class LoginPage {
         this.wait = wait;
     }
 
-    public void waitForPageLoad(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(eID));
-    }
-
     public void setEID(String username){
-        driver.findElement(eID).clear();
-        driver.findElement(eID).sendKeys(username);
+      wait.until(ExpectedConditions.presenceOfElementLocated(eID));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(eID));
+      driver.findElement(eID).clear();
+      driver.findElement(eID).sendKeys(username);
     }
 
     public void setPassword(String pswd){
-        driver.findElement(password).clear();
-        driver.findElement(password).sendKeys(pswd);
+      wait.until(ExpectedConditions.presenceOfElementLocated(password));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(password));
+      driver.findElement(password).clear();
+      driver.findElement(password).sendKeys(pswd);
     }
 
     public void submit(){
-        driver.findElement(submit).click();
+      wait.until(ExpectedConditions.presenceOfElementLocated(submit));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(submit));
+      driver.findElement(submit).click();
     }
 }
