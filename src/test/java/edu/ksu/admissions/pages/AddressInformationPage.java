@@ -46,6 +46,7 @@ public class AddressInformationPage {
         driver.findElement(country).click();
         new Select(driver.findElement(country)).selectByVisibleText("United States");
         driver.findElement(country).click();
+        new Select(driver.findElement(country)).selectByVisibleText("United States");
     }
 
     public void setCountryAFG(){
@@ -66,6 +67,8 @@ public class AddressInformationPage {
     }
 
     public void setState(){
+        driver.findElement(state).click();
+        new Select(driver.findElement(state)).selectByVisibleText("Kansas");
         driver.findElement(state).click();
         new Select(driver.findElement(state)).selectByVisibleText("Kansas");
     }
@@ -93,6 +96,8 @@ public class AddressInformationPage {
     }
 
     public void setRelationship(){
+        driver.findElement(relationship).click();
+        new Select(driver.findElement(relationship)).selectByVisibleText("Father");
         driver.findElement(relationship).click();
         new Select(driver.findElement(relationship)).selectByVisibleText("Father");
     }
