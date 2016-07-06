@@ -101,8 +101,7 @@ public class UGAdmSeleniumTest {
         for(WebDriver driver : drivers){
             String driverType = "Safari Driver";
             if(driver instanceof FirefoxDriver) { driverType = "Firefox Driver"; }
-            else if(driver instanceof ChromeDriver) { driverType = "Chrome Driver"; }
-            else if(driver instanceof InternetExplorerDriver) { driverType = "Internet Explorer Driver"; }
+            else(driver instanceof ChromeDriver) { driverType = "Chrome Driver"; }
 
             try {
                 WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -275,6 +274,7 @@ public class UGAdmSeleniumTest {
         System.out.println("Testing Address Information Page (Shortest Route)");
         AddressInformationPage addressInformationPage = new AddressInformationPage(driver, wait);
         addressInformationPage.waitForPageLoad();
+        addressInformationPage.waitForCountry();
         addressInformationPage.setCountryUS();
         addressInformationPage.waitForAddress();
         addressInformationPage.setAddress("123 Manhattan Ave");
@@ -296,6 +296,7 @@ public class UGAdmSeleniumTest {
         System.out.println("Testing Address Information Page (Longest Route)");
         AddressInformationPage addressInformationPage = new AddressInformationPage(driver, wait);
         addressInformationPage.waitForPageLoad();
+        addressInformationPage.waitForCountry();
         addressInformationPage.setCountryAFG();
         addressInformationPage.waitForAddress();
         addressInformationPage.setAddress("سرک 60 متره میدان هوایی‎");

@@ -38,6 +38,10 @@ public class AddressInformationPage {
         wait.until(ExpectedConditions.presenceOfElementLocated(country));
     }
 
+    public void waitForCountry(){
+      wait.until(ExpectedConditions.visibilityOfElementLocated(country));
+    }
+
     public void setCountryUS(){
         driver.findElement(country).click();
         new Select(driver.findElement(country)).selectByVisibleText("United States");
