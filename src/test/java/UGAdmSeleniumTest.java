@@ -22,7 +22,7 @@ import static org.junit.Assert.assertEquals;
 public class UGAdmSeleniumTest {
 
     private String baseURL;
-    private WebDriver fireFox, chrome, safari, internetExplorer;
+    private WebDriver fireFox, chrome, safari;
     private List<WebDriver> drivers;
     private ArrayList<String> names;
     private String firstName;
@@ -52,18 +52,6 @@ public class UGAdmSeleniumTest {
           }
         } else if(System.getProperty("os.name").contains("Windows")){
           System.setProperty("webdriver.chrome.driver", "src/main/resources/windows/chromedriver.exe");
-          try{ //if the operating system is Windows, then sets up internetExplorer driver
-            System.setProperty("webdriver.ie.driver", "src/main/resources/windows/IEDriverServer.exe");
-            internetExplorer = new InternetExplorerDriver();
-            drivers.add(internetExplorer);
-          }catch(Exception e){
-            System.err.println("\nERROR setting up Drivers");
-            System.err.println("Internet Explorer not detected on computer");
-            System.err.println("Please install Internet Explorer to perform a complete test\n");
-            System.err.println("***KNOWN SELENIUM BUG***");
-            System.err.println("Selenium does not work with Internet Explorer 11");
-            System.err.println("Must use Internet Explorer 10\n");
-          }
         } else {
           System.setProperty("webdriver.chrome.driver", "src/main/resources/linux/chromedriver");
         }
