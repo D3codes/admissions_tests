@@ -68,8 +68,6 @@ public class AddressInformationPage {
     public void setState(){
         driver.findElement(state).click();
         new Select(driver.findElement(state)).selectByVisibleText("Kansas");
-        driver.findElement(state).click();
-        new Select(driver.findElement(state)).selectByVisibleText("Kansas");
     }
 
     public void setZipCode(String zip){
