@@ -55,6 +55,7 @@ public class AddressInformationPage {
     public void waitForAddress(){ wait.until(ExpectedConditions.visibilityOfElementLocated(address)); }
 
     public void setAddress(String addr){
+        driver.findElement(address).click();
         driver.findElement(address).clear();
         driver.findElement(address).sendKeys(addr);
     }
@@ -87,7 +88,9 @@ public class AddressInformationPage {
 
     public void setSameMailingAddress() { driver.findElement(sameMailingAddress).click(); }
 
-    public void waitForRelationship() { wait.until(ExpectedConditions.visibilityOfElementLocated(relationship)); }
+    public void waitForRelationship() {
+      wait.until(ExpectedConditions.visibilityOfElementLocated(relationship));
+    }
 
     public void setRelationship(){
         driver.findElement(relationship).click();
