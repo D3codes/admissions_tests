@@ -45,6 +45,7 @@ public class AddressInformationPage {
     public void setCountryUS(){
         driver.findElement(country).click();
         new Select(driver.findElement(country)).selectByVisibleText("United States");
+        driver.findElement(country).click();
     }
 
     public void setCountryAFG(){
@@ -55,7 +56,6 @@ public class AddressInformationPage {
     public void waitForAddress(){ wait.until(ExpectedConditions.visibilityOfElementLocated(address)); }
 
     public void setAddress(String addr){
-        driver.findElement(address).click();
         driver.findElement(address).clear();
         driver.findElement(address).sendKeys(addr);
     }
