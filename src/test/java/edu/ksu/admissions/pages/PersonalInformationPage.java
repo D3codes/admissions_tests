@@ -83,14 +83,14 @@ public class PersonalInformationPage {
     public void setFirstName(String name){
       wait.until(ExpectedConditions.presenceOfElementLocated(firstName));
       wait.until(ExpectedConditions.visibilityOfElementLocated(firstName));
-      clearFirstName();
+      driver.findElement(firstName).clear();
       driver.findElement(firstName).sendKeys(name);
     }
 
     public void setLastName(String name){
       wait.until(ExpectedConditions.presenceOfElementLocated(lastName));
       wait.until(ExpectedConditions.visibilityOfElementLocated(lastName));
-      clearLastName();
+      driver.findElement(lastName).clear();
       driver.findElement(lastName).sendKeys(name);
     }
 

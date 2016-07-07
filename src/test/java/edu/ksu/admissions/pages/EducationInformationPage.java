@@ -197,12 +197,8 @@ public class EducationInformationPage {
                 default:
                     new Select(courses.get(i)).selectByVisibleText("Advanced Math");
             }
-            wait.until(ExpectedConditions.presenceOfElementLocated(term1.get(i)));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(term1.get(i)));
             term1.get(i).click();
             new Select(term1.get(i)).selectByVisibleText("A");
-            wait.until(ExpectedConditions.presenceOfElementLocated(term2.get(i)));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(term2.get(i)));
             term2.get(i).click();
             new Select(term2.get(i)).selectByVisibleText("A");
         }
@@ -235,12 +231,8 @@ public class EducationInformationPage {
                 default:
                     new Select(courses.get(i)).selectByVisibleText("Speech");
             }
-            wait.until(ExpectedConditions.presenceOfElementLocated(term1.get(i)));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(term1.get(i)));
             term1.get(i).click();
             new Select(term1.get(i)).selectByVisibleText("A");
-            wait.until(ExpectedConditions.presenceOfElementLocated(term2.get(i)));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(term2.get(i)));
             term2.get(i).click();
             new Select(term2.get(i)).selectByVisibleText("A");
         }
@@ -273,12 +265,8 @@ public class EducationInformationPage {
                 default:
                     new Select(courses.get(i)).selectByVisibleText("Calculus");
             }
-            wait.until(ExpectedConditions.presenceOfElementLocated(term1.get(i)));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(term1.get(i)));
             term1.get(i).click();
             new Select(term1.get(i)).selectByVisibleText("A");
-            wait.until(ExpectedConditions.presenceOfElementLocated(term2.get(i)));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(term2.get(i)));
             term2.get(i).click();
             new Select(term2.get(i)).selectByVisibleText("A");
         }
@@ -311,12 +299,8 @@ public class EducationInformationPage {
                 default:
                     new Select(courses.get(i)).selectByVisibleText("Trigonometry");
             }
-            wait.until(ExpectedConditions.presenceOfElementLocated(term1.get(i)));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(term1.get(i)));
             term1.get(i).click();
             new Select(term1.get(i)).selectByVisibleText("A");
-            wait.until(ExpectedConditions.presenceOfElementLocated(term2.get(i)));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(term2.get(i)));
             term2.get(i).click();
             new Select(term2.get(i)).selectByVisibleText("A");
         }

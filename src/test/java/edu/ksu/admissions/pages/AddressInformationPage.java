@@ -56,8 +56,8 @@ public class AddressInformationPage {
     }
 
     public void setCity(String city){
-      wait.until(ExpectedConditions.presenceOfElementLocated(city));
-      wait.until(ExpectedConditions.visibilityOfElementLocated(city));
+      wait.until(ExpectedConditions.presenceOfElementLocated(this.city));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(this.city));
       driver.findElement(this.city).clear();
       driver.findElement(this.city).sendKeys(city);
     }
@@ -77,8 +77,8 @@ public class AddressInformationPage {
     }
 
     public void setCounty(String county){
-      wait.until(ExpectedConditions.presenceOfElementLocated(county));
-      wait.until(ExpectedConditions.visibilityOfElementLocated(county));
+      wait.until(ExpectedConditions.presenceOfElementLocated(this.county));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(this.county));
       driver.findElement(this.county).click();
       new Select(driver.findElement(this.county)).selectByVisibleText(county);
     }
