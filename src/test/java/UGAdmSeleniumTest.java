@@ -68,7 +68,7 @@ public class UGAdmSeleniumTest {
           System.err.println("Please install Firefox to perform a complete test\n");
           System.err.println("***KNOWN SELENIUM BUG***");
           System.err.println("Selenium does not work with FireFox 47");
-          System.err.println("Must use FireFox 45: https://www.softexia.com/windows/web-browsers/firefox-45\n");
+          System.err.println("Must use FireFox 46\n");
         }
 
         //tries to set up ChromeDriver
