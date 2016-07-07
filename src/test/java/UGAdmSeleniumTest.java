@@ -504,6 +504,7 @@ public class UGAdmSeleniumTest {
         assertEquals("AFG", reviewPage.getCountryOfCitizenship());
         assertEquals("Student (F1)", reviewPage.getVisaType());
         assertEquals("Afghanistan", reviewPage.getPermanentAddressCountry());
+        System.out.println("\n\n\n"+reviewPage.getPermanentAddress()+"\n\n\n");
         assertEquals("سرک 60 متره میدان هوایی", reviewPage.getPermanentAddress());
         assertEquals("Kabul", reviewPage.getPermanentAddressCity());
         assertEquals("Father", reviewPage.getFamilyRelationship(LONGEST));
