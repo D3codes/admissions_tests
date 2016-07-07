@@ -37,14 +37,12 @@ public class AddressInformationPage {
     public void setCountryUS(){
       wait.until(ExpectedConditions.presenceOfElementLocated(country));
       wait.until(ExpectedConditions.visibilityOfElementLocated(country));
-      driver.findElement(country).click();
       new Select(driver.findElement(country)).selectByVisibleText("United States");
     }
 
     public void setCountryAFG(){
       wait.until(ExpectedConditions.presenceOfElementLocated(country));
       wait.until(ExpectedConditions.visibilityOfElementLocated(country));
-      driver.findElement(country).click();
       new Select(driver.findElement(country)).selectByVisibleText("Afghanistan");
     }
 
@@ -65,7 +63,6 @@ public class AddressInformationPage {
     public void setState(){
       wait.until(ExpectedConditions.presenceOfElementLocated(state));
       wait.until(ExpectedConditions.visibilityOfElementLocated(state));
-      driver.findElement(state).click();
       new Select(driver.findElement(state)).selectByVisibleText("Kansas");
     }
 
@@ -79,7 +76,6 @@ public class AddressInformationPage {
     public void setCounty(String county){
       wait.until(ExpectedConditions.presenceOfElementLocated(this.county));
       wait.until(ExpectedConditions.visibilityOfElementLocated(this.county));
-      driver.findElement(this.county).click();
       new Select(driver.findElement(this.county)).selectByVisibleText(county);
     }
 
@@ -98,7 +94,6 @@ public class AddressInformationPage {
     public void setRelationship(){
       wait.until(ExpectedConditions.presenceOfElementLocated(relationship));
       wait.until(ExpectedConditions.visibilityOfElementLocated(relationship));
-      driver.findElement(relationship).click();
       new Select(driver.findElement(relationship)).selectByVisibleText("Father");
     }
 

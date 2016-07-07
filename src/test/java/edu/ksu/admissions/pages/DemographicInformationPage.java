@@ -66,22 +66,18 @@ public class DemographicInformationPage {
     public void setMilitaryStart(String month, String year){
       wait.until(ExpectedConditions.presenceOfElementLocated(militaryMonthStart));
       wait.until(ExpectedConditions.visibilityOfElementLocated(militaryMonthStart));
-      driver.findElement(militaryMonthStart).click();
       new Select(driver.findElement(militaryMonthStart)).selectByVisibleText(month);
       wait.until(ExpectedConditions.presenceOfElementLocated(militaryYearStart));
       wait.until(ExpectedConditions.visibilityOfElementLocated(militaryYearStart));
-      driver.findElement(militaryYearStart).click();
       new Select(driver.findElement(militaryYearStart)).selectByVisibleText(year);
     }
 
     public void setMilitaryEnd(String month, String year){
       wait.until(ExpectedConditions.presenceOfElementLocated(militaryMonthEnd));
       wait.until(ExpectedConditions.visibilityOfElementLocated(militaryMonthEnd));
-      driver.findElement(militaryMonthEnd).click();
       new Select(driver.findElement(militaryMonthEnd)).selectByVisibleText(month);
       wait.until(ExpectedConditions.presenceOfElementLocated(militaryYearEnd));
       wait.until(ExpectedConditions.visibilityOfElementLocated(militaryYearEnd));
-      driver.findElement(militaryYearEnd).click();
       new Select(driver.findElement(militaryYearEnd)).selectByVisibleText(year);
     }
 

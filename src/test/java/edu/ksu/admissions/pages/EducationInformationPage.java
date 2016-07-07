@@ -88,7 +88,6 @@ public class EducationInformationPage {
     public void setHighSchoolCountry(String country){
       wait.until(ExpectedConditions.presenceOfElementLocated(highSchoolCountry));
       wait.until(ExpectedConditions.visibilityOfElementLocated(highSchoolCountry));
-      driver.findElement(highSchoolCountry).click();
       new Select(driver.findElement(highSchoolCountry)).selectByVisibleText(country);
     }
 
@@ -107,7 +106,6 @@ public class EducationInformationPage {
     public void setHighSchoolState() {
       wait.until(ExpectedConditions.presenceOfElementLocated(highSchoolState));
       wait.until(ExpectedConditions.visibilityOfElementLocated(highSchoolState));
-      driver.findElement(highSchoolState).click();
       new Select(driver.findElement(highSchoolState)).selectByVisibleText("Kansas");
     }
 
@@ -121,14 +119,12 @@ public class EducationInformationPage {
     public void setPlannedGraduationMonth(){
       wait.until(ExpectedConditions.presenceOfElementLocated(plannedGraduationMonth));
       wait.until(ExpectedConditions.visibilityOfElementLocated(plannedGraduationMonth));
-      driver.findElement(plannedGraduationMonth).click();
       new Select(driver.findElement(plannedGraduationMonth)).selectByVisibleText("May");
     }
 
     public void setPlannedGraduationYear(){
       wait.until(ExpectedConditions.presenceOfElementLocated(plannedGraduationYear));
       wait.until(ExpectedConditions.visibilityOfElementLocated(plannedGraduationYear));
-      driver.findElement(plannedGraduationYear).click();
       new Select(driver.findElement(plannedGraduationYear)).selectByVisibleText("2016");
     }
 
@@ -141,7 +137,6 @@ public class EducationInformationPage {
     public void setGPAScale(){
       wait.until(ExpectedConditions.presenceOfElementLocated(GPAScale));
       wait.until(ExpectedConditions.visibilityOfElementLocated(GPAScale));
-      driver.findElement(GPAScale).click();
       new Select(driver.findElement(GPAScale)).selectByVisibleText("4 PT");
     }
 
@@ -179,7 +174,6 @@ public class EducationInformationPage {
         List<WebElement> term1 = driver.findElements(ninthGradeTerm1);
         List<WebElement> term2 = driver.findElements(ninthGradeTerm2);
         for(int i = 0; i < courses.size(); i++) {
-            courses.get(i).click();
             switch (i) {
 
                 case 0:
@@ -197,9 +191,7 @@ public class EducationInformationPage {
                 default:
                     new Select(courses.get(i)).selectByVisibleText("Advanced Math");
             }
-            term1.get(i).click();
             new Select(term1.get(i)).selectByVisibleText("A");
-            term2.get(i).click();
             new Select(term2.get(i)).selectByVisibleText("A");
         }
     }
@@ -213,7 +205,6 @@ public class EducationInformationPage {
         List<WebElement> term1 = driver.findElements(tenthGradeTerm1);
         List<WebElement> term2 = driver.findElements(tenthGradeTerm2);
         for(int i = 0; i < courses.size(); i++) {
-            courses.get(i).click();
             switch (i) {
 
                 case 0:
@@ -231,9 +222,7 @@ public class EducationInformationPage {
                 default:
                     new Select(courses.get(i)).selectByVisibleText("Speech");
             }
-            term1.get(i).click();
             new Select(term1.get(i)).selectByVisibleText("A");
-            term2.get(i).click();
             new Select(term2.get(i)).selectByVisibleText("A");
         }
     }
@@ -247,7 +236,6 @@ public class EducationInformationPage {
         List<WebElement> term1 = driver.findElements(eleventhGradeTerm1);
         List<WebElement> term2 = driver.findElements(eleventhGradeTerm2);
         for(int i = 0; i < courses.size(); i++) {
-            courses.get(i).click();
             switch (i) {
 
                 case 0:
@@ -265,9 +253,7 @@ public class EducationInformationPage {
                 default:
                     new Select(courses.get(i)).selectByVisibleText("Calculus");
             }
-            term1.get(i).click();
             new Select(term1.get(i)).selectByVisibleText("A");
-            term2.get(i).click();
             new Select(term2.get(i)).selectByVisibleText("A");
         }
     }
@@ -281,7 +267,6 @@ public class EducationInformationPage {
         List<WebElement> term1 = driver.findElements(twelfthGradeTerm1);
         List<WebElement> term2 = driver.findElements(twelfthGradeTerm2);
         for(int i = 0; i < courses.size(); i++) {
-            courses.get(i).click();
             switch (i) {
 
                 case 0:
@@ -299,9 +284,7 @@ public class EducationInformationPage {
                 default:
                     new Select(courses.get(i)).selectByVisibleText("Trigonometry");
             }
-            term1.get(i).click();
             new Select(term1.get(i)).selectByVisibleText("A");
-            term2.get(i).click();
             new Select(term2.get(i)).selectByVisibleText("A");
         }
     }
@@ -374,7 +357,6 @@ public class EducationInformationPage {
     public void setCollegeCountry(String country){
       wait.until(ExpectedConditions.presenceOfElementLocated(collegeCountry));
       wait.until(ExpectedConditions.visibilityOfElementLocated(collegeCountry));
-      driver.findElement(collegeCountry).click();
       new Select(driver.findElement(collegeCountry)).selectByVisibleText(country);
     }
 
@@ -395,28 +377,24 @@ public class EducationInformationPage {
     public void setAttendanceMonthStart(String month){
       wait.until(ExpectedConditions.presenceOfElementLocated(attendanceMonthStart));
       wait.until(ExpectedConditions.visibilityOfElementLocated(attendanceMonthStart));
-      driver.findElement(attendanceMonthStart).click();
       new Select(driver.findElement(attendanceMonthStart)).selectByVisibleText(month);
     }
 
     public void setAttendanceYearStart(String year){
       wait.until(ExpectedConditions.presenceOfElementLocated(attendanceYearStart));
       wait.until(ExpectedConditions.visibilityOfElementLocated(attendanceYearStart));
-      driver.findElement(attendanceYearStart).click();
       new Select(driver.findElement(attendanceYearStart)).selectByVisibleText(year);
     }
 
     public void setAttendanceMontEnd(String month){
       wait.until(ExpectedConditions.presenceOfElementLocated(attendanceMonthEnd));
       wait.until(ExpectedConditions.visibilityOfElementLocated(attendanceMonthEnd));
-      driver.findElement(attendanceMonthEnd).click();
       new Select(driver.findElement(attendanceMonthEnd)).selectByVisibleText(month);
     }
 
     public void setAttendanceYearEnd(String year){
       wait.until(ExpectedConditions.presenceOfElementLocated(attendanceYearEnd));
       wait.until(ExpectedConditions.visibilityOfElementLocated(attendanceYearEnd));
-      driver.findElement(attendanceYearEnd).click();
       new Select(driver.findElement(attendanceYearEnd)).selectByVisibleText(year);
     }
 
@@ -471,14 +449,12 @@ public class EducationInformationPage {
     public void setMinor(){
       wait.until(ExpectedConditions.presenceOfElementLocated(minors));
       wait.until(ExpectedConditions.visibilityOfElementLocated(minors));
-      driver.findElement(minors).click();
       new Select(driver.findElement(minors)).selectByIndex(5);
     }
 
     public void setMajor(){
       wait.until(ExpectedConditions.presenceOfElementLocated(major));
       wait.until(ExpectedConditions.visibilityOfElementLocated(major));
-      driver.findElement(major).click();
       new Select(driver.findElement(major)).selectByIndex(5);
     }
 

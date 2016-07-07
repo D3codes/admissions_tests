@@ -103,22 +103,18 @@ public class PersonalInformationPage {
     public void setBirthDate(String month, String day, String year){
       wait.until(ExpectedConditions.presenceOfElementLocated(birthDay));
       wait.until(ExpectedConditions.visibilityOfElementLocated(birthDay));
-      driver.findElement(birthDay).click();
       new Select(driver.findElement(birthDay)).selectByVisibleText(day);
       wait.until(ExpectedConditions.presenceOfElementLocated(birthMonth));
       wait.until(ExpectedConditions.visibilityOfElementLocated(birthMonth));
-      driver.findElement(birthMonth).click();
       new Select(driver.findElement(birthMonth)).selectByVisibleText(month);
       wait.until(ExpectedConditions.presenceOfElementLocated(birthYear));
       wait.until(ExpectedConditions.visibilityOfElementLocated(birthYear));
-      driver.findElement(birthYear).click();
       new Select(driver.findElement(birthYear)).selectByVisibleText(year);
     }
 
     public void setBirthCountry(String country){
       wait.until(ExpectedConditions.presenceOfElementLocated(birthCountry));
       wait.until(ExpectedConditions.visibilityOfElementLocated(birthCountry));
-      driver.findElement(birthCountry).click();
       new Select(driver.findElement(birthCountry)).selectByVisibleText(country);
     }
 
@@ -195,7 +191,6 @@ public class PersonalInformationPage {
     public void setCountryOfCitizenship(String country){
       wait.until(ExpectedConditions.presenceOfElementLocated(countryOfCitizenship));
       wait.until(ExpectedConditions.visibilityOfElementLocated(countryOfCitizenship));
-      driver.findElement(countryOfCitizenship).click();
       new Select(driver.findElement(countryOfCitizenship)).selectByVisibleText(country);
     }
 
@@ -208,14 +203,12 @@ public class PersonalInformationPage {
     public void setVisaType(){
       wait.until(ExpectedConditions.presenceOfElementLocated(visaType));
       wait.until(ExpectedConditions.visibilityOfElementLocated(visaType));
-      driver.findElement(visaType).click();
       new Select(driver.findElement(visaType)).selectByVisibleText("Student (F1)");
     }
 
     public void setRequestingVisa(){
       wait.until(ExpectedConditions.presenceOfElementLocated(requestingVisa));
       wait.until(ExpectedConditions.visibilityOfElementLocated(requestingVisa));
-      driver.findElement(requestingVisa).click();
       new Select(driver.findElement(requestingVisa)).selectByVisibleText("Not Requesting");
     }
 
