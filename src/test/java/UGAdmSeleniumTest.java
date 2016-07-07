@@ -280,7 +280,7 @@ public class UGAdmSeleniumTest {
         System.out.println("Testing Address Information Page (Longest Route)");
         AddressInformationPage addressInformationPage = new AddressInformationPage(driver, wait);
         addressInformationPage.setCountryAFG();
-        addressInformationPage.setAddress("سرک 60 متره میدان هوایی‎");
+        addressInformationPage.setAddress("123 Address");
         addressInformationPage.setCity("Kabul");
         addressInformationPage.setSameMailingAddress();
         addressInformationPage.setSameAddress();
@@ -504,8 +504,7 @@ public class UGAdmSeleniumTest {
         assertEquals("AFG", reviewPage.getCountryOfCitizenship());
         assertEquals("Student (F1)", reviewPage.getVisaType());
         assertEquals("Afghanistan", reviewPage.getPermanentAddressCountry());
-        System.out.println("\n\n\n"+reviewPage.getPermanentAddress()+"\n\n\n");
-        assertEquals("سرک 60 متره میدان هوایی", reviewPage.getPermanentAddress());
+        assertEquals("123 Address", reviewPage.getPermanentAddress());
         assertEquals("Kabul", reviewPage.getPermanentAddressCity());
         assertEquals("Father", reviewPage.getFamilyRelationship(LONGEST));
         assertEquals("John Doe", reviewPage.getFamilyName(LONGEST));
